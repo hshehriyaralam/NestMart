@@ -1,19 +1,23 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Navbar from "./components/layouts/navbar";
+import Footer from "./components/layouts/footer";
 
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <h1>Home Page</h1>,
-    errorElement: <h1>Oops! An error occurred.</h1>,
-    children:[
-      {index:true, element:<h2>Welcome to the Home Page</h2>},
-    ]
-  },
-]);
+
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <>
+    <BrowserRouter>
+    <Navbar />
+    <Routes>
+      <Route path="/" element={<h1>Home Page</h1>} />
+    </Routes> 
+
+    <Footer />
+    </BrowserRouter>
+    </>
+  )
 }
 
 export default App;
