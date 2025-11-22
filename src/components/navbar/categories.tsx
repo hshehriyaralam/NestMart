@@ -1,17 +1,16 @@
-import { Camera, ChevronDown, Heart, MapPin, RefreshCw, Search, ShoppingCart, User } from 'lucide-react';
+import {  ChevronDown, Heart, MapPin, RefreshCw, Search, ShoppingCart, User } from 'lucide-react';
 
 const Categories = () => {
   return (
-    <nav className="w-full bg-transparent border-b border-gray-200 py-4">
-      <div className="max-w-[90%] mx-auto flex items-center justify-between ">
+    <nav className="w-full bg-transparent border-b border-gray-200 py-4  border ">
+      <div className="max-w-[92%] mx-auto flex items-center justify-between  ">
         {/* Logo */}
         <div className="flex-shrink-0">
-          <img src="/logo/Nest.svg"  alt="nest-logo" className="w-42" />
+          <img src="/logo/Nest.svg"  alt="nest-logo" className="w-38" />
         </div>
 
         {/* Search Bar */}
-        <div className="lg:flex"> 
-          <div className="max-w-full h-[50px] flex items-center border-2
+          <div className="lg:max-w-[600px] h-[50px] flex items-center border-2
            border-primary rounded pl-2 pr-4">
             <button className="flex justify-center items-center  gap-2 w-[150px]">
               <span className='font-heading text-sm'>All Categories</span>
@@ -21,11 +20,10 @@ const Categories = () => {
             <input type="text" placeholder="Search for products" className="w-[400px] outline-0" />
             <Search className='w-5 text-gray-400' />
           </div> 
-        </div>
         {/* Actions */}
         <div className="lg:flex items-center p-4 gap-4">
           {/* location */}
-          <button className="flex items-center justify-center gap-1 shadow-2xl
+          <button className="flex items-center justify-center gap-1 
            border border-gray-200 py-2 px-2 rounded-lg">
             <MapPin className='text-[#B6B6B6] w-4 '  />
             <span className='font-quicksand text-primary font-medium text-xs'>Your Location</span>
