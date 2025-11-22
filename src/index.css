@@ -38,10 +38,7 @@
   }
  .action-button-text {
   font-family: var(--font-lato);
-  font-size: 12px;
-  font-weight: 400;
   color: var(--color-accent);
-  padding-left:2px;
 }
 
 }
