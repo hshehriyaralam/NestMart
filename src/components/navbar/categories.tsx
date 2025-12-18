@@ -55,7 +55,6 @@ const Categories = () => {
             absolute left-2 top-[26px] 
             hidden group-hover:block
             bg-white shadow-lg rounded-lg p-3 w-38 z-50  text-left
-            hidden
             ${forceClose ? "" : "group-hover:block"}
           `}>
             {BrowseCategories.map((cat, index) => (

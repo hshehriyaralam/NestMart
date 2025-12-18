@@ -10,21 +10,13 @@ const Banner = () => {
     { label: "Order Tracking", hasBorder: true },
   ];
 
-
   return (
     <div className="w-[95%] mx-auto h-10 hidden lg:flex justify-between items-center bg-transparent p-4
      border-b border-gray-200">
       <div >
         <ul className="flex  items-center gap-2">
-          {navigationItems.map((item) => (
-            // <li 
-            //   className={`action-button-text text-xs gap-4    
-            //      font-medium ${item.hasBorder ? 'border-l border-gray-200  pl-2' : ''}`} 
-            //   key={item.label}
-            // >
-            //   {item.label}
-            // </li>
-            <li className="flex items-center">
+          {navigationItems.map((item,index) => (
+            <li key={index} className="flex items-center">
               {item.hasBorder && <div className="h-2 w-[1px] bg-gray-200 mr-2"></div>}
               <span className={`action-button-text text-xs gap-4  font-medium   `} >{item.label}</span>
             </li>
