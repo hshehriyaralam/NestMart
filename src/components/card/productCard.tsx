@@ -18,8 +18,8 @@ interface Product {
 
 export default function ProductCard(data: Product) {
   return (
-    <div className="border-2 border-gray-200 p-3 rounded-xl relative flex flex-col h-full">
-      <div className="absolute top-1 left-[-1px] z-10">
+    <div className="border-2 border-gray-200 p-3 rounded-xl relative flex flex-col ">
+      <div className="absolute top-1 -left-px z-10">
         {data?.badge && (
           <span
             className={`font-lato text-regular ${data.badgeColor} text-white px-4 py-2 text-sm font-medium rounded-tl-lg rounded-br-lg`}

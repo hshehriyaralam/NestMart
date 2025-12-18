@@ -5,10 +5,12 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import ProductCard from "@/components/card/productCard";
 import "./home.css"; // Add custom styles
 import { data } from "@/data/productCard";
+import { DealCard } from "@/components/card/dealCard";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css/autoplay";
+import { ChevronRight } from "lucide-react";
 
 const categoryData = [
   { name: "All", id: 1 },
@@ -26,7 +28,7 @@ const Home = () => {
     <>
       <div className="flex gap-6 max-w-[92%] mx-auto ">
         <div className="w-[25%] border">part1</div>
-        <div className="w-[77%] ">
+        <div className="w-[77%]">
           <div className="w-full mx-auto ">
             <Swiper
               modules={[Autoplay, Pagination, Navigation]}
@@ -85,6 +87,21 @@ const Home = () => {
                   />
                 ))}
             </div>
+          </div>
+          {/* Product deal */}
+          <div>
+            {/* popular products filter list */}
+            <div className="flex items-center justify-between px-1 py-6 my-3">
+              <h2 className="font-heading text-2xl">Deals of The Day</h2>
+              <div className="flex items-center">
+              <p className="flex items-center text-sm"> All Deals <ChevronRight className="w-4"/></p>
+              </div>
+            </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6 py-4 ">
+            <DealCard />
+            <DealCard />
+            <DealCard />
+          </div>
           </div>
         </div>
       </div>
