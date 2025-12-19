@@ -1,6 +1,6 @@
 import { ChevronDown, Headset } from "lucide-react";
-import { Link } from "react-router-dom";
-import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
 import type { NavItem } from "../../types/home";
 
 
@@ -76,8 +76,10 @@ const BrowseCategories = [
 ];
 
 const Navigation = () => {
+    const [openDropdown, setOpenDropdown] = useState<number | null>(null);
     const [selected, setSelected] = useState("Browse All Categories");
     const [forceClose, setForceClose] = useState(false);
+    const location = useLocation();
 
     const handleSelect = (cat:string) => {
       setSelected(cat === "All" ? "Browse All Categories" : cat);
@@ -87,6 +89,9 @@ const Navigation = () => {
       setTimeout(() => setForceClose(false), 200);
     };
 
+    useEffect(() => {
+      setOpenDropdown(null)
+    },[location.pathname])
   return (
     <div className="w-[95%] py-2 flex items-center justify-between mx-auto p-4 ">
       <div className="flex">
@@ -142,6 +147,8 @@ const Navigation = () => {
               <li
                 key={index}
                 className="relative group flex items-center gap-1 cursor-pointer"
+                onMouseEnter={() => setOpenDropdown(index)}
+                onMouseLeave={() => setOpenDropdown(null)}
               >
                 {!item.dropdown && item.path ? (
                   <Link to={item.path}>
@@ -156,7 +163,7 @@ const Navigation = () => {
                 )}
 
                 {item.dropdown && item.links && (
-                  <ul className="absolute left-0 top-6 hidden group-hover:block bg-white shadow-lg rounded-lg p-3 w-48 z-50">
+                  <ul className={`absolute left-0 top-6  bg-white shadow-lg rounded-lg p-3 w-48 z-50    ${openDropdown === index ? "block" : "hidden"}`}>
                     {item.links.map((link, i) => (
                       <li
                         key={i}
