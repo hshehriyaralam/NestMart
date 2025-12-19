@@ -1,0 +1,21 @@
+/* Change pagination dot color */
+.swiper-pagination-bullet {
+  background-color: #3BB77E;
+}
+
+/* Active pagination dot color */
+.swiper-pagination-bullet-active {
+  background-color: #3BB77E;
+}
+
+/* Change navigation arrow color */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #3BB77E;
+}
+
+/* Optional: Change arrow background on hover */
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  font-size: 24px;
+}

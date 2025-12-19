@@ -4,19 +4,14 @@
 @import "tw-animate-css";
 
 @theme {
-
     --font-quicksand: "Quicksand", sans-serif;
     --font-lato: "Lato", sans-serif;
   
-
   /* ✅ Custom Colors */
   --color-primary: #3BB77E;
   --color-secondary: #253D4E;
   --color-accent: #7E7E7E;
   --color-lightGreen:#BCE3C9
-
-
-
 
   /* ✅ Custom Spacing / Radius */
   --radius-main: 1rem;
@@ -32,16 +27,18 @@
     color: var(--color-secondary);
   }
   
+  .font-heading-1_0 {
+    font-family: var(--font-quicksand);
+    font-weight: 700;
+    font-style: bold;
+  }
   .action-button {
     width: 18px;
     color:var(--color-secondary );
   }
  .action-button-text {
   font-family: var(--font-lato);
-  font-size: 12px;
-  font-weight: 400;
   color: var(--color-accent);
-  padding-left:2px;
 }
 
 }
