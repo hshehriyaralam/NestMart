@@ -84,6 +84,47 @@ export const data = {
       "price": 18.99,
       "originalPrice": 24.99
     }
+  ],
+  "deals":[
+     {
+      "id": 1,
+      "bgImage": "/background-images/deal1.png",
+      "category": "Snack",
+      "name": "Seeds of Change Organic Quinoe",
+      "rating": 4.0,
+      "brand": "NestFood",
+      "price": 28.85,
+      "originalPrice": 32.8
+    },
+    {
+      "id": 2,
+      "bgImage": "/background-images/deal2.png",
+      "category": "Hodo Foods",
+      "name": "All Natural Italian-Style Chicken Meatballs",
+      "rating": 3.5,
+      "brand": "Stouffer",
+      "price": 52.85,
+      "originalPrice": 55.8
+    },
+    {
+      "id": 3,
+      "bgImage": "/background-images/deal3.png",
+      "category": "Snack",
+      "name": "Angie's Boomchickapop Sweet & Salty",
+      "rating": 4.0,
+      "brand": "StarKist",
+      "price": 48.85,
+      "originalPrice": 52.8
+    },
+    {
+      "id": 4,
+      "bgImage": "/background-images/deal4.png",
+      "category": "Snack",
+      "name": "Angie's Boomchickapop Sweet & Salty",
+      "rating": 4.0,
+      "brand": "StarKist",
+      "price": 48.85,
+      "originalPrice": 52.8
+    },
   ]
-
 }

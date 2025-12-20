@@ -69,23 +69,22 @@ const Home = () => {
               </div>
             </div>
             {/* list products */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-              {
-                data.products.map((product:any) => (
-                  <ProductCard
-                    key={product.id}
-                    id={product.id}
-                    badge={product.badge}
-                    badgeColor={product.badgeColor}
-                    image={product.image}
-                    category={product.category}
-                    name={product.name}
-                    rating={product.rating}
-                    brand={product.brand}
-                    price={product.price}
-                    originalPrice={product.originalPrice}
-                  />
-                ))}
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {data.products.map((product: any) => (
+                <ProductCard
+                  key={product.id}
+                  id={product.id}
+                  badge={product.badge}
+                  badgeColor={product.badgeColor}
+                  image={product.image}
+                  category={product.category}
+                  name={product.name}
+                  rating={product.rating}
+                  brand={product.brand}
+                  price={product.price}
+                  originalPrice={product.originalPrice}
+                />
+              ))}
             </div>
           </div>
           {/* Product deal */}
@@ -94,14 +93,31 @@ const Home = () => {
             <div className="flex items-center justify-between px-1 py-6 my-3">
               <h2 className="font-heading text-2xl">Deals of The Day</h2>
               <div className="flex items-center">
-              <p className="flex items-center text-sm"> All Deals <ChevronRight className="w-4"/></p>
+                <p className="flex items-center text-sm">
+                  {" "}
+                  All Deals <ChevronRight className="w-4" />
+                </p>
               </div>
             </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6 py-4 ">
-            <DealCard />
-            <DealCard />
-            <DealCard />
-          </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 py-4 ">
+              {
+                data.deals.map((data:any)=>{
+                  return(
+                    <DealCard
+                      id={data.id}
+                      bgImageSrc={data.bgImage}
+                      category={data.category}
+                      name={data.name}
+                      rating={data.rating}
+                      brand={data.brand}
+                      price={data.price}
+                      originalPrice={data.originalPrice}
+                    />
+                  )
+                })
+              }
+              
+            </div>
           </div>
         </div>
       </div>
