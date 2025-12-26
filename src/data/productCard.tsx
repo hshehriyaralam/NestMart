@@ -126,5 +126,31 @@ export const data = {
       "price": 48.85,
       "originalPrice": 52.8
     },
-  ]
+  ],
+  "shopsNow":[
+  {
+    id: 1,
+    title: "Everyday Fresh & Clean with Our Products",
+    buttonText: "Shop Now",
+    image: "/images/onion.png",
+    bgColor: "#f3ead7",
+    link: "/shop/fresh"
+  },
+  {
+    id: 2,
+    title: "Make your Breakfast Healthy and Easy",
+    buttonText: "Shop Now",
+    image: "/images/strawberry-milk.png",
+    bgColor: "#fdecec",
+    link: "/shop/breakfast"
+  },
+  {
+    id: 3,
+    title: "The best Organic Products Online",
+    buttonText: "Shop Now",
+    image: "/images/vegetables-basket.png",
+    bgColor: "#eef3fb",
+    link: "/shop/organic"
+  }
+]
 }
