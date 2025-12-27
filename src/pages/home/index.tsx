@@ -7,11 +7,12 @@ import ShopnowCard from "@/components/card/shopnowCard";
 import "./home.css"; // Add custom styles 
 import { data } from "@/data/productCard";
 import { DealCard } from "@/components/card/dealCard";
+import { ChevronRight } from "lucide-react";
+
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css/autoplay";
-import { ChevronRight } from "lucide-react";
 
 const categoryData = [
   { name: "All", id: 1 },
@@ -113,6 +114,7 @@ const Home = () => {
                       brand={data.brand}
                       price={data.price}
                       originalPrice={data.originalPrice}
+                      
                     />
                   )
                 })
@@ -128,7 +130,7 @@ const Home = () => {
                   id={shop.id}
                   bgImageSrc={shop.image}
                   heading={shop.title}
-             
+
                 />
               );
             })}

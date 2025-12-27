@@ -7,7 +7,7 @@ interface ShopnowCardProps {
     bgColor?: string;
 }
 
-const shopnowCard = (data: ShopnowCardProps) => {
+const ShopnowCard = (data: ShopnowCardProps) => {
   return (
     <div
       className='w-full h-[236px] flex flex-col justify-center items-left gap-4 p-4 rounded-lg' 
@@ -31,4 +31,4 @@ const shopnowCard = (data: ShopnowCardProps) => {
   )
 }
 
-export default shopnowCard
+export default ShopnowCard
