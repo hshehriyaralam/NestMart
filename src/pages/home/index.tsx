@@ -7,10 +7,12 @@ import "./home.css"; // Add custom styles
 import { data } from "@/data/productCard";
 import { DealCard } from "@/components/card/dealCard";
 import "swiper/css";
-import "swiper/css/pagination";
+import   "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css/autoplay";
 import { ChevronRight } from "lucide-react";
+import CategoriesCard from "@/components/card/categories";
+import PriceFilter from "@/components/card/priceFilter";
 
 const categoryData = [
   { name: "All", id: 1 },
@@ -23,11 +25,18 @@ const categoryData = [
 ];
 
 const Home = () => {
-  console.log(data.products);
+  // console.log(data.products);
   return (
     <>
       <div className="flex gap-6 max-w-[92%] mx-auto ">
-        <div className="w-[25%] border">part1</div>
+        {/* Left Side Items */}
+        <div className="w-[25%] flex flex-col gap-y-6 pt-4 ">
+          <CategoriesCard />
+          <PriceFilter />
+        </div>
+
+
+        {/* Right Side Items */}
         <div className="w-[77%]">
           <div className="w-full mx-auto ">
             <Swiper

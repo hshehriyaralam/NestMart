@@ -1,6 +1,6 @@
 import { ShoppingCart } from "lucide-react";
 import CartButton from "../button/cartButton";
-import DEALBG from "/public/background-images/deal1.png";
+import DEALBG from "/background-images/deal1.png";
 
 const TimeBox = ({ value, label }: { value: string; label: string }) => (
   <div className="bg-white rounded-xl px-2 py-6 text-center shadow w-14 h-20 flex flex-col items-center justify-center">

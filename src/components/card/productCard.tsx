@@ -1,5 +1,4 @@
-import React from "react";
-import Button from "../button/cartButton";
+
 import CartButton from "../button/cartButton";
 import { ShoppingCart } from "lucide-react";
 
