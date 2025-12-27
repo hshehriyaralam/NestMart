@@ -15,7 +15,7 @@ const shopnowCard = (data: ShopnowCardProps) => {
            backgroundImage: `url(${data.bgImageSrc})`,
            backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
-          backgroundPosition: 'cover',
+          backgroundPosition: 'center',
           }
           }
     >
