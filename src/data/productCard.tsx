@@ -127,30 +127,27 @@ export const data = {
       "originalPrice": 52.8
     },
   ],
-  "shopsNow":[
+  "shopsNow": [
   {
-    id: 1,
-    title: "Everyday Fresh & Clean with Our Products",
-    buttonText: "Shop Now",
-    image: "/images/onion.png",
-    bgColor: "#f3ead7",
-    link: "/shop/fresh"
+    "id": 1,
+    "title": "Everyday Fresh & Clean with Our Products",
+    "image": "/background-images/banner-1.png",
+    "bgColor": "#f3ead7",
+    "link": "/shop/fresh"
   },
   {
-    id: 2,
-    title: "Make your Breakfast Healthy and Easy",
-    buttonText: "Shop Now",
-    image: "/images/strawberry-milk.png",
-    bgColor: "#fdecec",
-    link: "/shop/breakfast"
+    "id": 2,
+    "title": "Make your Breakfast Healthy and Easy",
+    "image": "/background-images/banner-2.png",
+    "bgColor": "#fdecec",
+    "link": "/shop/breakfast"
   },
   {
-    id: 3,
-    title: "The best Organic Products Online",
-    buttonText: "Shop Now",
-    image: "/images/vegetables-basket.png",
-    bgColor: "#eef3fb",
-    link: "/shop/organic"
+    "id": 3,
+    "title": "The best Organic Products Online",
+    "image": "/background-images/banner-3.png",
+    "bgColor": "#eef3fb",
+    "link": "/shop/organic"
   }
 ]
 }

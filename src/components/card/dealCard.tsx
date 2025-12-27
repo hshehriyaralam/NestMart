@@ -26,7 +26,7 @@ const TimeBox = ({ value, label }: { value: string; label: string }) => (
 export const DealCard = (data:DealCardProps) => {
   console.log("deal data",data);
   return (
-    <div className="max-w-full h-full mb-16">
+    <div className="max-w-full h-full ">
       {/* IMAGE SECTION */}
       <div
         className="w-full h-[260px] bg-cover bg-center rounded-lg relative flex items-center justify-center"

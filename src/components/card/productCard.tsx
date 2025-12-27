@@ -18,7 +18,7 @@ interface Product {
 
 export default function ProductCard(data: Product) {
   return (
-    <div className="border-2 border-gray-200 p-3 rounded-xl relative flex flex-col ">
+    <div className="border-2 border-gray-200 p-3 rounded-xl relative flex flex-col max-h-full">
       <div className="absolute top-1 -left-px z-10">
         {data?.badge && (
           <span

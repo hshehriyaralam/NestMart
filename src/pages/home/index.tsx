@@ -3,7 +3,8 @@ import { slidesData } from "@/data/swiperSlides";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import ProductCard from "@/components/card/productCard";
-import "./home.css"; // Add custom styles
+import ShopnowCard from "@/components/card/shopnowCard";
+import "./home.css"; // Add custom styles 
 import { data } from "@/data/productCard";
 import { DealCard } from "@/components/card/dealCard";
 import "swiper/css";
@@ -23,7 +24,7 @@ const categoryData = [
 ];
 
 const Home = () => {
-  console.log(data.products);
+  console.log("shops22222222",data.shopsNow);
   return (
     <>
       <div className="flex gap-6 max-w-[92%] mx-auto ">
@@ -69,7 +70,7 @@ const Home = () => {
               </div>
             </div>
             {/* list products */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 ">
               {data.products.map((product: any) => (
                 <ProductCard
                   key={product.id}
@@ -118,6 +119,19 @@ const Home = () => {
               }
               
             </div>
+          </div>
+          {/* shop now */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {data.shopsNow.map((shop: any) => {
+              return (
+                <ShopnowCard
+                  id={shop.id}
+                  bgImageSrc={shop.image}
+                  heading={shop.title}
+             
+                />
+              );
+            })}
           </div>
         </div>
       </div>
