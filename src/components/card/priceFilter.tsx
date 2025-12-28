@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { Slider } from "../ui/slider"
-
+import { Button } from "../ui/button"
+import {Funnel}  from 'lucide-react'
 
 const PriceFilter = () => {
   const colorDaata = [
@@ -21,10 +22,10 @@ const PriceFilter = () => {
 
  return (
 
-  <div className='w-full rounded-xl  border  p-5 border border-[#ECECEC]  h-84'>
+  <div className='w-full rounded-xl    border  p-6 border border-[#ECECEC]   '>
     <h2 className='font-heading text-[21px] mx-2'>Fill by price</h2>
     {/* Range limit */}
-       <div className="w-full p-4">
+       <div className="w-full p-4 px-0   ">
       <div className="relative">
         {/* Full width container for tracking */}
         <div className="absolute inset-0 flex items-center">
@@ -39,46 +40,51 @@ const PriceFilter = () => {
               min={minLimit}
               max={maxLimit}
               step={10}
-              className="relative z-10  cursor-pointer"
+              className="relative z-10  cursor-pointer  "
             />
           </div>
         </div>
       </div>
-    </div>
 
-  <div  className="flex justify-between items-center ">
+    <div  className="flex justify-between items-center  mt-5   ">
     <p className="font-lato font-semiibold  text-accent text-[13px]  opacity-90" >Up to: <span
     className="text-primary font-medium   text-md  "
     >$ {value[0]}</span></p>
   </div>
-
+    </div>
     {/* color and item radio */}
-    <div className="flex flex-col  text-accent   gap-y-3 mt-4 ">
+    <div className="flex flex-col  text-accent   gap-y-4   ">
       {/* Color Filter */}
       <div   >
-      <p  className="text-accent  font-lato  font-semibold  text-[13px] " >Color </p>
+      <p  className="text-accent  font-lato  font-semibold  text-[14.5px] " >Color </p>
       <div >
         {colorDaata.map( (colorItem, index) => (
-          <div className="flex  gap-1  opacity-100 pt-0.5 "  key={index} >
+          <div className="flex  gap-1   pt-1 "  key={index} >
           <input type="checkbox"  className="cursor-pointer border border-accent opacity-70   "   />
-          <p   className="font-medium opacity-80  text-[13px] ">{colorItem.color} ({colorItem.count})</p>
+          <p   className="font-medium   text-[14px] font-lato ">{colorItem.color} ({colorItem.count})</p>
         </div>
         ))}
       </div>
       </div>
       {/* Items Conditions */}
       <div >
-      <p  className="text-accent  font-lato  font-semibold  text-[13px] " >Item Condition </p>
+      <p  className="text-accent  font-lato  font-semibold  text-[14.5px] " >Item Condition </p>
       <div >
         {itemsData.map( (item, index) => (
-          <div className="flex  gap-1  opacity-100 pt-0.5 "  key={index} >
+          <div className="flex  gap-1   pt-1 "  key={index} >
           <input type="checkbox"  className="cursor-pointer border border-accent opacity-70 "  />
-          <p   className="font-medium opacity-80  text-[13px] ">{item.condition} ({item.quantity})</p>
+          <p   className="font-medium   text-[14px]   font-lato">{item.condition} ({item.quantity})</p>
         </div>
         ))}
       </div>
       </div>
     </div>
+
+    {/* Filter Button */}
+    <Button  className="font-quicksand text-white font-medium text-md  cursor-pointer mt-4 " >
+      <span><Funnel className="h-4 w-4 mr-0" /></span>
+        Filter
+      </Button>
   </div>
 
  )
