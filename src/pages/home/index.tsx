@@ -4,17 +4,18 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import ProductCard from "@/components/card/productCard";
 import ShopnowCard from "@/components/card/shopnowCard";
-import "./home.css"; // Add custom styles 
 import { data } from "@/data/productCard";
 import { DealCard } from "@/components/card/dealCard";
 import { ChevronRight } from "lucide-react";
-
-import "swiper/css";
-import   "swiper/css/pagination";
-import "swiper/css/navigation";
-import "swiper/css/autoplay";
 import CategoriesCard from "@/components/card/categories";
 import PriceFilter from "@/components/card/priceFilter";
+import "./home.css"; // Add custom styles
+import FlatProductCard from "@/components/card/flatProduct";
+
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import "swiper/css/autoplay";
 
 const categoryData = [
   { name: "All", id: 1 },
@@ -28,6 +29,8 @@ const categoryData = [
 
 const Home = () => {
   // console.log(data.products);
+  const firstFourProducts = data.products.slice(0, 4);
+  console.log("four products", firstFourProducts);
   return (
     <>
       <div className="flex gap-6 max-w-[92%] mx-auto ">
@@ -36,7 +39,6 @@ const Home = () => {
           <CategoriesCard />
           <PriceFilter />
         </div>
-
 
         {/* Right Side Items */}
         <div className="w-[77%]">
@@ -111,24 +113,20 @@ const Home = () => {
               </div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 py-4 ">
-              {
-                data.deals.map((data:any)=>{
-                  return(
-                    <DealCard
-                      id={data.id}
-                      bgImageSrc={data.bgImage}
-                      category={data.category}
-                      name={data.name}
-                      rating={data.rating}
-                      brand={data.brand}
-                      price={data.price}
-                      originalPrice={data.originalPrice}
-
-                    />
-                  )
-                })
-              }
-              
+              {data.deals.map((data: any) => {
+                return (
+                  <DealCard
+                    id={data.id}
+                    bgImageSrc={data.bgImage}
+                    category={data.category}
+                    name={data.name}
+                    rating={data.rating}
+                    brand={data.brand}
+                    price={data.price}
+                    originalPrice={data.originalPrice}
+                  />
+                );
+              })}
             </div>
           </div>
           {/* shop now */}
@@ -139,10 +137,61 @@ const Home = () => {
                   id={shop.id}
                   bgImageSrc={shop.image}
                   heading={shop.title}
-
                 />
               );
             })}
+          </div>
+
+          {/* Top selling products */}
+          <div className="grid grid-cols-4 gap-4">
+            {firstFourProducts.map((product: any) => {
+              return (
+                <>
+                 <FlatProductCard
+                    id={product.id}
+                    image={product.image}
+                    title={product.name}
+                    rating={product.rating}
+                    salePrice={product.price}
+                    originalPrice={product.originalPrice}
+                  />
+
+                   <FlatProductCard
+                    id={product.id}
+                    image={product.image}
+                    title={product.name}
+                    rating={product.rating}
+                    salePrice={product.price}
+                    originalPrice={product.originalPrice}
+                  />
+
+                   <FlatProductCard
+                    id={product.id}
+                    image={product.image}
+                    title={product.name}
+                    rating={product.rating}
+                    salePrice={product.price}
+                    originalPrice={product.originalPrice}
+                  />
+
+                   <FlatProductCard
+                    id={product.id}
+                    image={product.image}
+                    title={product.name}
+                    rating={product.rating}
+                    salePrice={product.price}
+                    originalPrice={product.originalPrice}
+                  />
+                </>
+                 
+
+                  
+                  
+                
+              );
+            })}
+
+            
           </div>
         </div>
       </div>

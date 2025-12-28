@@ -1,8 +1,4 @@
 
-
-
-
-
 const CategoriesCard = () => {
 
     const categoriesData = [
@@ -39,7 +35,7 @@ const CategoriesCard = () => {
 
     ]
   return (
-    <div  className='w-full rounded-xl  border  p-5 border border-[#ECECEC] flex flex-col gap-y-2 items-start    ' >
+    <div  className='w-full rounded-xl  p-5 border border-[#ECECEC] flex flex-col gap-y-2 items-start    ' >
         <h2  className='font-heading text-[21px] mx-2'>Category</h2>
         <div className=' flex flex-col gap-y-3 items-center  w-full p-2  ' >
             {categoriesData.map( (category) => (

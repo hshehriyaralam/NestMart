@@ -1,7 +1,6 @@
 import { ShoppingCart } from "lucide-react";
 import CartButton from "../button/cartButton";
-import DEALBG from "/public/background-images/deal1.png";
-import { data } from "@/data/productCard";
+// import { data } from "@/data/productCard";
 
 interface DealCardProps {
   id: number;
