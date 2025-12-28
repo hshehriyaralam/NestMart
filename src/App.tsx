@@ -6,7 +6,7 @@ import Home from "./pages/home";
 import About from "./pages/about";
 import Contact from "./pages/contact/indes";
 import Blog from "./pages/blog";
-import Banner from "./components/commons/Banner";
+import Banner from "./components/commons/banner";
 
 function App() {
   return (
