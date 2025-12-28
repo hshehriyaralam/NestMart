@@ -3,6 +3,9 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+
+
+
 @theme {
     --font-quicksand: "Quicksand", sans-serif;
     --font-lato: "Lato", sans-serif;
@@ -40,5 +43,5 @@
   font-family: var(--font-lato);
   color: var(--color-accent);
 }
-
 }
+

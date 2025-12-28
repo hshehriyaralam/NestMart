@@ -16,6 +16,8 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css/autoplay";
+import NewProducts from "@/components/card/newProducts";
+import FooterBanner from "@/components/commons/footerBanner";
 
 const categoryData = [
   { name: "All", id: 1 },
@@ -32,14 +34,16 @@ const Home = () => {
   const firstFourProducts = data.products.slice(0, 4);
   console.log("four products", firstFourProducts);
   return (
-    <>
-      <div className="flex gap-6 max-w-[92%] mx-auto ">
+    <div  className="w-full max-w-[100%]">
+
+      {/* left and right section */}
+      <div className="flex gap-6 max-w-[92%] mx-auto">
         {/* Left Side Items */}
         <div className="w-[25%] flex flex-col gap-y-6 pt-4 ">
           <CategoriesCard />
           <PriceFilter />
+          <NewProducts />
         </div>
-
         {/* Right Side Items */}
         <div className="w-[77%]">
           <div className="w-full mx-auto ">
@@ -195,7 +199,13 @@ const Home = () => {
           </div>
         </div>
       </div>
-    </>
+
+
+      {/* Single Section containers */}
+      <div  className="w-full max-w-[95%]  mx-auto">
+        <FooterBanner />
+      </div>
+    </div>
   );
 };
 
