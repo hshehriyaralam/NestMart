@@ -6,19 +6,19 @@ const NewProducts = () => {
       id: 1,
       name: "Chen Cardigan",
       price: 99.05,
-      image: "/newProduct/newProduct1.png",
+      image: '/cardImages/topSelling3.webp',
     },
     {
       id: 2,
       name: "Chen Sweater",
       price: 89.50,
-      image: "/newProduct/newProduct2.png",
+      image: "/cardImages/trending1.webp",
     },
     {
       id: 3,
       name: "Colorful Jacket",
       price: 25,
-      image: "/newProduct/newProduct3.png",
+      image: "/cardImages/trending2.webp",
     },
   ]
 

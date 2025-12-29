@@ -10,7 +10,6 @@ import { ChevronRight } from "lucide-react";
 import CategoriesCard from "@/components/card/categories";
 import PriceFilter from "@/components/card/priceFilter";
 import "./home.css"; // Add custom styles
-import FlatProductCard from "@/components/card/flatProduct";
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -18,6 +17,10 @@ import "swiper/css/navigation";
 import "swiper/css/autoplay";
 import NewProducts from "@/components/card/newProducts";
 import FooterBanner from "@/components/commons/footerBanner";
+import TopSelling from "@/components/card/topSelling";
+import TrendingProduct from "@/components/card/trendingProduct";
+import RecentlyAdded from "@/components/card/recentlyAdded";
+import TopRated from "@/components/card/topRated";
 
 const categoryData = [
   { name: "All", id: 1 },
@@ -146,63 +149,21 @@ const Home = () => {
             })}
           </div>
 
-          {/* Top selling products */}
-          <div className="grid grid-cols-4 gap-4">
-            {firstFourProducts.map((product: any) => {
-              return (
-                <>
-                 <FlatProductCard
-                    id={product.id}
-                    image={product.image}
-                    title={product.name}
-                    rating={product.rating}
-                    salePrice={product.price}
-                    originalPrice={product.originalPrice}
-                  />
-
-                   <FlatProductCard
-                    id={product.id}
-                    image={product.image}
-                    title={product.name}
-                    rating={product.rating}
-                    salePrice={product.price}
-                    originalPrice={product.originalPrice}
-                  />
-
-                   <FlatProductCard
-                    id={product.id}
-                    image={product.image}
-                    title={product.name}
-                    rating={product.rating}
-                    salePrice={product.price}
-                    originalPrice={product.originalPrice}
-                  />
-
-                   <FlatProductCard
-                    id={product.id}
-                    image={product.image}
-                    title={product.name}
-                    rating={product.rating}
-                    salePrice={product.price}
-                    originalPrice={product.originalPrice}
-                  />
-                </>
-                 
-
-                  
-                  
-                
-              );
-            })}
-
-            
-          </div>
+        
         </div>
       </div>
 
 
       {/* Single Section containers */}
-      <div  className="w-full max-w-[95%]  mx-auto">
+         {/* Top selling products */}
+      <div  className="w-full max-w-[95%] mt-6  mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 ">
+        <TopSelling />
+        <TrendingProduct/>
+        <RecentlyAdded />
+        <TopRated />
+      </div>
+
+      <div  className="w-full max-w-[95%]  mx-auto  ">
         <FooterBanner />
       </div>
     </div>
