@@ -9,18 +9,18 @@ import { DealCard } from "@/components/card/dealCard";
 import { ChevronRight } from "lucide-react";
 import CategoriesCard from "@/components/card/categories";
 import PriceFilter from "@/components/card/priceFilter";
-import "./home.css"; // Add custom styles
-
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
-import "swiper/css/autoplay";
 import NewProducts from "@/components/card/newProducts";
 import FooterBanner from "@/components/commons/footerBanner";
 import TopSelling from "@/components/card/topSelling";
 import TrendingProduct from "@/components/card/trendingProduct";
 import RecentlyAdded from "@/components/card/recentlyAdded";
 import TopRated from "@/components/card/topRated";
+
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import "swiper/css/autoplay";
+import "./home.css"; // Add custom styles
 
 const categoryData = [
   { name: "All", id: 1 },
@@ -148,24 +148,23 @@ const Home = () => {
               );
             })}
           </div>
-
-        
         </div>
       </div>
 
 
       {/* Single Section containers */}
-         {/* Top selling products */}
-      <div  className="w-full max-w-[95%] mt-6  mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 ">
+      {/* Top selling products */}
+      <div className="w-full max-w-[93%] p-4 mt-6 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 ">
         <TopSelling />
         <TrendingProduct/>
         <RecentlyAdded />
         <TopRated />
       </div>
 
-      <div  className="w-full max-w-[95%]  mx-auto  ">
+      <div className="w-full max-w-[93%] p-4 mx-auto">
         <FooterBanner />
       </div>
+      
     </div>
   );
 };
