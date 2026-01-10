@@ -1,10 +1,10 @@
-import Nest from "../../../public/logo/Nest.svg";
-import Clock from "../../../public/logo/icon-clock.png";
-import Contact from "../../../public/logo/icon-contact.svg";
-import Location from "../../../public/logo/icon-location.svg";
-import Email from "../../../public/logo/icon-email.png";
-import Playstore from "../../../public/logo/163.svg";
-import Appstore from "../../../public/logo/162.svg";
+import Nest from "/logo/Nest.svg";
+import Clock from "/logo/icon-clock.png";
+import Contact from "/logo/icon-contact.svg";
+import Location from "/logo/icon-location.svg";
+import Email from "/logo/icon-email.png";
+import Playstore from "/logo/163.svg";
+import Appstore from "/public/logo/162.svg";
 import { Link } from "react-router-dom";
 
 const Footer = () => {

@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import {publicRoutes , privateRoutes , adminRoutes } from './routes/index'
 import Navbar from "./components/layouts/navbar";
-import Banner from "./components/commons/Banner";
+import Banner from "./components/commons/banner";
 import Footer from "./components/layouts/footer";
 
 function App() {
