@@ -60,7 +60,7 @@ const Home = () => {
               pagination={{
                 clickable: true,
               }}
-              // navigation={true}
+              navigation={true}
               loop={true}
               className="rounded-3xl"
             >
