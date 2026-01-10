@@ -6,6 +6,8 @@ import Blog from "../pages/blog";
 import ProductDetails from "@/pages/products/productDetails";
 import BlogDetails from "@/pages/blog/blogDetails";
 import Dashboard from "@/pages/admin/dashboard";
+import Signup from "@/pages/auth/signup";
+import Login from "@/pages/auth/login";
 
 
 // Route configuration interface
@@ -15,7 +17,8 @@ export interface AppRoute {
 }
 
 export const publicRoutes: AppRoute[] = [
-  { path: "auth/login", element: <Home /> },
+  { path: "auth/login", element: <Login /> },
+  { path: "auth/signup", element: <Signup /> },
   { path: "/", element: <Home /> },
   { path: "/about", element: <About /> },
   { path: "/contact", element: <Contact /> },
