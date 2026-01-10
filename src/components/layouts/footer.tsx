@@ -12,11 +12,11 @@ const Footer = () => {
     <footer className="py-12 px-20 bg-white">
       <div className="flex justify-between items-start gap-10">
         {/* Logo & Info */}
-        <div className="max-w-xs flex flex-col gap-4">
+        <div className="max-w-xs flex flex-col gap-4  w-64">
           <div className="flex items-center gap-2">
             <img src={Nest} alt="logo" className="w-32" />
           </div>
-          <p className="font-lato text-sm text-secondary">
+          <p className="font-lato text-regular text-secondary">
             Awesome grocery store website template
           </p>
           <ul className="flex flex-col gap-2 text-sm text-gray-600">
@@ -24,25 +24,25 @@ const Footer = () => {
               <img
                 src={Location}
                 alt="location"
-                className="w-5 h-5 mt-1"
+                className="w-4 mt-1"
               />
               <span className="font-lato text-sm text-secondary">
-                Address: 5171 W Campbell Ave
+                <span className="font-semibold">Address:</span> 5171 W Campbell Ave
                 <br />
                 undefined Kent, Utah 53127 United States
               </span>
             </li>
             <li className="flex items-center gap-2">
-              <img src={Contact} alt="phone" className="w-5 h-5" />
-              <span className="font-lato text-sm text-secondary">Call Us:(+91) - 540-025-124553</span>
+              <img src={Contact} alt="phone" className="w-3" />
+              <span className="font-lato text-sm text-secondary"><span className="font-semibold">Call Us:</span> (+91) - 540-025-124553</span>
             </li>
             <li className="flex items-center gap-2">
-              <img src={Email} alt="email" className="w-5 h-5" />
-              <span className="font-lato text-sm text-secondary">Email:sale@Nest.com</span>
+              <img src={Email} alt="email" className="w-3" />
+              <span className="font-lato text-sm text-secondary"><span className="font-semibold">Email:</span> sale@Nest.com</span>
             </li>
             <li className="flex items-center gap-2">
-              <img src={Clock} alt="hours" className="w-5 h-5" />
-              <span className="font-lato text-sm text-secondary">Hours:10:00 - 18:00, Mon - Sat</span>
+              <img src={Clock} alt="hours" className="w-3" />
+              <span className="font-lato text-sm text-secondary"><span className="font-semibold">Hours:</span> 10:00 - 18:00, Mon - Sat</span>
             </li>
           </ul>
         </div>

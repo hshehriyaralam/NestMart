@@ -1,27 +1,37 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {publicRoutes , privateRoutes , adminRoutes } from './routes/index'
 import Navbar from "./components/layouts/navbar";
+import Banner from "./components/commons/Banner";
 import Footer from "./components/layouts/footer";
-import Home from "./pages/home";
-import About from "./pages/about";
-import Contact from "./pages/contact/indes";
-import Blog from "./pages/blog";
-import Banner from "./components/commons/banner";
 
 function App() {
   return (
     <>
-    <BrowserRouter>
+    <Router>
     <Banner />
     <Navbar />
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/about" element={<About />} />
-      <Route path="/contact" element={<Contact />} />
-      <Route path="/blog" element={<Blog />} />
-    </Routes> 
-     <Footer />
-    </BrowserRouter>
+      <Routes>
+        {
+          publicRoutes.map((route) => (
+            <Route key={route.path} path={route.path} element={route.element} />
+          ))
+        }
+
+        {
+          privateRoutes.map((route)=>(
+            <Route key={route.path} path={route.path} element={route.element} />
+          ))
+        }
+
+        {
+          adminRoutes.map((route) => (
+            <Route key={route.path} path={route.path} element={route.element} />
+          ))
+        }
+        
+      </Routes>
+      <Footer />
+    </Router>
     </>
   )
 }
