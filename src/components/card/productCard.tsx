@@ -1,11 +1,11 @@
 
 import CartButton from "../button/cartButton";
-import { ShoppingCart, Star} from "lucide-react";
+import { ShoppingCart, Star } from "lucide-react";
 
 
 
 
-interface Product {
+export interface Product {
   id: number;
   badge: string | null;
   badgeColor: string | null;
@@ -41,12 +41,12 @@ export default function ProductCard(data: Product) {
         <p className="font-medium action-button-text py-1">{data.category}</p>
         <h1 className="font-heading py-1.5 min-h-14 line-clamp-2">{data.name}</h1>
         <div className="flex items-center  gap-x-6">
-        <span className="flex ">
-        <Star  className='w-5 h-5 text-white fill-yellow-500' />
-        <Star  className='w-5 h-5 text-white fill-yellow-500' />
-        </span>
-        <p  className="text-accent  font-lato text-sm font-medium "> ({data.rating})</p>
-       
+          <span className="flex ">
+            <Star className='w-5 h-5 text-white fill-yellow-500' />
+            <Star className='w-5 h-5 text-white fill-yellow-500' />
+          </span>
+          <p className="text-accent  font-lato text-sm font-medium "> ({data.rating})</p>
+
         </div>
         <p className="text-accent font-lato mb-auto">
           By <span className="text-primary font-lato">{data.brand}</span>
@@ -64,10 +64,12 @@ export default function ProductCard(data: Product) {
             size="sm"
             variant="primary"
             icon={<ShoppingCart size={18} />}
+            className="p-2"
           >
             Add
           </CartButton>
         </div>
+        
       </div>
     </div>
   );

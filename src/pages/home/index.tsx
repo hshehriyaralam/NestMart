@@ -52,7 +52,7 @@ const Home = () => {
           <div className="w-full mx-auto ">
             <Swiper
               modules={[Autoplay, Pagination, Navigation]}
-              slidesPerView={1}
+              slidesPerView={1}   
               autoplay={{
                 delay: 5000,
                 disableOnInteraction: false,
@@ -60,9 +60,9 @@ const Home = () => {
               pagination={{
                 clickable: true,
               }}
-              navigation={true}
+              navigation={{ nextEl: ".custom-next", prevEl: ".custom-prev" }}
               loop={true}
-              className="rounded-3xl"
+              className="rounded-3xl  swiper"
             >
               {slidesData.map((slide, index) => (
                 <SwiperSlide key={index}>
@@ -70,7 +70,8 @@ const Home = () => {
                 </SwiperSlide>
               ))}
             </Swiper>
-          </div>
+            </div>
+            
           <div>
             {/* popular products filter list */}
             <div className="flex items-center justify-between px-1 py-6 my-3">
@@ -150,7 +151,6 @@ const Home = () => {
           </div>
         </div>
       </div>
-
 
       {/* Single Section containers */}
       {/* Top selling products */}

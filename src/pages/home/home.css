@@ -5,6 +5,8 @@
 
 /* Active pagination dot color */
 .swiper-pagination-bullet-active {
+/* Active pagination dot color */ */
+ .swiper-pagination-bullet-active {
   background-color: #3BB77E;
 }
 
@@ -14,4 +16,28 @@
   color: #3BB77E;
   width: 24px;
   height: 24px;
+ .swiper-button-next,
+.swiper-button-prev {
+  color: #c97b15;
 }
+
+/* Optional: Change arrow background on hover */
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  font-size: 24px;
+  color: #c97b15;
+
+}
+
+
+.custom-next, .custom-prev {
+  color: #c97b15;
+  background: #fff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+}}
