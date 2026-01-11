@@ -42,7 +42,7 @@ const CartButton:React.FC<CartButtonProps> = ({
     <button
       className={`
         inline-flex items-center justify-center gap-1
-        px-4 py-2
+        
         font-medium text-sm
         rounded-lg
         transition-colors duration-200
