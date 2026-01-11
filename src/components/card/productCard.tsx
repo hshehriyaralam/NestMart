@@ -69,6 +69,7 @@ export default function ProductCard(data: Product) {
             Add
           </CartButton>
         </div>
+        
       </div>
     </div>
   );

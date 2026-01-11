@@ -4,21 +4,12 @@ import PD1 from "/products/thumbnail-3.png";
 import CartButton from "@/components/button/cartButton";
 import { data } from "@/data/productCard";
 import ProductCard, { type Product } from "@/components/card/productCard";
-// import { useParams } from "react-router-dom";
+import FooterBanner from "@/components/commons/footerBanner";
 
 const ProductDetails = () => {
-  // const { slug } = useParams();
-
-  // const product = data.products.find(
-  //   (p: any) => p.name.toLowerCase().replace(/ /g, "-").replace(/[^\w-]+/g, "") === slug
-  // ) || data.products[0]; // Fallback to first product for now if slug doesn't match
-
-  // if (!product) {
-  //   return <div className="p-10 text-center">Product not found</div>;
-  // }
-
+  
   return (
-    <div className="w-[90%] mx-auto ">
+    <div className="w-[90%] mx-auto">
       <div className="w-full  p-6  flex flex-col gap-y-3">
         {/* Product Image and Details */}
         <div className="w-full flex">
@@ -34,7 +25,7 @@ const ProductDetails = () => {
             <div>
               <h2 className="font-heading text-[40px] max-w-xl mb-3">
                 Seeds of Change
-Organic Quinoa, Brown
+                Organic Quinoa, Brown
               </h2>
               <div className="flex  items-center mb-3">
                 <Star className=" text-white fill-yellow-500 w-8 h-6 " />
@@ -216,7 +207,9 @@ Organic Quinoa, Brown
           <ProductCard key={p.id} {...p} />
         ))}
       </div>
-
+      </div>
+      <div className="p-4">
+        <FooterBanner />
       </div>
     </div>
 

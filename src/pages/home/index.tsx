@@ -70,7 +70,7 @@ const Home = () => {
                 </SwiperSlide>
               ))}
             </Swiper>
-</div>
+            </div>
             
           <div>
             {/* popular products filter list */}
@@ -151,7 +151,6 @@ const Home = () => {
           </div>
         </div>
       </div>
-
 
       {/* Single Section containers */}
       {/* Top selling products */}
