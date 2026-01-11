@@ -14,8 +14,8 @@
   --color-primary: #3BB77E;
   --color-secondary: #253D4E;
   --color-accent: #7E7E7E;
-  --color-lightGreen:#BCE3C9
-
+  --color-lightGreen:#BCE3C9;
+  --color-lightGray:#B6B6B6;
   /* ✅ Custom Spacing / Radius */
   --radius-main: 1rem;
   --section-padding: 4rem;
