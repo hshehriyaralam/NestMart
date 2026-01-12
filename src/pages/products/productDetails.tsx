@@ -6,6 +6,7 @@ import { data } from "@/data/productCard";
 import ProductCard, { type Product } from "@/components/card/productCard";
 import FooterBanner from "@/components/commons/footerBanner";
 import { Reviews1 } from "@/components/review/review";
+import BlogCard from "@/components/card/blogCard";
 
 const ProductDetails = () => {
   
@@ -203,6 +204,10 @@ const ProductDetails = () => {
       <div className="p-4">
        <Reviews1 />
       </div>
+
+      {/* <div>
+        <BlogCard/>
+      </div> */}
       {/* Related products */}
       <div className="p-4">
       <h2 className="font-heading text-[22px] mb-4 mt-8">Related Products</h2>
