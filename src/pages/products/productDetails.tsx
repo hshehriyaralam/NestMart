@@ -5,6 +5,7 @@ import CartButton from "@/components/button/cartButton";
 import { data } from "@/data/productCard";
 import ProductCard, { type Product } from "@/components/card/productCard";
 import FooterBanner from "@/components/commons/footerBanner";
+import { Reviews1 } from "@/components/review/review";
 
 const ProductDetails = () => {
   
@@ -197,9 +198,12 @@ const ProductDetails = () => {
           <div>
             <p className="font-lato text-accent text-[16px] font-medium leading-normal py-2">Oil separation occurs naturally. May contain pieces of shell.</p>
           </div>
-          <p></p>
         </div>
       </div>
+      <div className="p-4">
+       <Reviews1 />
+      </div>
+      {/* Related products */}
       <div className="p-4">
       <h2 className="font-heading text-[22px] mb-4 mt-8">Related Products</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 p-1">

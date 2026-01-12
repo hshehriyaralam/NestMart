@@ -9,7 +9,7 @@ function Layout({ children }: { children: React.ReactNode }) {
   // List of routes where header/footer should be hidden
   const noHeaderFooterRoutes = ["/auth/login", "/auth/signup"];
   const hideHeaderFooter = noHeaderFooterRoutes.includes(location.pathname); 
-  console.log("hide=>>>>>",hideHeaderFooter)
+  // console.log("hide=>>>>>",hideHeaderFooter)
   return (
     <>
       {!hideHeaderFooter && <Banner />}
