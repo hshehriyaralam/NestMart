@@ -149,5 +149,72 @@ export const data = {
     "bgColor": "#eef3fb",
     "link": "/shop/organic"
   }
-]
+],
+  "blogs" : [
+     {
+        "id": 1,
+        "image": "/products/1407.png",
+        "category": "Side Dish",
+        "title": "The Intermediate Guide to Healthy Food",
+        "date": "25 April 2022",
+        "views": "126k Views",
+        "readTime": "4 mins read"
+    },
+    {
+        "id": 2,
+        "image": "/products/1414.png",
+        "category": "Main Course",
+        "title": "10 Easy Recipes for Busy Weeknights",
+        "date": "12 May 2022",
+        "views": "89k Views",
+        "readTime": "6 mins read"
+    },
+    {
+        "id": 3,
+        "image": "/products/1417.png",
+        "category": "Dessert",
+        "title": "Sweet Treats: Baking Tips for Beginners",
+        "date": "3 June 2022",
+        "views": "145k Views",
+        "readTime": "5 mins read"
+    },
+    {
+        "id": 4,
+        "image": "/products/1420.png",
+        "category": "Breakfast",
+        "title": "Start Your Day Right with These Breakfast Ideas",
+        "date": "18 July 2022",
+        "views": "203k Views",
+        "readTime": "3 mins read"
+    },
+    {
+        "id": 5,
+        "image": "/products/1407.png",
+        "category": "Snacks",
+        "title": "Healthy Snacking: Nutritious Options for Any Time",
+        "date": "7 August 2022",
+        "views": "167k Views",
+        "readTime": "4 mins read"
+    },
+    {
+        "id": 6,
+        "image": "/products/1420.png",
+        "category": "Breakfast",
+        "title": "Start Your Day Right with These Breakfast Ideas",
+        "date": "18 July 2022",
+        "views": "203k Views",
+        "readTime": "3 mins read"
+    },
+    {
+        "id": 7,
+        "image": "/products/1407.png",
+        "category": "Snacks",
+        "title": "Healthy Snacking: Nutritious Options for Any Time",
+        "date": "7 August 2022",
+        "views": "167k Views",
+        "readTime": "4 mins read"
+    }
+
+  ]
+
 }
