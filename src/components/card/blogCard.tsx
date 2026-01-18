@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 interface BlogCardProps {
     data: {
         id: number
@@ -13,7 +15,9 @@ interface BlogCardProps {
 const BlogCard = ({ data }: BlogCardProps) => {
     return (
         <div className=" gap-2 p-4 ">
+            <Link to={`/blog/${data.id}`}>
             <img src={data.image} alt={data.title} className="w-full rounde-lg" />
+            </Link>
 
             <div className="flex flex-col items-center text-center p-2">
                 <p className="font-heading-1_0 text-sm text-lightGray ">{data.category}</p>

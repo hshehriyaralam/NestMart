@@ -32,7 +32,7 @@ export const privateRoutes: AppRoute[] = [
     element: <ProductDetails />,
   },
   {
-    path: "/blog/:slug",
+    path: "/blog/:id",
     element: <BlogDetails />
   }
  
