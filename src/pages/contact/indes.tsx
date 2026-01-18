@@ -1,9 +1,30 @@
-import React from 'react'
+import ContactForm from "@/components/contact/contactForm"
+import HowCanHelpYou from "@/components/contact/howCanHelpYou"
+import Info from "@/components/contact/info"
+
 
 const Contact = () => {
   return (
-    <div>
-      <h1>Contact</h1>
+    <div className="w-full min-h-screen " >
+      <div  className="  mx-auto  flex flex-col items-center justify-center  gap-2">
+        {/* How can help you  */}
+        <div className="w-[85%] " >
+        <HowCanHelpYou />
+        </div>
+        {/* Map */}
+        <div className="w-[95%]">
+          <img src="/map.webp" alt=""  className="w-full h-auto" />
+        </div>
+
+        <div className="w-[85%]" >
+        {/* Info */}
+        <Info />
+        {/* Contact Form */}
+        <ContactForm />
+        </div>
+
+
+      </div>
     </div>
   )
 }
