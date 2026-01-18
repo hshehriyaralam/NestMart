@@ -9,6 +9,8 @@
 @theme {
     --font-quicksand: "Quicksand", sans-serif;
     --font-lato: "Lato", sans-serif;
+    --font-poppins: "Poppins", sans-serif;
+
   
   /* ✅ Custom Colors */
   --color-primary: #3BB77E;
