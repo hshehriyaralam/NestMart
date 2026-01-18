@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { SelectDropdown } from "@/components/dropdown/select"
+import { Link } from "react-router-dom"
 import Vector from "/logo/Vector.png"
 import { Search } from "lucide-react"
 import BlogCard from "@/components/card/blogCard"
@@ -83,10 +84,9 @@ const Blog = () => {
         </div>
         <div className="grid grid-cols-4 mt-11 ">
           {data.blogs.map((blog) => (
-            <BlogCard
-              key={blog.id}
-              data={blog}
-            />
+              <BlogCard
+                data={blog}
+              />
           ))}
         </div>
       </div>
