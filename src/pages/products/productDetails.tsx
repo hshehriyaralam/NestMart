@@ -6,7 +6,6 @@ import { data } from "@/data/productCard";
 import ProductCard, { type Product } from "@/components/card/productCard";
 import FooterBanner from "@/components/commons/footerBanner";
 import { Reviews1 } from "@/components/review/review";
-import BlogCard from "@/components/card/blogCard";
 
 const ProductDetails = () => {
   
@@ -224,5 +223,4 @@ const ProductDetails = () => {
 
   );
 };
-
 export default ProductDetails;
