@@ -10,7 +10,7 @@ const CommentForm = () => {
     };
 
     return (
-        <div className="w-full h-[100px] bg-[#F5F5F5] rounded-xl p-4 border flex flex-col">
+        <div className="w-full h-[120px]  rounded-xl p-4 border flex flex-col">
            
             {/* Text Input Area */}
             <textarea
@@ -56,7 +56,7 @@ const CommentForm = () => {
                 {/* Submit Button */}
                 <button
                     type="submit"
-                    className="bg-primary text-white px-6 py-1 rounded-full font-lato font-base transition-all shadow-sm active:scale-95"
+                    className="bg-primary text-white px-4 py-1 rounded-full font-lato font-base transition-all shadow-sm active:scale-95"
                 >
                     Submit
                 </button>

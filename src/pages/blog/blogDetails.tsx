@@ -4,12 +4,14 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import CommentForm from '@/components/comment/commentForm'
 import CommentList from '@/components/comment/commentList'
 import { Heart, Share2 } from 'lucide-react'
+import TopSelling from '@/components/card/topSelling'
+
 const BlogDetails = () => {
   const { id } = useParams()
   console.log(id)
   return (
 
-    <div className='border w-[95%] mx-auto '>
+    <div className=' w-[95%] mx-auto '>
       <div>
         <div className='w-[90%] mx-auto'>
           <div className=' p-4'>
@@ -49,10 +51,9 @@ const BlogDetails = () => {
             </div>
           </div>
         </div>
-
         {/* content */}
-        <div className='border w-[88%] mx-auto'>
-        <div className='border w-[70%]'>
+        <div className=' w-[100%] flex pl-21'>
+        <div className=' w-[75%] p-2'>
           {/* DESCRIPTION */}
           <div className=" rounded-lg ">
             {/* description */}
@@ -102,14 +103,14 @@ const BlogDetails = () => {
           </div>
           <div className='py-2 space-y-4'>
             {/* comment */}
-            <h2 className='font-heading text-[20px] '>Comments</h2>
+            <h2 className='font-heading_1-0 text-primary text-[26px] '>Comments</h2>
             <CommentList />
             <h2 className='font-heading text-[20px] '>Leave a Comment</h2>
             <CommentForm />
           </div>
         </div>
-        <div className='border w-[30%]'>
-          top 10 products
+        <div className='w-[25%] p-2'>
+          <TopSelling />
         </div>
         </div>
       </div>
