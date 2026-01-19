@@ -24,7 +24,7 @@ useEffect(() => {
 
 
     {/* Login Form */}
-    <div  className='w-[40%] h-[533px]      p-4   ' >
+    <div  className='w-[40%] h-[533px]  p-3   ' >
       <div  className='p-6  '>
         {/* Logo */}
         <div className='w-[300px] mx-5' >
@@ -51,7 +51,7 @@ useEffect(() => {
            font-quicksand mt-4 hover:bg-primary/70  cursor-pointer mx-auto '
            type='submit'
            >
-            Sign In
+            Sign Up
           </Button>
 
           <p  className='font-quicksand  text-accent text-[14px] text-center mt-4'>
