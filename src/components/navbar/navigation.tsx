@@ -13,12 +13,7 @@ const navItems: NavItem[] = [
 
   {
     label: "Shop",
-    dropdown: true,
-    links: [
-      { name: "Shop Grid", path: "/about" },
-      { name: "Shop List", path: "/about" },
-      { name: "Shop Details", path: "/about" },
-    ],
+   
   },
 
   {
