@@ -56,7 +56,7 @@ const CommentForm = () => {
                 {/* Submit Button */}
                 <button
                     type="submit"
-                    className="bg-primary text-white px-4 py-1 rounded-full font-lato font-base transition-all shadow-sm active:scale-95"
+                    className="bg-primary text-white px-6    py-2 rounded-full font-lato font-base transition-all shadow-sm active:scale-95"
                 >
                     Submit
                 </button>

@@ -41,7 +41,7 @@ const COMMENTS: Comment[] = [
 
 const CommentItem = ({ comment }: { comment: Comment }) => {
     return (
-        <div className="flex gap-4 p-4 rounded-lg bg-white border border-gray-100 shadow-sm">
+        <div className="flex gap-4 p-4 rounded-lg bg-white border border-gray-100">
             <div className={`rounded-full flex items-center justify-center shrink-0 w-10 h-10 ${comment.user.avatarBg || 'bg-gray-200'}`}>
                 <Avatar className="w-full h-full">
                     <AvatarImage src={comment.user.avatar} className="object-cover" />
@@ -51,7 +51,7 @@ const CommentItem = ({ comment }: { comment: Comment }) => {
 
             <div className="flex flex-col gap-1">
                 <div className="flex items-center gap-2">
-                    <span className="text-gray-900 font-bold text-sm tracking-tight">{comment.user.name}</span>
+                    <span className="text-gray-900 font-bold text-sm tracking-tight font-lato text-primary">{comment.user.name}</span>
                     <span className="text-gray-500 text-xs">{comment.time}</span>
                 </div>
 

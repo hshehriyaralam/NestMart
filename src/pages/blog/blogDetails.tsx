@@ -103,9 +103,9 @@ const BlogDetails = () => {
           </div>
           <div className='py-2 space-y-4'>
             {/* comment */}
-            <h2 className='font-heading_1-0 text-primary text-[26px] '>Comments</h2>
+            <h2 className='font-heading  text-[22px] '>Comments</h2>
             <CommentList />
-            <h2 className='font-heading text-[20px] '>Leave a Comment</h2>
+            <h2 className='font-heading text-[22px]'>Leave a Comment</h2>
             <CommentForm />
           </div>
         </div>
