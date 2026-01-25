@@ -15,7 +15,7 @@ const WhatWeProvide = () => {
             icon: "/about/icon-2.svg",
             title: "Wide Assortment",
             description:
-              "There are many variations of products available, but the majority provide a diverse selection to meet every customer’s needs",
+              "There are many variations of products available, but the majority provide a diverse selection to meet every customer's needs",
             link: "/",
         },
          {
@@ -52,36 +52,34 @@ const WhatWeProvide = () => {
         },
     ]
   return (
-    <div className=" w-full p-4 mt-5 ">
-      <h2 className="font-heading  text-3xl text-center mt-2 ">
+    <div className="w-full p-4 lg:p-8 mt-5">
+      <h2 className="font-heading text-2xl md:text-3xl lg:text-4xl text-center mt-2">
         What We Provide?
       </h2>
 
-      <div className="flex gap-6 mx-auto items-center justify-center mt-10  flex-wrap ">
-
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mx-auto mt-10 px-2">
 {
         cardData.map((card) => (
         <div  
         key={card.id}
-        className="w-[320px]  py-4 border border-[#ECECEC]  rounded-lg">
-            <div  className="mx-auto  w-26 mt-6">
-          <img src={card.icon} alt=""  className="w-full" />
+        className="w-full max-w-[320px] mx-auto py-6 px-4 border border-[#ECECEC] rounded-lg hover:shadow-md transition">
+            <div className="mx-auto w-20 h-20 flex items-center justify-center">
+          <img src={card.icon} alt={card.title} className="w-full h-full object-contain" />
             </div>
 
-          <div className="flex flex-col items-center justify-center  gap-y-4 mt-3 ">
-            <p className="font-heading text-[22px] font-bold ">
+          <div className="flex flex-col items-center justify-center gap-y-4 mt-4">
+            <p className="font-heading text-lg md:text-xl lg:text-[22px] font-bold text-center">
               {card.title}
             </p>
-            <p className=" max-w-[270px] font-lato font-medium  text-sm text-accent text-justify [text-align-last:center]  ">
+            <p className="max-w-[270px] font-lato font-medium text-sm text-accent text-center">
               {card.description}
             </p>
-            <Link to={card.link} className="text-primary text-sm cursor-pointer">
+            <Link to={card.link} className="text-primary text-sm cursor-pointer hover:underline">
               Read more
             </Link>
           </div>
         </div>
         ))
-
 }
        
       </div>
