@@ -42,14 +42,14 @@ const Home = () => {
       {/* left and right section */}
       <div className="flex gap-6 max-w-[92%] mx-auto">
         {/* Left Side Items */}
-        <div className="w-[25%] flex flex-col gap-y-6 pt-4 ">
+        <div className="w-[25%] hidden md:flex flex-col gap-y-6 pt-4 ">
           <CategoriesCard />
           <PriceFilter />
           <NewProducts />
         </div>
         {/* Right Side Items */}
-        <div className="w-[77%]">
-          <div className="w-full mx-auto ">
+        <div className="w-full md:w-[77%]">
+          <div className="w-full mx-auto mt-4 ">
             <Swiper
               modules={[Autoplay, Pagination, Navigation]}
               slidesPerView={1}   
