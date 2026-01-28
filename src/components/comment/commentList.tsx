@@ -1,4 +1,3 @@
-import React from 'react';
 import { ThumbsUp } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 

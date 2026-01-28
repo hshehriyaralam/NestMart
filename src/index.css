@@ -4,7 +4,9 @@
 @import "tw-animate-css";
 
 
-
+*{
+  scroll-behavior: smooth;
+}
 
 @theme {
     --font-quicksand: "Quicksand", sans-serif;
