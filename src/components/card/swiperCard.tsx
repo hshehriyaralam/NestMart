@@ -1,33 +1,32 @@
 
-interface SlideData {
+interface data {
   bgImage: string;
   heading: string;
   description: string;
 }
 
-export default function SwiperCard({ data }: { data: SlideData }) {
+export default function SwiperCard({ data }: { data: data }) {
   
-  const slideData = data ;
-
   return (
-    <div className="w-full h-full mx-auto ">
+    <div className="w-full h-[350px] mx-auto ">
       <div
+  
         style={{
-          backgroundImage: `url(${slideData?.bgImage})`,
+          backgroundImage: `url(${data?.bgImage})`,
           width: "100%",
         }}
-        className="flex flex-col gap-7 md:h-[392px] p-11 md:p-14 rounded-lg"
+        className="flex flex-col gap-7 md:h-[392px] py-11 px-4 md:p-14 rounded-lg bg-cover bg-center bg-no-repeat"
       >
-        <div className="w-full"> 
+        {/* <div className="w-full"> 
           <h2 className="font-heading  text-3xl md:text-5xl max-w-full md:max-w-[50%] ">
-            {slideData?.heading}{" "}
+            {data?.heading}{" "}
           </h2>
           <p className="font-lato text-lg md:text-xl text-accent py-4 md:py-6">
-            {slideData?.description || "Sign up for the daily newsletter"}
+            {data?.description || "Sign up for the daily newsletter"}
           </p>
         </div>
 
-        <div className="flex gap-3 bg-white w-full rounded-full ">
+        <div className="flex gap-3 bg-white w-full md:max-w-[40%] rounded-full ">
           <input
             type="text"
             placeholder="Your email address"
@@ -38,7 +37,7 @@ export default function SwiperCard({ data }: { data: SlideData }) {
           >
             Subscribe
           </button>
-        </div>
+        </div> */}
       </div>
     </div>
   );

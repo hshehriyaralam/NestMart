@@ -11,10 +11,7 @@ const navItems: NavItem[] = [
 
   { label: "About", dropdown: false, path: "/about" },
 
-  {
-    label: "Shop",
-   
-  },
+ 
 
   {
     label: "Vendors",

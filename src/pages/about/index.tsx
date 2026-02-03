@@ -13,7 +13,6 @@ const About = () => {
       <WhatWeProvide />
       <OurPerformance />
       <OurTeam />
-      <FooterBanner />
       </div>
     </div>
   )

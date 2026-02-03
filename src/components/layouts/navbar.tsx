@@ -1,5 +1,4 @@
 import Categories from '../navbar/categories'
-import Navigation from '../navbar/navigation'
 
 const Navbar = () => {
   return (
@@ -8,7 +7,7 @@ const Navbar = () => {
       {/* first line   */}
       <Categories />
       {/* Second line  */}
-      <Navigation />
+      {/* <Navigation /> */}
       </div>
 
       {/* Mobile menu  */}

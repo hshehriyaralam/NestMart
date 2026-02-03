@@ -1,4 +1,4 @@
-import  {Star} from 'lucide-react'
+import { Star } from 'lucide-react'
 
 const NewProducts = () => {
   const newProductData = [
@@ -23,23 +23,23 @@ const NewProducts = () => {
   ]
 
   return (
-   <div className='w-full rounded-xl    border  p-6 border border-[#ECECEC]     '>
-    <h2 className='font-heading text-[21px] mx-2'>New Products</h2>
-    {/* Products  */}
+    <div className='w-full rounded-xl    border  p-6 border border-[#ECECEC]     '>
+      <h2 className='font-heading text-[21px] mx-2'>New Products</h2>
+      {/* Products  */}
       {newProductData.map((product) => (
-    <div className='grid grid-cols-2  mt-4   '>
-      {/* Image */}
-      <div  className=''>
-        <img src={product.image} alt={product.name}  className='w-[90%] '/>
-      </div>
+        <div key={product.id} className='grid grid-cols-2  mt-4   '>
+          {/* Image */}
+          <div className=''>
+            <img src={product.image} alt={product.name} className='w-[90%] ' />
+          </div>
 
-      {/* Name and Price */}
-      <div  className=''>
-        <p  className='text-primary  font-quicksand font-bold text-md'>{product.name}</p>    
-        <p  className='text-accent font-lato text-md font-medium '> ${product.price}</p>
-        <Star  className='w-5 h-5 text-white fill-yellow-500' />
+          {/* Name and Price */}
+          <div className=''>
+            <p className='text-primary  font-quicksand font-bold text-md'>{product.name}</p>
+            <p className='text-accent font-lato text-md font-medium '> ${product.price}</p>
+            <Star className='w-5 h-5 text-white fill-yellow-500' />
+          </div>
         </div>
-    </div>
       ))}
     </div>
   )

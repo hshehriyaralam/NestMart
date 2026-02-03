@@ -41,7 +41,7 @@ export const DealCard = (data:DealCardProps) => {
       </div>
 
       {/* DEAL CONTENT */}
-      <div className="relative max-w-[80%] -top-17 bg-white mx-auto p-2 rounded-lg shadow-lg px-4">
+      <div className="relative max-w-[95%] -top-17 bg-white mx-auto  rounded-lg shadow-lg p-2 md:p-3">
         <div className="p-2 flex flex-col ">
           <p className="font-medium action-button-text py-1"></p>
           <h1 className="font-heading py-1.5 min-h-14 line-clamp-2">
@@ -54,17 +54,18 @@ export const DealCard = (data:DealCardProps) => {
             By <span className="text-primary font-lato"> {data.brand}</span>
           </p>
           <div className="flex items-center justify-between py-1.5 mt-auto">
-            <div>
-              <span className="font-heading-1_0 text-primary">
-                $<span className="font-heading-1_0 text-primary">{data.price}</span>
-              </span>{" "}
-              <span className="font-heading-1_0 text-accent  line-through">
+            <div className="  flex items-baseline gap-2 px-2 py-1">
+              <span className="text-primary font-heading-1_0 text-sm md:text-base">
+                ${data.price}
+              </span>
+              <span className="font-heading-1_0 text-accent text-base line-through">
                 ${data.originalPrice}
               </span>
             </div>
             <CartButton
               size="sm"
               variant="primary"
+              className="p-2"
               icon={<ShoppingCart size={18} />}
             >
               Add

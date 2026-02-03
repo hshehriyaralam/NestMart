@@ -12,8 +12,8 @@ const ShopnowCard = (data: ShopnowCardProps) => {
     <div
       className='w-full h-[236px] flex flex-col justify-center items-left gap-4 p-4 rounded-lg' 
         style={{
-           backgroundImage: `url(${data.bgImageSrc})`,
-           backgroundSize: 'cover',
+          backgroundImage: `url(${data.bgImageSrc})`,
+          backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center',
           }
@@ -23,7 +23,7 @@ const ShopnowCard = (data: ShopnowCardProps) => {
       <Button
         variant='darkgreen'
         size='mdmin'
-        className="justify-start"
+        className="justify-start md:p-2 font-lato"
       >
         Shop Now  
       </Button>
