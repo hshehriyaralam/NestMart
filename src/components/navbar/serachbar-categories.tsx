@@ -20,7 +20,7 @@ const BrowseCategories = [
   "Fruits",
 ];
 
-const Categories = () => {
+const SearchBarCategories = () => {
   const [selected, setSelected] = useState("All Categories")
   const [forceClose, setForceClose] = useState(false);
 
@@ -133,4 +133,4 @@ const Categories = () => {
   );
 };
 
-export default Categories;
+export default SearchBarCategories;
