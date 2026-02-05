@@ -1,5 +1,5 @@
   import { useParams } from 'react-router-dom'
-  import BDETAIL from "../../../public/products/blog-thumbnail.png"
+  import BDETAIL from "/products/blog-thumbnail.png"
   import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
   import CommentForm from '@/components/comment/commentForm'
   import CommentList from '@/components/comment/commentList'
