@@ -13,33 +13,29 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css/autoplay";
-import "./home.css"; // Add custom styles
+import "./home.css";
+import TopSelling from "@/components/card/topSelling";
+import TrendingProduct from "@/components/card/trendingProduct";
+import RecentlyAdded from "@/components/card/recentlyAdded";
+import TopRated from "@/components/card/topRated";
 
-const categoryData = [
-  { name: "All", id: 1 },
-  { name: "Milks & Diaries", id: 2 },
-  { name: "Coffe & Teas", id: 3 },
-  { name: "Pet Foods", id: 4 },
-  { name: "Meats", id: 5 },
-  { name: "Vegetable", id: 6 },
-  { name: "Fruits", id: 7 },
-];
+
 
 const Home = () => {
-  // console.log(data.products);
-  const firstFourProducts = data.products.slice(0, 4);
-  console.log("four products", firstFourProducts);
+
   return (
     <div className="w-full max-w-[100%]">
       {/* left and right section */}
       <div className="flex gap-6 max-w-[92%] mx-auto">
         {/* Left Side Items */}
-        <div className="w-[25%] hidden md:flex flex-col gap-y-6 pt-4 ">
-          <CategoriesCard />
-        </div>
+        <div className="w-[25%] hidden md:block z-50">
+  <div className="sticky pt-4 top-0 transition-all duration-500">
+    <CategoriesCard />
+  </div>
+</div>
         {/* Right Side Items */}
-        <div className="w-full md:w-[77%]">
-          <div className="w-full mx-auto mt-4 ">
+        <div className="w-full md:w-[72%]">
+          <div className="w-full mx-auto mt-4 z-40">
             <Swiper
               modules={[Autoplay, Pagination, Navigation]}
               slidesPerView={1}
@@ -128,10 +124,10 @@ const Home = () => {
       {/* Single Section containers */}
       {/* Top selling products */}
       <div className="w-full max-w-[93%] p-4 mt-6 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 ">
-        {/* <TopSelling />
+        <TopSelling />
         <TrendingProduct />
         <RecentlyAdded />
-        <TopRated /> */}
+        <TopRated />
       </div>
 
       <div className="w-full max-w-[93%] p-4 mx-auto">

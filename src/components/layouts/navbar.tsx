@@ -3,7 +3,7 @@ import Categories from '../navbar/categories'
 const Navbar = () => {
   return (
     <div>
-      <div  className='hidden lg:block' >
+      <div  className='hidden lg:block ' >
       {/* first line   */}
       <Categories />
       {/* Second line  */}
