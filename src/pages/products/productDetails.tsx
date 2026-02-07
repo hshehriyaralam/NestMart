@@ -2,13 +2,10 @@ import { Star, Heart, Share2, ShoppingCart } from "lucide-react";
 import ProductImage from "/products/product-image.png";
 import PD1 from "/products/thumbnail-3.png";
 import CartButton from "@/components/button/cartButton";
-import { data } from "@/data/productCard";
-import ProductCard, { type Product } from "@/components/card/productCard";
-import FooterBanner from "@/components/commons/footerBanner";
 import { Reviews1 } from "@/components/review/review";
 
 const ProductDetails = () => {
-  
+
   return (
     <div className="w-[90%] mx-auto">
       <div className="w-full  p-6  flex flex-col gap-y-3">
@@ -38,7 +35,7 @@ const ProductDetails = () => {
               <div className="flex items-center gap-x-2 mb-4">
                 <p className="font-heading-1_0 text-4xl text-primary">$25</p>
                 <p className="font-heading-1_0 text-lightGray text-2xl line-through ">
-                  $32 
+                  $32
                 </p>
               </div>
               <p className="max-w-xl font-lato text-accent font-medium mb-4 ">
@@ -201,7 +198,7 @@ const ProductDetails = () => {
         </div>
       </div>
       <div className="p-4">
-       <Reviews1 />
+        <Reviews1 />
       </div>
 
       {/* <div>
@@ -209,16 +206,14 @@ const ProductDetails = () => {
       </div> */}
       {/* Related products */}
       <div className="p-4">
-      <h2 className="font-heading text-[22px] mb-4 mt-8">Related Products</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 p-1">
+        {/* <h2 className="font-heading text-[22px] mb-4 mt-8">Related Products</h2> */}
+        {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 p-1">
         {data.products.slice(0, 4).map((p: Product) => (
           <ProductCard key={p.id} {...p} />
         ))}
+      </div> */}
       </div>
-      </div>
-      <div className="p-4">
-        <FooterBanner />
-      </div>
+
     </div>
 
   );
