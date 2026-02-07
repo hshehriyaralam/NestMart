@@ -42,14 +42,13 @@ const SearchBarCategories = () => {
         {/* Search Bar */}
         <div
           className="lg:max-w-[600px] h-[50px] flex items-center border-2
-           border-green-200  rounded pl-2 pr-4  "
-        >
+           border-green-200  rounded pl-2 pr-4 ">
 
           <button className={`group relative flex justify-center items-center  gap-2 w-[150px] cursor-pointer    ${forceClose ? "pointer-events-none" : ""} `}>
             <span className="font-heading text-sm">{selected}</span>
             <ChevronDown className="w-3 group-hover:rotate-180 transition-transform duration-200" />
 
-              {/* Dropdown */}
+          {/* Dropdown */}
           <ul
             className={`
             absolute left-2 top-[26px] 

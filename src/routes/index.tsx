@@ -16,17 +16,18 @@ import TotalProducts from "@/pages/totalProducts";
 export interface AppRoute {
   path: string;
   element: React.ReactNode;
+  showCategories?: boolean;  // Flag to show/hide categories sidebar
 }
 
 export const publicRoutes: AppRoute[] = [
   { path: "auth/login", element: <Login /> },
   { path: "auth/signup", element: <Signup /> },
-  { path: "/", element: <Home /> },
+  { path: "/", element: <Home />, showCategories: true },  // Show categories on Home
   { path: "/about", element: <About /> },
   { path: "/contact", element: <Contact /> },
   { path: "/blog", element: <Blog /> },
   { path: "/shop", element: <Shop /> },
-  { path: "/category/:categorySlug", element: <TotalProducts /> },
+  { path: "/category/:categorySlug", element: <TotalProducts />, showCategories: true },  // Show categories on TotalProducts
 ]
 
 // Protected routes (require authentication)
@@ -39,8 +40,8 @@ export const privateRoutes: AppRoute[] = [
     path: "/blog/:id",
     element: <BlogDetails />
   }
- 
-  
+
+
 ];
 // admin routes
 export const adminRoutes: AppRoute[] = [
@@ -48,5 +49,5 @@ export const adminRoutes: AppRoute[] = [
     path: "/admin/dashboard",
     element: <Dashboard />,
   },
-  
+
 ];

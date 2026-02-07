@@ -1,6 +1,7 @@
-import {  ChevronRight } from "lucide-react"
+import { ChevronRight } from "lucide-react"
 import { useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, useLocation, matchPath } from "react-router-dom"
+import { publicRoutes, privateRoutes, adminRoutes } from "@/routes"
 
 /* ================= TYPES ================= */
 
@@ -51,19 +52,19 @@ const categoriesData: CategoryNode[] = [
             slug: "home-decor",
             productsAvailable: true
           },
-           {
+          {
             id: 115,
             name: "Home Accessories",
             slug: "home-accessories",
             productsAvailable: true
           },
-           {
+          {
             id: 116,
             name: "Badsheets & Curtains",
             slug: "badsheets-curtains",
             productsAvailable: true
           },
-           {
+          {
             id: 117,
             name: "Tools & Solutions",
             slug: "tools-solutions",
@@ -162,7 +163,7 @@ const categoriesData: CategoryNode[] = [
     ]
   },
 
-    {
+  {
     id: 3,
     image: "/categoriesCard/category-3.png",
     name: "Toys",
@@ -178,12 +179,12 @@ const categoriesData: CategoryNode[] = [
     ]
   },
 
-    {
+  {
     id: 4,
     image: "/categoriesCard/category-4.png",
     name: "Grocery",
     slug: "grocery",
-     children: [
+    children: [
       {
         id: 41,
         name: "Foot Staples",
@@ -191,7 +192,7 @@ const categoriesData: CategoryNode[] = [
         children: [
           {
             id: 411,
-            name: "Soups & Crackers", 
+            name: "Soups & Crackers",
             slug: "soups-crackers",
             productsAvailable: true
           },
@@ -213,19 +214,19 @@ const categoriesData: CategoryNode[] = [
             slug: "home-decor",
             productsAvailable: true
           },
-           {
+          {
             id: 415,
             name: "Home Accessories",
             slug: "home-accessories",
             productsAvailable: true
           },
-           {
+          {
             id: 416,
             name: "Badsheets & Curtains",
             slug: "badsheets-curtains",
             productsAvailable: true
           },
-           {
+          {
             id: 417,
             name: "Tools & Solutions",
             slug: "tools-solutions",
@@ -287,7 +288,7 @@ const categoriesData: CategoryNode[] = [
     ]
   },
 
-     {
+  {
     id: 5,
     image: "/categoriesCard/category-5.png",
     name: "Frozen Food",
@@ -311,7 +312,7 @@ const categoriesData: CategoryNode[] = [
   },
 
 
-     {
+  {
     id: 6,
     image: "/categoriesCard/category-3.png",
     name: "Fresh Product",
@@ -331,7 +332,7 @@ const categoriesData: CategoryNode[] = [
         children: [],
         productsAvailable: true
       },
-       {
+      {
         id: 63,
         name: "Vegetables",
         slug: "vegetables",
@@ -340,35 +341,35 @@ const categoriesData: CategoryNode[] = [
       },
     ]
   },
-     {
+  {
     id: 7,
     image: "/categoriesCard/category-2.png",
     name: "Ramadan Packages",
     slug: "ramadan-packages",
     children: []
   },
-     {
+  {
     id: 8,
     image: "/categoriesCard/category-1.png",
     name: "Nest Masala",
     slug: "nest-masala",
     children: []
   },
-   {
+  {
     id: 9,
     image: "/categoriesCard/category-4.png",
     name: "Lotions & Powders",
     slug: "lotions-powders",
     children: []
   },
-    {
+  {
     id: 10,
     image: "/categoriesCard/category-3.png",
     name: "Newborns & Infants",
     slug: "newborns-infants",
     children: []
   },
-   {
+  {
     id: 12,
     image: "/categoriesCard/category-2.png",
     name: "Body Luxuries",
@@ -383,83 +384,98 @@ const categoriesData: CategoryNode[] = [
 /* ================= COMPONENT ================= */
 
 const CategoriesCard = () => {
- const CategoryItem = ({ category }: { category: CategoryNode }) => {
-  const [activeChild, setActiveChild] = useState<number | null>(null)
-  const [open, setOpen] = useState(false)
-  const hasChildren = category.children && category.children.length > 0
-  
+  const location = useLocation();
+
+  // Check all routes to find which one matches current path
+  const allRoutes = [...publicRoutes, ...privateRoutes, ...adminRoutes];
+  console.log("all routes111111111",allRoutes);
+  const currentRoute = allRoutes.find(route =>
+    matchPath(route.path, location.pathname)
+  );
+ console.log("current route 2222222222",currentRoute);
+  // Only show if route has showCategories: true
+  if (!currentRoute?.showCategories) {
+    return null;
+  }
+
+  const CategoryItem = ({ category }: { category: CategoryNode }) => {
+    const [activeChild, setActiveChild] = useState<number | null>(null)
+    const [open, setOpen] = useState(false)
+    const hasChildren = category.children && category.children.length > 0
 
 
-  const Content = (
-    <div
-      className={`w-full flex items-center justify-between border border-[#ECECEC] p-3 rounded-lg py-3 cursor-pointer bg-white 
+
+    const Content = (
+      <div
+        className={`w-[full] flex items-center justify-between
+           border border-[#ECECEC] p-3 rounded-lg py-3 cursor-pointer bg-white 
+
+
         ${open ? "text-primary" : "text-[#253D4E]"}`}
-    >
-      <div className="flex items-center gap-x-2  ">
-        {category.image && <img src={category.image} className="w-7" />}
-        <p
-          className={`text-[15px]  ${
-              open ? 'font-quicksand font-bold  hover:text-primary ' : 'font-heading '
-            }  `}
-        >
-          {category.name}
-        </p>
-      </div>
-
-      {hasChildren && (
-        
-        <div className="w-5 h-5 flex items-center justify-center  ">
-          <ChevronRight
-            className={`w-8 transition-colors ${
-              open ? "text-primary" : "text-secondary"
-            }`}
-          />
+      >
+        <div className="flex items-center gap-x-2  ">
+          {category.image && <img src={category.image} className="w-7" />}
+          <p
+            className={`text-[15px]  ${open ? 'font-quicksand font-bold  hover:text-primary ' : 'font-heading '
+              }  `}
+          >
+            {category.name}
+          </p>
         </div>
-      )}
-    </div>
-  )
 
-  return (
-    <div
-      className="relative w-full"
-      onMouseEnter={() => setOpen(true)}
-      onMouseLeave={() => setOpen(false)}
-    >
-      {/* CLICK ONLY IF LAST NODE */}
-      {category.productsAvailable ? (
-        <Link to={`/category/${category.slug}`}>{Content}</Link>
-      ) : (
-        Content
-      )}
+        {hasChildren && (
+
+          <div className="w-5 h-5 flex items-center justify-center  ">
+            <ChevronRight
+              className={`w-8 transition-colors ${open ? "text-primary" : "text-secondary"
+                }`}
+            />
+          </div>
+        )}
+      </div>
+    )
+
+    return (
+      <div
+        className="relative w-full"
+        onMouseEnter={() => setOpen(true)}
+        onMouseLeave={() => setOpen(false)}
+      >
+        {/* CLICK ONLY IF LAST NODE */}
+        {category.productsAvailable ? (
+          <Link to={`/category/${category.slug}`}>{Content}</Link>
+        ) : (
+          Content
+        )}
 
 
-{hasChildren && open && (
-  <div
-    className="
-      absolute top-1 left-65
+        {hasChildren && open && (
+          <div
+            className="
+      absolute top-2 left-65
       w-58
       bg-white
       shadow-xl
       py-2
       z-40
     "
-  >
-    {category.children!.map((child) => {
-      const childHasNestedChildren =
-        Array.isArray(child.children) && child.children.length > 0
+          >
+            {category.children!.map((child) => {
+              const childHasNestedChildren =
+                Array.isArray(child.children) && child.children.length > 0
 
-      return (
-        <div
-          key={child.id}
-          className="relative"
-          onMouseEnter={() => childHasNestedChildren && setActiveChild(child.id)}
-          onMouseLeave={() => setActiveChild(null)}
-        >
-          {/* CHILD ITEM */}
-          <div
-            className="
+              return (
+                <div
+                  key={child.id}
+                  className="relative"
+                  onMouseEnter={() => childHasNestedChildren && setActiveChild(child.id)}
+                  onMouseLeave={() => setActiveChild(null)}
+                >
+                  {/* CHILD ITEM */}
+                  <div
+                    className="
               flex items-center justify-between
-              px-4 py-3
+              px-4 py-2
               cursor-pointer
               text-[14px]
               text-secondary
@@ -469,31 +485,33 @@ const CategoriesCard = () => {
               hover:bg-gray-100
               transition-all duration-200 ease-in-out
               z-40
+              
             
             "
-          >
-            {/* <span>{child.name}</span> */}
-            <Link to={`/category/${child.slug}?parent=${category.slug}`}>{child.name}</Link>
-            {childHasNestedChildren && <ChevronRight className="w-4" />}
-          </div>
+                  >
+                    {/* <span>{child.name}</span> */}
+                    <Link to={`/category/${child.slug}?parent=${category.slug}`}>{child.name}</Link>
+                    {childHasNestedChildren && <ChevronRight className="w-4" />}
+                  </div>
 
-          {/* GRANDCHILD PANEL */}
-          {childHasNestedChildren && activeChild === child.id && (
-            <div
-              className="
-                absolute top-2 left-56
+                  {/* GRANDCHILD PANEL */}
+                  {childHasNestedChildren && activeChild === child.id && (
+                    <div
+                      className="
+                absolute top-1 left-58
                 w-58
                 bg-white
                 shadow-xl
                 py-2
                 z-50
                 transition-all duration-200 ease-in-out
+                
               "
-            >
-              {child.children!.map((grandChild) => (
-                <div
-                  key={grandChild.id}
-                  className="
+                    >
+                      {child.children!.map((grandChild) => (
+                        <div
+                          key={grandChild.id}
+                          className="
                     px-4 py-2
                     text-[14px]
                     cursor-pointer
@@ -502,19 +520,20 @@ const CategoriesCard = () => {
                     text-secondary
                     hover:text-primary
                     hover:bg-gray-100
+                
                   "
-                >
-                  <Link to={`/category/${grandChild.slug}?parent=${category.slug}&child=${child.slug}`}>{grandChild.name}</Link>
+                        >
+                          <Link to={`/category/${grandChild.slug}?parent=${category.slug}&child=${child.slug}`}>{grandChild.name}</Link>
 
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
-              ))}
-            </div>
-          )}
-        </div>
-      )
-    })}
-  </div>
-)}
+              )
+            })}
+          </div>
+        )}
 
 
 
@@ -525,9 +544,9 @@ const CategoriesCard = () => {
 
 
 
-    </div>
-  )
-}
+      </div>
+    )
+  }
 
 
 
