@@ -472,7 +472,8 @@ const CategoriesCard = () => {
             
             "
           >
-            <span>{child.name}</span>
+            {/* <span>{child.name}</span> */}
+            <Link to={`/category/${child.slug}?parent=${category.slug}`}>{child.name}</Link>
             {childHasNestedChildren && <ChevronRight className="w-4" />}
           </div>
 
@@ -503,7 +504,8 @@ const CategoriesCard = () => {
                     hover:bg-gray-100
                   "
                 >
-                  {grandChild.name}
+                  <Link to={`/category/${grandChild.slug}?parent=${category.slug}&child=${child.slug}`}>{grandChild.name}</Link>
+
                 </div>
               ))}
             </div>

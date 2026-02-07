@@ -9,6 +9,7 @@ import Dashboard from "@/pages/admin/dashboard";
 import Signup from "@/pages/auth/signup";
 import Login from "@/pages/auth/login";
 import Shop from "@/pages/shop/shop";
+import TotalProducts from "@/pages/totalProducts";
 
 
 // Route configuration interface
@@ -25,6 +26,7 @@ export const publicRoutes: AppRoute[] = [
   { path: "/contact", element: <Contact /> },
   { path: "/blog", element: <Blog /> },
   { path: "/shop", element: <Shop /> },
+  { path: "/category/:categorySlug", element: <TotalProducts /> },
 ]
 
 // Protected routes (require authentication)
