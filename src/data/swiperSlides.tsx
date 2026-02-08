@@ -18,5 +18,11 @@ export const slidesData = [
     bgImage: "/cardImages/t4.jpg",
     heading: "Fresh vegetables Big discount",
     description: "Get fresh organic vegetables delivered",
+  },
+  {
+    bgImage: "/cardImages/t5.jpg",
+    heading: "Fresh vegetables Big discount",
+    description: "Get fresh organic vegetables delivered",
   }
+
 ]
