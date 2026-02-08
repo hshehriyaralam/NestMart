@@ -410,13 +410,11 @@ export const allProducts = [
     brand: "National",
     rating: 4.2,
     price: 160,
-
     mainCategory: "Desserts & Baking",
     mainCategorySlug: "desserts-baking",
     subCategory: "Baking Essentials",
     subCategorySlug: "baking-essentials",
     originalPrice: 52.8
-
   },
 
   {
@@ -442,7 +440,6 @@ export const allProducts = [
     brand: "Dawn",
     rating: 4.3,
     price: 520,
-
     mainCategory: "Frozen Food",
     mainCategorySlug: "frozen-food",
     subCategory: "Parathas &  Breads",
@@ -543,4 +540,6 @@ export const allProducts = [
 
   }
 ]
+
+
 

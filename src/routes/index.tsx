@@ -26,7 +26,7 @@ export const publicRoutes: AppRoute[] = [
   { path: "/contact", element: <Contact /> },
   { path: "/blog", element: <Blog /> },
   { path: "/shop", element: <Shop /> },
-  { path: "/category/:categorySlug", element: <TotalProducts />, showCategories: true },  // Show categories on TotalProducts
+  { path: "/*", element: <TotalProducts />, showCategories: true }
 ]
 
 // Protected routes (require authentication)

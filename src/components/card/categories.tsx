@@ -1,385 +1,442 @@
-import { ChevronRight } from "lucide-react"
-import { useState } from "react"
-import { Link, useLocation, matchPath } from "react-router-dom"
-import { publicRoutes, privateRoutes, adminRoutes } from "@/routes"
+import { ChevronRight } from "lucide-react";
+import { useState } from "react";
+import { Link, useLocation, matchPath } from "react-router-dom";
+import { publicRoutes, privateRoutes } from "@/routes";
+import { newProducts } from "@/data/products";
 
 /* ================= TYPES ================= */
 
 type CategoryNode = {
-  id: number
-  image?: string
-  name: string
-  slug: string
-  productsAvailable?: boolean
-  children?: CategoryNode[]
-}
+  id: number;
+  image?: string;
+  name: string;
+  slug: string;
+  productsAvailable?: boolean;
+  children?: CategoryNode[];
+};
+
+const buildCategoriesFromProducts = (products: any[]) => {
+  const map = new Map<string, any>();
+
+  products.forEach((product) => {
+    const {
+      mainCategory,
+      mainCategorySlug,
+      subCategory,
+      subCategorySlug,
+      childCategory,
+      childCategorySlug,
+    } = product;
+
+    // 1️⃣ MAIN CATEGORY
+    if (!map.has(mainCategorySlug)) {
+      map.set(mainCategorySlug, {
+        id: map.size + 1,
+        name: mainCategory,
+        slug: mainCategorySlug,
+        children: [],
+      });
+    }
+
+    const mainNode = map.get(mainCategorySlug);
+
+    // 2️⃣ SUB CATEGORY
+    let subNode = mainNode.children.find(
+      (c: any) => c.slug === subCategorySlug,
+    );
+
+    if (!subNode) {
+      subNode = {
+        id: mainNode.children.length + 1,
+        name: subCategory,
+        slug: subCategorySlug,
+        children: [],
+      };
+      mainNode.children.push(subNode);
+    }
+
+    // 3️⃣ CHILD CATEGORY
+    const childExists = subNode.children.find(
+      (c: any) => c.slug === childCategorySlug,
+    );
+
+    if (!childExists) {
+      subNode.children.push({
+        id: subNode.children.length + 1,
+        name: childCategory,
+        slug: childCategorySlug,
+        productsAvailable: true,
+      });
+    }
+  });
+
+  return Array.from(map.values());
+};
 
 /* ================= DATA ================= */
 
-const categoriesData: CategoryNode[] = [
-  {
-    id: 1,
-    image: "/categoriesCard/category-1.png",
-    name: "Household & Laundry",
-    slug: "household-laundry",
-    children: [
-      {
-        id: 11,
-        name: "Home Essentials",
-        slug: "home-essentials",
-        children: [
-          {
-            id: 111,
-            name: "Insecticides",
-            slug: "insecticides",
-            productsAvailable: true
-          },
-          {
-            id: 112,
-            name: "Air Fresheners",
-            slug: "air-fresheners",
-            productsAvailable: true
-          },
-          {
-            id: 113,
-            name: "Towels & Tissues",
-            slug: "towels-and-tissues",
-            productsAvailable: true
-          },
-          {
-            id: 114,
-            name: "Home Decor",
-            slug: "home-decor",
-            productsAvailable: true
-          },
-          {
-            id: 115,
-            name: "Home Accessories",
-            slug: "home-accessories",
-            productsAvailable: true
-          },
-          {
-            id: 116,
-            name: "Badsheets & Curtains",
-            slug: "badsheets-curtains",
-            productsAvailable: true
-          },
-          {
-            id: 117,
-            name: "Tools & Solutions",
-            slug: "tools-solutions",
-            productsAvailable: true
-          },
-          {
-            id: 118,
-            name: "Mats & Rugs",
-            slug: "mats-rugs",
-            productsAvailable: true
-          }
-        ]
-      },
-      {
-        id: 12,
-        name: "Toilet & Surface Cleaners",
-        slug: "toilet-surface-cleaners",
-        children: [],
-        productsAvailable: true
-      },
-      {
-        id: 13,
-        name: "Dishwashing",
-        slug: "dishwashing",
-        children: [
-          {
-            id: 131,
-            name: "Powder, Soap & Liquids",
-            slug: "powder-soap-liquids",
-            productsAvailable: true
-          },
-          {
-            id: 132,
-            name: "Scrubbers & Brushes",
-            slug: "scrubbers-brushes",
-            productsAvailable: true
-          }
-        ]
-      },
-      {
-        id: 14,
-        name: "Laundry",
-        slug: "laundry",
-        children: [
-          {
-            id: 141,
-            name: "Washing Powder",
-            slug: "washing-powder",
-            productsAvailable: true
-          },
-          {
-            id: 142,
-            name: "Liquid Detergent",
-            slug: "liquid-detergent",
-            productsAvailable: true
-          }
-        ]
-      }
-    ]
-  },
+// const categoriesData: CategoryNode[] = [
+//   {
+//     id: 1,
+//     image: "/categoriesCard/category-1.png",
+//     name: "Household & Laundry",
+//     slug: "household-laundry",
+//     children: [
+//       {
+//         id: 11,
+//         name: "Home Essentials",
+//         slug: "home-essentials",
+//         children: [
+//           {
+//             id: 111,
+//             name: "Insecticides",
+//             slug: "insecticides",
+//             productsAvailable: true,
+//           },
+//           {
+//             id: 112,
+//             name: "Air Fresheners",
+//             slug: "air-fresheners",
+//             productsAvailable: true,
+//           },
+//           {
+//             id: 113,
+//             name: "Towels & Tissues",
+//             slug: "towels-and-tissues",
+//             productsAvailable: true,
+//           },
+//           {
+//             id: 114,
+//             name: "Home Decor",
+//             slug: "home-decor",
+//             productsAvailable: true,
+//           },
+//           {
+//             id: 115,
+//             name: "Home Accessories",
+//             slug: "home-accessories",
+//             productsAvailable: true,
+//           },
+//           {
+//             id: 116,
+//             name: "Badsheets & Curtains",
+//             slug: "badsheets-curtains",
+//             productsAvailable: true,
+//           },
+//           {
+//             id: 117,
+//             name: "Tools & Solutions",
+//             slug: "tools-solutions",
+//             productsAvailable: true,
+//           },
+//           {
+//             id: 118,
+//             name: "Mats & Rugs",
+//             slug: "mats-rugs",
+//             productsAvailable: true,
+//           },
+//         ],
+//       },
+//       {
+//         id: 12,
+//         name: "Toilet & Surface Cleaners",
+//         slug: "toilet-surface-cleaners",
+//         children: [],
+//         productsAvailable: true,
+//       },
+//       {
+//         id: 13,
+//         name: "Dishwashing",
+//         slug: "dishwashing",
+//         children: [
+//           {
+//             id: 131,
+//             name: "Powder, Soap & Liquids",
+//             slug: "powder-soap-liquids",
+//             productsAvailable: true,
+//           },
+//           {
+//             id: 132,
+//             name: "Scrubbers & Brushes",
+//             slug: "scrubbers-brushes",
+//             productsAvailable: true,
+//           },
+//         ],
+//       },
+//       {
+//         id: 14,
+//         name: "Laundry",
+//         slug: "laundry",
+//         children: [
+//           {
+//             id: 141,
+//             name: "Washing Powder",
+//             slug: "washing-powder",
+//             productsAvailable: true,
+//           },
+//           {
+//             id: 142,
+//             name: "Liquid Detergent",
+//             slug: "liquid-detergent",
+//             productsAvailable: true,
+//           },
+//         ],
+//       },
+//     ],
+//   },
 
-  {
-    id: 2,
-    image: "/categoriesCard/category-2.png",
-    name: "Desserts & Baking",
-    slug: "desserts-baking",
-    children: [
-      {
-        id: 21,
-        name: "Traditional",
-        slug: "traditional",
-        children: [],
-        productsAvailable: true
-      },
-      {
-        id: 22,
-        name: "Jelly & Custards",
-        slug: "jelly-custards",
-        children: [],
-        productsAvailable: true
-      },
-      {
-        id: 23,
-        name: "Cakes & Toppings",
-        slug: "cakes-toppings",
-        children: [],
-        productsAvailable: true
-      },
-      {
-        id: 24,
-        name: "Baking Essentials",
-        slug: "baking-essentials",
-        children: [],
-        productsAvailable: true
-      }
-    ]
-  },
+//   {
+//     id: 2,
+//     image: "/categoriesCard/category-2.png",
+//     name: "Desserts & Baking",
+//     slug: "desserts-baking",
+//     children: [
+//       {
+//         id: 21,
+//         name: "Traditional",
+//         slug: "traditional",
+//         children: [],
+//         productsAvailable: true,
+//       },
+//       {
+//         id: 22,
+//         name: "Jelly & Custards",
+//         slug: "jelly-custards",
+//         children: [],
+//         productsAvailable: true,
+//       },
+//       {
+//         id: 23,
+//         name: "Cakes & Toppings",
+//         slug: "cakes-toppings",
+//         children: [],
+//         productsAvailable: true,
+//       },
+//       {
+//         id: 24,
+//         name: "Baking Essentials",
+//         slug: "baking-essentials",
+//         children: [],
+//         productsAvailable: true,
+//       },
+//     ],
+//   },
 
-  {
-    id: 3,
-    image: "/categoriesCard/category-3.png",
-    name: "Toys",
-    slug: "desserts-baking",
-    children: [
-      {
-        id: 31,
-        name: "Flash Cards",
-        slug: "traditional",
-        children: [],
-        productsAvailable: true
-      },
-    ]
-  },
+//   {
+//     id: 3,
+//     image: "/categoriesCard/category-3.png",
+//     name: "Toys",
+//     slug: "desserts-baking",
+//     children: [
+//       {
+//         id: 31,
+//         name: "Flash Cards",
+//         slug: "traditional",
+//         children: [],
+//         productsAvailable: true,
+//       },
+//     ],
+//   },
 
-  {
-    id: 4,
-    image: "/categoriesCard/category-4.png",
-    name: "Grocery",
-    slug: "grocery",
-    children: [
-      {
-        id: 41,
-        name: "Foot Staples",
-        slug: "foot-staples",
-        children: [
-          {
-            id: 411,
-            name: "Soups & Crackers",
-            slug: "soups-crackers",
-            productsAvailable: true
-          },
-          {
-            id: 412,
-            name: "Air Fresheners",
-            slug: "air-fresheners",
-            productsAvailable: true
-          },
-          {
-            id: 413,
-            name: "Towels & Tissues",
-            slug: "towels-and-tissues",
-            productsAvailable: true
-          },
-          {
-            id: 414,
-            name: "Home Decor",
-            slug: "home-decor",
-            productsAvailable: true
-          },
-          {
-            id: 415,
-            name: "Home Accessories",
-            slug: "home-accessories",
-            productsAvailable: true
-          },
-          {
-            id: 416,
-            name: "Badsheets & Curtains",
-            slug: "badsheets-curtains",
-            productsAvailable: true
-          },
-          {
-            id: 417,
-            name: "Tools & Solutions",
-            slug: "tools-solutions",
-            productsAvailable: true
-          },
-          {
-            id: 418,
-            name: "Mats & Rugs",
-            slug: "mats-rugs",
-            productsAvailable: true
-          }
-        ]
-      },
-      {
-        id: 12,
-        name: "Toilet & Surface Cleaners",
-        slug: "toilet-surface-cleaners",
-        children: [],
-        productsAvailable: true
-      },
-      {
-        id: 13,
-        name: "Dishwashing",
-        slug: "dishwashing",
-        children: [
-          {
-            id: 131,
-            name: "Powder, Soap & Liquids",
-            slug: "powder-soap-liquids",
-            productsAvailable: true
-          },
-          {
-            id: 132,
-            name: "Scrubbers & Brushes",
-            slug: "scrubbers-brushes",
-            productsAvailable: true
-          }
-        ]
-      },
-      {
-        id: 14,
-        name: "Laundry",
-        slug: "laundry",
-        children: [
-          {
-            id: 141,
-            name: "Washing Powder",
-            slug: "washing-powder",
-            productsAvailable: true
-          },
-          {
-            id: 142,
-            name: "Liquid Detergent",
-            slug: "liquid-detergent",
-            productsAvailable: true
-          }
-        ]
-      }
-    ]
-  },
+//   {
+//     id: 4,
+//     image: "/categoriesCard/category-4.png",
+//     name: "Grocery",
+//     slug: "grocery",
+//     children: [
+//       {
+//         id: 41,
+//         name: "Foot Staples",
+//         slug: "foot-staples",
+//         children: [
+//           {
+//             id: 411,
+//             name: "Soups & Crackers",
+//             slug: "soups-crackers",
+//             productsAvailable: true,
+//           },
+//           {
+//             id: 412,
+//             name: "Air Fresheners",
+//             slug: "air-fresheners",
+//             productsAvailable: true,
+//           },
+//           {
+//             id: 413,
+//             name: "Towels & Tissues",
+//             slug: "towels-and-tissues",
+//             productsAvailable: true,
+//           },
+//           {
+//             id: 414,
+//             name: "Home Decor",
+//             slug: "home-decor",
+//             productsAvailable: true,
+//           },
+//           {
+//             id: 415,
+//             name: "Home Accessories",
+//             slug: "home-accessories",
+//             productsAvailable: true,
+//           },
+//           {
+//             id: 416,
+//             name: "Badsheets & Curtains",
+//             slug: "badsheets-curtains",
+//             productsAvailable: true,
+//           },
+//           {
+//             id: 417,
+//             name: "Tools & Solutions",
+//             slug: "tools-solutions",
+//             productsAvailable: true,
+//           },
+//           {
+//             id: 418,
+//             name: "Mats & Rugs",
+//             slug: "mats-rugs",
+//             productsAvailable: true,
+//           },
+//         ],
+//       },
+//       {
+//         id: 12,
+//         name: "Toilet & Surface Cleaners",
+//         slug: "toilet-surface-cleaners",
+//         children: [],
+//         productsAvailable: true,
+//       },
+//       {
+//         id: 13,
+//         name: "Dishwashing",
+//         slug: "dishwashing",
+//         children: [
+//           {
+//             id: 131,
+//             name: "Powder, Soap & Liquids",
+//             slug: "powder-soap-liquids",
+//             productsAvailable: true,
+//           },
+//           {
+//             id: 132,
+//             name: "Scrubbers & Brushes",
+//             slug: "scrubbers-brushes",
+//             productsAvailable: true,
+//           },
+//         ],
+//       },
+//       {
+//         id: 14,
+//         name: "Laundry",
+//         slug: "laundry",
+//         children: [
+//           {
+//             id: 141,
+//             name: "Washing Powder",
+//             slug: "washing-powder",
+//             productsAvailable: true,
+//           },
+//           {
+//             id: 142,
+//             name: "Liquid Detergent",
+//             slug: "liquid-detergent",
+//             productsAvailable: true,
+//           },
+//         ],
+//       },
+//     ],
+//   },
 
-  {
-    id: 5,
-    image: "/categoriesCard/category-5.png",
-    name: "Frozen Food",
-    slug: "frozen-food",
-    children: [
-      {
-        id: 51,
-        name: "Ready Meals & Snacks",
-        slug: "ready-meals-snacks",
-        children: [],
-        productsAvailable: true
-      },
-      {
-        id: 52,
-        name: "Parathas &  Breads",
-        slug: "parathas-breads",
-        children: [],
-        productsAvailable: true
-      },
-    ]
-  },
+//   {
+//     id: 5,
+//     image: "/categoriesCard/category-5.png",
+//     name: "Frozen Food",
+//     slug: "frozen-food",
+//     children: [
+//       {
+//         id: 51,
+//         name: "Ready Meals & Snacks",
+//         slug: "ready-meals-snacks",
+//         children: [],
+//         productsAvailable: true,
+//       },
+//       {
+//         id: 52,
+//         name: "Parathas &  Breads",
+//         slug: "parathas-breads",
+//         children: [],
+//         productsAvailable: true,
+//       },
+//     ],
+//   },
 
+//   {
+//     id: 6,
+//     image: "/categoriesCard/category-3.png",
+//     name: "Fresh Product",
+//     slug: "fresh-product",
+//     children: [
+//       {
+//         id: 61,
+//         name: "Fresh Meats & Poultry",
+//         slug: "fresh-meats-poultry",
+//         children: [],
+//         productsAvailable: true,
+//       },
+//       {
+//         id: 62,
+//         name: "Fruits",
+//         slug: "fruits",
+//         children: [],
+//         productsAvailable: true,
+//       },
+//       {
+//         id: 63,
+//         name: "Vegetables",
+//         slug: "vegetables",
+//         children: [],
+//         productsAvailable: true,
+//       },
+//     ],
+//   },
+//   {
+//     id: 7,
+//     image: "/categoriesCard/category-2.png",
+//     name: "Ramadan Packages",
+//     slug: "ramadan-packages",
+//     children: [],
+//   },
+//   {
+//     id: 8,
+//     image: "/categoriesCard/category-1.png",
+//     name: "Nest Masala",
+//     slug: "nest-masala",
+//     children: [],
+//   },
+//   {
+//     id: 9,
+//     image: "/categoriesCard/category-4.png",
+//     name: "Lotions & Powders",
+//     slug: "lotions-powders",
+//     children: [],
+//   },
+//   {
+//     id: 10,
+//     image: "/categoriesCard/category-3.png",
+//     name: "Newborns & Infants",
+//     slug: "newborns-infants",
+//     children: [],
+//   },
+//   {
+//     id: 12,
+//     image: "/categoriesCard/category-2.png",
+//     name: "Body Luxuries",
+//     slug: "body-luxuries",
+//     children: [],
+//   },
+// ];
 
-  {
-    id: 6,
-    image: "/categoriesCard/category-3.png",
-    name: "Fresh Product",
-    slug: "fresh-product",
-    children: [
-      {
-        id: 61,
-        name: "Fresh Meats & Poultry",
-        slug: "fresh-meats-poultry",
-        children: [],
-        productsAvailable: true
-      },
-      {
-        id: 62,
-        name: "Fruits",
-        slug: "fruits",
-        children: [],
-        productsAvailable: true
-      },
-      {
-        id: 63,
-        name: "Vegetables",
-        slug: "vegetables",
-        children: [],
-        productsAvailable: true
-      },
-    ]
-  },
-  {
-    id: 7,
-    image: "/categoriesCard/category-2.png",
-    name: "Ramadan Packages",
-    slug: "ramadan-packages",
-    children: []
-  },
-  {
-    id: 8,
-    image: "/categoriesCard/category-1.png",
-    name: "Nest Masala",
-    slug: "nest-masala",
-    children: []
-  },
-  {
-    id: 9,
-    image: "/categoriesCard/category-4.png",
-    name: "Lotions & Powders",
-    slug: "lotions-powders",
-    children: []
-  },
-  {
-    id: 10,
-    image: "/categoriesCard/category-3.png",
-    name: "Newborns & Infants",
-    slug: "newborns-infants",
-    children: []
-  },
-  {
-    id: 12,
-    image: "/categoriesCard/category-2.png",
-    name: "Body Luxuries",
-    slug: "body-luxuries",
-    children: []
-  },
-
-
-]
-
+const categoriesData = buildCategoriesFromProducts(newProducts);
 
 /* ================= COMPONENT ================= */
 
@@ -387,9 +444,9 @@ const CategoriesCard = () => {
   const location = useLocation();
 
   // Check all routes to find which one matches current path
-  const allRoutes = [...publicRoutes, ...privateRoutes, ...adminRoutes];
-  const currentRoute = allRoutes.find(route =>
-    matchPath(route.path, location.pathname)
+  const allRoutes = [...publicRoutes, ...privateRoutes];
+  const currentRoute = allRoutes.find((route) =>
+    matchPath(route.path, location.pathname),
   );
   // Only show if route has showCategories: true
   if (!currentRoute?.showCategories) {
@@ -397,9 +454,12 @@ const CategoriesCard = () => {
   }
 
   const CategoryItem = ({ category }: { category: CategoryNode }) => {
-    const [activeChild, setActiveChild] = useState<number | null>(null)
-    const [open, setOpen] = useState(false)
-    const hasChildren = category.children && category.children.length > 0
+    const [activeChild, setActiveChild] = useState<number | null>(null);
+    const [open, setOpen] = useState(false);
+    const hasChildren = category.children && category.children.length > 0;
+    const isClickable =
+      category.productsAvailable ||
+      (category.children && category.children.length > 0);
 
     const Content = (
       <div
@@ -412,7 +472,9 @@ const CategoriesCard = () => {
         <div className="flex items-center gap-x-2  ">
           {category.image && <img src={category.image} className="w-7" />}
           <p
-            className={`text-[15px]  ${open ? 'font-quicksand font-bold  hover:text-primary ' : 'font-heading '
+            className={`text-[15px]  ${open
+                ? "font-quicksand font-bold  hover:text-primary "
+                : "font-heading "
               }  `}
           >
             {category.name}
@@ -420,7 +482,6 @@ const CategoriesCard = () => {
         </div>
 
         {hasChildren && (
-
           <div className="w-5 h-5 flex items-center justify-center">
             <ChevronRight
               className={`w-8 transition-colors ${open ? "text-primary" : "text-secondary"
@@ -429,7 +490,7 @@ const CategoriesCard = () => {
           </div>
         )}
       </div>
-    )
+    );
 
     return (
       <div
@@ -438,17 +499,16 @@ const CategoriesCard = () => {
         onMouseLeave={() => setOpen(false)}
       >
         {/* CLICK ONLY IF LAST NODE */}
-        {category.productsAvailable ? (
-          <Link to={`/category/${category.slug}`}>{Content}</Link>
+        {isClickable ? (
+          <Link to={`/${category.slug}`}>{Content}</Link>
         ) : (
           Content
         )}
 
-
         {hasChildren && open && (
           <div
             className="
-      absolute top-2 left-65
+      absolute top-4 left-62
       w-58
       bg-white
       shadow-xl
@@ -458,18 +518,21 @@ const CategoriesCard = () => {
           >
             {category.children!.map((child) => {
               const childHasNestedChildren =
-                Array.isArray(child.children) && child.children.length > 0
+                Array.isArray(child.children) && child.children.length > 0;
 
               return (
                 <div
                   key={child.id}
                   className="relative"
-                  onMouseEnter={() => childHasNestedChildren && setActiveChild(child.id)}
+                  onMouseEnter={() =>
+                    childHasNestedChildren && setActiveChild(child.id)
+                  }
                   onMouseLeave={() => setActiveChild(null)}
                 >
                   {/* CHILD ITEM */}
-                  <div
-                    className="
+                  <Link to={`/${category.slug}/${child.slug}`}>
+                    <div
+                      className="
               flex items-center justify-between
               px-4 py-2
               cursor-pointer
@@ -484,18 +547,21 @@ const CategoriesCard = () => {
               
             
             "
-                  >
-                    {/* <span>{child.name}</span> */}
-                    <Link to={`/category/${child.slug}?parent=${category.slug}`}>{child.name}</Link>
-                    {childHasNestedChildren && <ChevronRight className="w-4" />}
-                  </div>
+                    >
+                      {/* <span>{child.name}</span> */}
+                      {child.name}
+                      {childHasNestedChildren && (
+                        <ChevronRight className="w-4" />
+                      )}
+                    </div>
+                  </Link>
 
                   {/* GRANDCHILD PANEL */}
                   {childHasNestedChildren && activeChild === child.id && (
                     <div
                       className="
-                absolute top-1 left-58
-                w-58
+                absolute top-4 left-54
+                w-62
                 bg-white
                 shadow-xl
                 py-2
@@ -505,9 +571,12 @@ const CategoriesCard = () => {
               "
                     >
                       {child.children!.map((grandChild) => (
-                        <div
-                          key={grandChild.id}
-                          className="
+                        <Link
+                          to={`/${category.slug}/${child.slug}/${grandChild.slug}`}
+                        >
+                          <div
+                            key={grandChild.id}
+                            className="
                     px-4 py-2
                     text-[14px]
                     cursor-pointer
@@ -518,33 +587,21 @@ const CategoriesCard = () => {
                     hover:bg-gray-100
                 
                   "
-                        >
-                          <Link to={`/category/${grandChild.slug}?parent=${category.slug}&child=${child.slug}`}>{grandChild.name}</Link>
-
-                        </div>
+                          >
+                            {grandChild.name}
+                          </div>
+                        </Link>
                       ))}
                     </div>
                   )}
                 </div>
-              )
+              );
             })}
           </div>
         )}
-
-
-
-
-
-
-
-
-
-
       </div>
-    )
-  }
-
-
+    );
+  };
 
   return (
     <div className="w-full rounded-xl p-4 border border-[#ECECEC] flex flex-col gap-y-2 items-start">
@@ -556,7 +613,7 @@ const CategoriesCard = () => {
         ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default CategoriesCard
+export default CategoriesCard;
