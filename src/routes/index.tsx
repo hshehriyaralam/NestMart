@@ -5,7 +5,6 @@ import Contact from "../pages/contact/indes";
 import Blog from "../pages/blog";
 import ProductDetails from "@/pages/products/productDetails";
 import BlogDetails from "@/pages/blog/blogDetails";
-import Dashboard from "@/pages/admin/dashboard";
 import Signup from "@/pages/auth/signup";
 import Login from "@/pages/auth/login";
 import Shop from "@/pages/shop/shop";
@@ -43,11 +42,4 @@ export const privateRoutes: AppRoute[] = [
 
 
 ];
-// admin routes
-export const adminRoutes: AppRoute[] = [
-  {
-    path: "/admin/dashboard",
-    element: <Dashboard />,
-  },
 
-];

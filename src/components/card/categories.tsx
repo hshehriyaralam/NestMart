@@ -388,11 +388,9 @@ const CategoriesCard = () => {
 
   // Check all routes to find which one matches current path
   const allRoutes = [...publicRoutes, ...privateRoutes, ...adminRoutes];
-  console.log("all routes111111111",allRoutes);
   const currentRoute = allRoutes.find(route =>
     matchPath(route.path, location.pathname)
   );
- console.log("current route 2222222222",currentRoute);
   // Only show if route has showCategories: true
   if (!currentRoute?.showCategories) {
     return null;
@@ -402,8 +400,6 @@ const CategoriesCard = () => {
     const [activeChild, setActiveChild] = useState<number | null>(null)
     const [open, setOpen] = useState(false)
     const hasChildren = category.children && category.children.length > 0
-
-
 
     const Content = (
       <div
@@ -425,7 +421,7 @@ const CategoriesCard = () => {
 
         {hasChildren && (
 
-          <div className="w-5 h-5 flex items-center justify-center  ">
+          <div className="w-5 h-5 flex items-center justify-center">
             <ChevronRight
               className={`w-8 transition-colors ${open ? "text-primary" : "text-secondary"
                 }`}
