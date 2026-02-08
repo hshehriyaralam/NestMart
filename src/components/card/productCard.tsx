@@ -1,4 +1,4 @@
-
+import { useNavigate } from "react-router-dom";
 import CartButton from "../button/cartButton";
 import { ShoppingCart, } from "lucide-react";
 
@@ -20,6 +20,8 @@ interface ProductsProps {
 }
 
 export default function ProductCard(data: ProductsProps) {
+  const navigate = useNavigate();
+
   return (
     <>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-3 ">
@@ -54,6 +56,7 @@ export default function ProductCard(data: ProductsProps) {
                   variant="primary"
                   icon={<ShoppingCart size={18} />}
                   className="p-2"
+                  onClick={() => navigate(`/products/${product.id}`)}
                 >
                   Add
                 </CartButton>
