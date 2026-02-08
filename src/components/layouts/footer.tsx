@@ -3,29 +3,29 @@ import Clock from "/logo/icon-clock.png";
 import Contact from "/logo/icon-contact.svg";
 import Location from "/logo/icon-location.svg";
 import Email from "/logo/icon-email.png";
-import Playstore from "/logo/163.svg";
-import Appstore from "/logo/162.svg";
+import CASHOD from "/logo/payment-1.png";
+import CARDOD from "/logo/payment-2.png";
+import ONLINEPAYMENT from "/logo/payment-3.png";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
   const contactInfo = [
     { icon: Location, label: "Address:", value: "5171 W Campbell Ave, Kent, Utah 53127 United States" },
     { icon: Contact, label: "Call Us:", value: "(+91) - 540-025-124553" },
-    { icon: Email, label: "Email:", value: "sale@Nest.com" },
-    { icon: Clock, label: "Hours:", value: "10:00 - 18:00, Mon - Sat" },
+    { icon: Email, label: "Email:", value: "sales@Nest.com" },
   ];
 
   const sections = [
     {
-      title: "Company",
+      title: "Information",
       links: [
         { label: "About Us", to: "/about" },
-        { label: "Delivery Information", to: "/blog" },
         { label: "Privacy Policy", to: "/blog/:id" },
         { label: "Terms & Conditions", to: "/terms" },
         { label: "Contact Us", to: "/contact" },
-        { label: "Support Center", to: "/support" },
-        { label: "Careers", to: "/careers" },
+        { label: "Faqs", to: "/faqs" },
+        { label: "Blogs", to: "/blog" },
+
       ],
     },
     {
@@ -35,33 +35,7 @@ const Footer = () => {
         { label: "View Cart", to: "/cart" },
         { label: "My Wishlist", to: "/wishlist" },
         { label: "Track My Order", to: "/track-order" },
-        { label: "Help Ticket", to: "/help-ticket" },
         { label: "Shipping Details", to: "/shipping-details" },
-        { label: "Compare products", to: "/compare-products" },
-      ],
-    },
-    {
-      title: "Corporate",
-      links: [
-        { label: "Become a Vendor", to: "/vendor" },
-        { label: "Affiliate Program", to: "/affiliate" },
-        { label: "Farm Business", to: "/farm-business" },
-        { label: "Farm Careers", to: "/farm-careers" },
-        { label: "Our Suppliers", to: "/suppliers" },
-        { label: "Accessibility", to: "/accessibility" },
-        { label: "Promotions", to: "/promotions" },
-      ],
-    },
-    {
-      title: "Popular",
-      links: [
-        { label: "Milk & Flavoured Milk", to: "/milk" },
-        { label: "Butter and Margarine", to: "/butter" },
-        { label: "Eggs Substitutes", to: "/eggs" },
-        { label: "Marmalades", to: "/marmalades" },
-        { label: "Sour Cream and Dips", to: "/sour-cream" },
-        { label: "Tea & Kombucha", to: "/tea" },
-        { label: "Cheese", to: "/cheese" },
       ],
     },
   ];
@@ -74,9 +48,9 @@ const Footer = () => {
           <div className="flex items-center gap-2">
             <img src={Nest} alt="logo" className="w-32" />
           </div>
-          <p className="font-lato text-sm md:text-md text-secondary">
-            Awesome grocery store website template
-          </p>
+          <h2 className="font-heading text-sm md:text-lg font-semibold text-secondary">
+            Get In Touch
+          </h2>
           <ul className="flex flex-col gap-2 text-sm text-gray-600">
             {contactInfo.map((info, idx) => (
               <li key={idx} className="flex items-start gap-2">
@@ -140,12 +114,12 @@ const Footer = () => {
 
         {/* Install App */}
         <div className="flex flex-col gap-3 w-full md:w-auto">
-          <h3 className="font-heading font-semibold text-base md:text-lg">Install App</h3>
+          <h3 className="font-heading font-semibold text-base md:text-lg">Payment Methods</h3>
           <div className="flex gap-2 mb-2 flex-wrap">
-            <img src={Playstore} alt="playstore" className="w-20" />
-            <img src={Appstore} alt="appstore" className="w-20" />
+            <img src={CASHOD} alt="CASHOD" className="w-20" />
+            <img src={CARDOD} alt="CARDOD" className="w-20" />
+            <img src={ONLINEPAYMENT} alt="ONLINEPAYMENT" className="w-20" />
           </div>
-          <p className="font-lato text-xs md:text-sm text-secondary">Secured Payment Gateways</p>
         </div>
       </div>
     </footer>
