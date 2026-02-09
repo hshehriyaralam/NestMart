@@ -8,27 +8,19 @@ import {
   User,
 } from "lucide-react";
 import { useState } from "react";
-
-
-const BrowseCategories = [
-  "All",
-  "Milk & Dairies",
-  "Coffe & Teas",
-  "Pet Fooods",
-  "Meats",
-  "Vegatables",
-  "Fruits",
-];
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { categoriesData } from "@/data/categories.data";
 
 const SearchBarCategories = () => {
   const [selected, setSelected] = useState("All Categories")
-  const [forceClose, setForceClose] = useState(false);
 
-  const handleSelect= (cat:string) => {
+  const handleSelect = (cat: string) => {
     setSelected(cat === "All" ? "All Categories" : cat);
-
-    setForceClose(true)
-    setTimeout(() => setForceClose(false), 200)
   }
 
   return (
@@ -44,31 +36,33 @@ const SearchBarCategories = () => {
           className="lg:max-w-[600px] h-[50px] flex items-center border-2
            border-green-200  rounded pl-2 pr-4 ">
 
-          <button className={`group relative flex justify-center items-center  gap-2 w-[150px] cursor-pointer    ${forceClose ? "pointer-events-none" : ""} `}>
-            <span className="font-heading text-sm">{selected}</span>
-            <ChevronDown className="w-3 group-hover:rotate-180 transition-transform duration-200" />
-
-          {/* Dropdown */}
-          <ul
-            className={`
-            absolute left-2 top-[26px] 
-            hidden group-hover:block
-            bg-white shadow-lg rounded-lg p-3 w-38 z-50  text-left
-            ${forceClose ? "" : "group-hover:block"}
-          `}>
-            {BrowseCategories.map((cat, index) => (
-              <li
-              onClick={() => handleSelect(cat)}
-                key={index}
-                className="py-1 px-2 hover:bg-gray-100 font-heading cursor-pointer text-xs"
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <button className="flex justify-center items-center gap-2 w-[150px] 
+              cursor-pointer outline-none">
+                <span className="font-heading text-sm">{selected}</span>
+                <ChevronDown className="w-3 transition-transform duration-200 
+                data-[state=open]:rotate-180" />
+              </button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="start" className="w-[150px]">
+              <DropdownMenuItem
+                onClick={() => handleSelect("All")}
+                className="font-heading text-xs cursor-pointer"
               >
-                {cat}
-              </li>
-            ))}
-          </ul>
-          </button>
-
-
+                All Categories
+              </DropdownMenuItem>
+              {categoriesData.map((cat, index) => (
+                <DropdownMenuItem
+                  key={index}
+                  onClick={() => handleSelect(cat.name)}
+                  className="font-heading text-xs cursor-pointer"
+                >
+                  {cat.name}
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
 
           <span className="w-px h-6 bg-gray-300 mx-4"></span>
           <input
@@ -94,11 +88,11 @@ const SearchBarCategories = () => {
 
           {/* icons group */}
           <div className="flex gap-1">
-            <button className="flex  items-end cursor-pointer   ">   
+            <button className="flex  items-end cursor-pointer   ">
               <RefreshCw className="text-secondary opacity-70  w-6  " />
               <span className="action-button-text text-sm font-medium  ">Compare</span>
-              <div 
-              className="w-4  h-4  relative  right-17  bottom-3 bg-primary flex justify-center items-center  rounded-full " >
+              <div
+                className="w-4  h-4  relative  right-17  bottom-3 bg-primary flex justify-center items-center  rounded-full " >
                 <span className="text-white text-[9px] " >3</span>
               </div>
             </button>
@@ -106,8 +100,8 @@ const SearchBarCategories = () => {
             <button className="flex items-end  cursor-pointer ">
               <Heart className="text-secondary opacity-70  w-6 " />
               <span className="action-button-text text-sm font-medium">Wishlist</span>
-               <div 
-              className="w-4  h-4  relative  right-16  bottom-3 bg-primary flex justify-center items-center  rounded-full " >
+              <div
+                className="w-4  h-4  relative  right-16  bottom-3 bg-primary flex justify-center items-center  rounded-full " >
                 <span className="text-white text-[9px] " >6</span>
               </div>
             </button>
@@ -115,8 +109,8 @@ const SearchBarCategories = () => {
             <button className="flex items-end cursor-pointer">
               <ShoppingCart className="text-secondary opacity-70  w-6 " />
               <span className="action-button-text text-sm font-medium">Cart</span>
-              <div 
-              className="w-4  h-4  relative  right-10  bottom-3 bg-primary flex justify-center items-center  rounded-full " >
+              <div
+                className="w-4  h-4  relative  right-10  bottom-3 bg-primary flex justify-center items-center  rounded-full " >
                 <span className="text-white text-[9px] " >2</span>
               </div>
             </button>
