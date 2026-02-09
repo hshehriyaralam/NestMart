@@ -5,11 +5,38 @@ import { useLocation } from "react-router-dom";
 import CategoriesCard from "@/components/card/categories";
 
 const TotalProducts = () => {
+<<<<<<< Updated upstream
   const location = useLocation();
 
   const slugs = location.pathname.replace("/", "").split("/").filter(Boolean);
 
   const [parentSlug, subSlug, childSlug] = slugs;
+=======
+ const { slug } = useParams();          // clicked category
+const [searchParams] = useSearchParams();
+
+const parentSlug = searchParams.get("parent");
+const subSlug = searchParams.get("sub");
+
+const filteredProducts = allProducts.filter(product => {
+  // Parent category match
+  if (parentSlug && product.mainCategorySlug !== parentSlug) {
+    return false;
+  }
+
+  // Sub category match
+  if (subSlug && product.subCategorySlug !== subSlug) {
+    return false;
+  }
+
+  // Clicked category match (child OR sub OR main)
+  return (
+    product.childCategorySlug === slug ||
+    product.subCategorySlug === slug ||
+    product.mainCategorySlug === slug
+  );
+});
+>>>>>>> Stashed changes
 
   const filteredProducts = newProducts.filter((product) => {
     if (parentSlug && product.mainCategorySlug !== parentSlug) {

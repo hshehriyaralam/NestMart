@@ -26,7 +26,11 @@ export const publicRoutes: AppRoute[] = [
   { path: "/contact", element: <Contact /> },
   { path: "/blog", element: <Blog /> },
   { path: "/shop", element: <Shop /> },
+<<<<<<< Updated upstream
   { path: "/*", element: <TotalProducts />, showCategories: true }
+=======
+  { path: "/category", element: <TotalProducts /> },
+>>>>>>> Stashed changes
 ]
 
 // Protected routes (require authentication)

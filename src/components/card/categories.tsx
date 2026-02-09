@@ -481,6 +481,7 @@ const CategoriesCard = () => {
           </p>
         </div>
 
+<<<<<<< Updated upstream
         {hasChildren && (
           <div className="w-5 h-5 flex items-center justify-center">
             <ChevronRight
@@ -491,6 +492,22 @@ const CategoriesCard = () => {
         )}
       </div>
     );
+=======
+  return (
+    <div
+      className="relative w-full"
+      onMouseEnter={() => setOpen(true)}
+      onMouseLeave={() => setOpen(false)}
+    >
+      {/* CLICK ONLY IF LAST NODE */}
+      {category.productsAvailable ? (
+        <Link to={`/category`} className="w-full">
+            {Content}
+          </Link>
+      ) : (
+        Content
+      )}
+>>>>>>> Stashed changes
 
     return (
       <div
@@ -547,6 +564,7 @@ const CategoriesCard = () => {
               
             
             "
+<<<<<<< Updated upstream
                     >
                       {/* <span>{child.name}</span> */}
                       {child.name}
@@ -555,6 +573,18 @@ const CategoriesCard = () => {
                       )}
                     </div>
                   </Link>
+=======
+          >
+            {/* <span>{child.name}</span> */}
+            <Link
+  to={`/category/${child.slug}`}
+>
+  {child.name}
+</Link>
+
+            {childHasNestedChildren && <ChevronRight className="w-4" />}
+          </div>
+>>>>>>> Stashed changes
 
                   {/* GRANDCHILD PANEL */}
                   {childHasNestedChildren && activeChild === child.id && (
@@ -584,6 +614,7 @@ const CategoriesCard = () => {
                     font-medium
                     text-secondary
                     hover:text-primary
+<<<<<<< Updated upstream
                     hover:bg-gray-100
                 
                   "
@@ -594,6 +625,16 @@ const CategoriesCard = () => {
                       ))}
                     </div>
                   )}
+=======
+                    hover:bg-gray-100">
+                <Link
+  to={`/category/${child.slug}/${grandChild.slug}`}
+  
+>
+  {grandChild.name}
+</Link>
+
+>>>>>>> Stashed changes
                 </div>
               );
             })}
