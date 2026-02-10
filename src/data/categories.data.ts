@@ -1,6 +1,6 @@
 /* ================= TYPES ================= */
 
-export type CategoryNode = {
+export interface CategoryNode {
     id: number
     image?: string
     name: string

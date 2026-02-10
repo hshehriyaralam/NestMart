@@ -38,29 +38,66 @@ const SearchBarCategories = () => {
 
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <button className="flex justify-center items-center gap-2 w-[150px] 
+              <button className="flex justify-center items-center gap-2 w-[180px] 
               cursor-pointer outline-none">
-                <span className="font-heading text-sm">{selected}</span>
+                <span className="font-lato text-sm">{selected}</span>
                 <ChevronDown className="w-3 transition-transform duration-200 
-                data-[state=open]:rotate-180" />
+                " />
               </button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="start" className="w-[150px]">
+
+            <DropdownMenuContent align="start" className="w-[200px] max-h-[400px] overflow-y-auto">
               <DropdownMenuItem
                 onClick={() => handleSelect("All")}
-                className="font-heading text-xs cursor-pointer"
+                className="text-lato text-sm cursor-pointer"
               >
                 All Categories
               </DropdownMenuItem>
-              {categoriesData.map((cat, index) => (
-                <DropdownMenuItem
-                  key={index}
-                  onClick={() => handleSelect(cat.name)}
-                  className="font-heading text-xs cursor-pointer"
-                >
-                  {cat.name}
-                </DropdownMenuItem>
-              ))}
+              {categoriesData.map((cat) => {
+                const items = [];
+
+                // Add parent
+                items.push(
+                  <DropdownMenuItem
+                    key={cat.id}
+                    onClick={() => handleSelect(cat.name)}
+                    className="text-lato  text-xs cursor-pointer font-bold"
+                  >
+                    {cat.name}
+                  </DropdownMenuItem>
+                );
+
+                // Add children
+                if (cat.children) {
+                  cat.children.forEach(child => {
+                    items.push(
+                      <DropdownMenuItem
+                        key={child.id}
+                        onClick={() => handleSelect(child.name)}
+                        className="text-lato font-semibold text-xs cursor-pointer pl-6 text-gray-600"
+                      >
+                        {child.name}
+                      </DropdownMenuItem>
+                    );
+
+                    // Add grandchildren
+                    if (child.children) {
+                      child.children.forEach(grandChild => {
+                        items.push(
+                          <DropdownMenuItem
+                            key={grandChild.id}
+                            onClick={() => handleSelect(grandChild.name)}
+                            className="text-lato text-[12px] font-normal cursor-pointer pl-10 text-gray-500 italic"
+                          >
+                            {grandChild.name}
+                          </DropdownMenuItem>
+                        );
+                      });
+                    }
+                  });
+                }
+                return items;
+              })}
             </DropdownMenuContent>
           </DropdownMenu>
 
