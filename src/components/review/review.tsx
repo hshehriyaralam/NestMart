@@ -71,40 +71,39 @@ const Reviews1 = ({
     title = "Customer Reviews",
     className,
 }: Reviews1Props) => {
+
     const averageRating =
         reviews.reduce((sum, review) => sum + review.rating, 0) / reviews.length;
 
     return (
         <section className={cn("p-4 border border-gray-300 rounded-lg", className)}>
-            <div className="container max-w-3xl">
+            <div className="container max-w-3xl ">
                 {/* Header */}
-                <div className="mb-8">
+                <div className="mb-8 ">
                     <h2 className="text-xl font-semibold font-quicksand tracking-tight md:text-3xl">
                         {title}
                     </h2>
                     <div className="mt-2 flex items-center gap-3">
                         <Rating rate={averageRating} className="[&_svg]:size-5" />
                         <span className="text-sm text-muted-foreground font-lato">
-                            {averageRating.toFixed(1)} out of 5 · {reviews.length} reviews
+                            {averageRating.toFixed(1)} out of 5 · 
                         </span>
+                        <span>{reviews.length} reviews</span>
                     </div>
                 </div>
 
                 {/* Reviews List */}
-                <div className="space-y-0">
+                <div className="space-y-0 ">
                     {reviews.map((review, index) => (
                         <div key={review.id}>
                             {index > 0 && <Separator className="my-2" />}
-                            <div className="space-y-3">
+                            <div className="space-y-3  p-1">
                                 {/* Rating & Title */}
                                 <div>
                                     <Rating rate={review.rating} className="[&_svg]:size-4" />
                                 </div>
 
-                                {/* Content */}
-                                <p className="text-sm leading-relaxed font-lato">
-                                    {review.content}
-                                </p>
+
 
                                 {/* Author */}
                                 <div className="flex items-center ">
@@ -132,6 +131,10 @@ const Reviews1 = ({
                                         <span className="text-muted-foreground font-lato">{review.date}</span>
                                     </div>
                                 </div>
+                                {/* Content */}
+                                <p className="text-sm leading-relaxed font-lato p-1">
+                                    {review.content}
+                                </p>
                             </div>
                         </div>
                     ))}

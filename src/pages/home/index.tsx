@@ -7,8 +7,6 @@ import { data } from "@/data/productCard";
 import { DealCard } from "@/components/card/dealCard";
 import { ChevronRight } from "lucide-react";
 import CategoriesCard from "@/components/card/categories";
-
-
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
@@ -29,10 +27,10 @@ const Home = () => {
       <div className="flex gap-6 max-w-[92%] mx-auto">
         {/* Left Side Items */}
         <div className="w-[25%] hidden md:block z-50">
-  <div className="sticky pt-4 top-0 transition-all duration-500">
-    <CategoriesCard />
-  </div>
-</div>
+          <div className="sticky pt-4 top-0 transition-all duration-500">
+            <CategoriesCard />
+          </div>
+        </div>
         {/* Right Side Items */}
         <div className="w-full md:w-[72%]">
           <div className="w-full mx-auto mt-4 z-40">
@@ -65,16 +63,16 @@ const Home = () => {
               <ProductCard products={data.products} />
             </div>
 
-             <div>
+            <div>
               <h2 className="font-heading text-2xl py-6">Weekly Bestsellers</h2>
               <ProductCard products={data.products} />
             </div>
 
-             <div>
+            <div>
               <h2 className="font-heading text-2xl py-6">Trending Products</h2>
               <ProductCard products={data.products} />
             </div>
-            
+
 
           </div>
           {/* Product deal */}

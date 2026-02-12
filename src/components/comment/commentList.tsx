@@ -40,7 +40,7 @@ const COMMENTS: Comment[] = [
 
 const CommentItem = ({ comment }: { comment: Comment }) => {
     return (
-        <div className="flex gap-4 p-4 rounded-lg bg-white border border-gray-100">
+        <div className="flex gap-4 p-4 rounded-lg bg-white border border-gray-100 ">
             <div className={`rounded-full flex items-center justify-center shrink-0 w-10 h-10 ${comment.user.avatarBg || 'bg-gray-200'}`}>
                 <Avatar className="w-full h-full">
                     <AvatarImage src={comment.user.avatar} className="object-cover" />
@@ -48,7 +48,7 @@ const CommentItem = ({ comment }: { comment: Comment }) => {
                 </Avatar>
             </div>
 
-            <div className="flex flex-col gap-1">
+            <div className="flex flex-col gap-1 border">
                 <div className="flex items-center gap-2">
                     <span className="text-gray-900 font-bold text-sm tracking-tight font-lato text-primary">{comment.user.name}</span>
                     <span className="text-gray-500 text-xs">{comment.time}</span>
@@ -57,16 +57,6 @@ const CommentItem = ({ comment }: { comment: Comment }) => {
                 <p className="text-gray-700 text-sm leading-snug font-lato">
                     {comment.content}
                 </p>
-
-                <div className="flex items-center gap-4 mt-2">
-                    <div className="flex items-center gap-1 text-gray-500 group cursor-pointer hover:text-primary transition-colors">
-                        <ThumbsUp className="w-4 h-4" />
-                        <span className="text-xs">{comment.likes}</span>
-                    </div>
-                    <button className="text-gray-500 text-xs font-semibold hover:text-primary transition-colors cursor-pointer">
-                        Reply
-                    </button>
-                </div>
             </div>
         </div>
     );

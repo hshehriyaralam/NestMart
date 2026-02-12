@@ -4,7 +4,8 @@ import { ShoppingCart, } from "lucide-react";
 
 interface Product {
   id: number;
-  badge: string | null;
+  slug:string;
+  badge?: string | null;
   badgeColor: string | null;
   image: string;
   category: string;
@@ -56,7 +57,7 @@ export default function ProductCard(data: ProductsProps) {
                   variant="primary"
                   icon={<ShoppingCart size={18} />}
                   className="p-2"
-                  onClick={() => navigate(`/products/${product.id}`)}
+                  onClick={() => navigate(`/products/${product.slug}`)}
                 >
                   Add
                 </CartButton>
