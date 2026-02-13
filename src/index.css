@@ -4,28 +4,48 @@
 @import "tw-animate-css";
 
 
-*{
+* {
   scroll-behavior: smooth;
 }
 
 @theme {
-    --font-quicksand: "Quicksand", sans-serif;
-    --font-lato: "Lato", sans-serif;
-    --font-poppins: "Poppins", sans-serif;
+  --font-quicksand: "Quicksand", sans-serif;
+  --font-lato: "Lato", sans-serif;
+  --font-poppins: "Poppins", sans-serif;
 
-  
+
   /* ✅ Custom Colors */
   --color-primary: #3BB77E;
   --color-secondary: #253D4E;
   --color-accent: #7E7E7E;
-  --color-lightGreen:#BCE3C9;
-  --color-lightGray:#B6B6B6;
-  --color-lightCream:#F6F0D7;
+  --color-lightGreen: #BCE3C9;
+  --color-lightGray: #B6B6B6;
+  --color-lightCream: #F6F0D7;
   /* ✅ Custom Spacing / Radius */
   --radius-main: 1rem;
   --section-padding: 4rem;
 }
 
+
+/* Global Scrollbar Styles */
+*::-webkit-scrollbar {
+  width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: white;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 10px;
+  border: 2px solid white;
+  /* Adds a bit of padding around the thumb */
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
 
 @layer utilities {
   .font-heading {
@@ -34,18 +54,20 @@
     font-style: bold;
     color: var(--color-secondary);
   }
-  
+
   .font-heading-1_0 {
     font-family: var(--font-quicksand);
     font-weight: 700;
     font-style: bold;
   }
+
   .action-button {
     width: 18px;
-    color:var(--color-secondary );
+    color: var(--color-secondary);
   }
- .action-button-text {
-  font-family: var(--font-lato);
-  color: var(--color-accent);
-}
+
+  .action-button-text {
+    font-family: var(--font-lato);
+    color: var(--color-accent);
+  }
 }
