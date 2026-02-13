@@ -11,11 +11,6 @@ const Contact = () => {
         <div className="w-[85%] " >
         <HowCanHelpYou />
         </div>
-        {/* Map */}
-        <div className="w-[95%]">
-          <img src="/map.webp" alt=""  className="w-full h-auto" />
-        </div>
-
         <div className="w-[85%]" >
         {/* Info */}
         <Info />

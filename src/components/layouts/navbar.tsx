@@ -1,14 +1,12 @@
-import Categories from '../navbar/categories'
-import Navigation from '../navbar/navigation'
+import SearchBarCategories from "../navbar/serachbar-categories"
 
 const Navbar = () => {
   return (
     <div>
-      <div  className='hidden lg:block' >
+      <div  className='hidden lg:block ' >
       {/* first line   */}
-      <Categories />
-      {/* Second line  */}
-      <Navigation />
+      <SearchBarCategories />
+    
       </div>
 
       {/* Mobile menu  */}

@@ -2,7 +2,7 @@ export const data = {
   "products": [
     {
       "id": 1,
-      "badge": "Hot",
+      "slug": "seeds-of-change-organic-quinoe",
       "badgeColor": "bg-pink-500",
       "image": "/products/25.png",
       "category": "Snack",
@@ -10,11 +10,18 @@ export const data = {
       "rating": 4.0,
       "brand": "NestFood",
       "price": 28.85,
-      "originalPrice": 32.8
+      "originalPrice": 32.8,
+      "description":"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam rem officia, corrupti reiciendis minima nisi modi, quasi, odio minus dolore impedit fuga eum eligendi.",
+      "pimages": [
+        "/products/25.png",
+        "/products/29.png",
+        "/products/33.png",
+        "/products/37.png"
+      ]
     },
     {
       "id": 2,
-      "badge": "Sale",
+      "slug": "all-natural-italian-style-chicken-meatballs",
       "badgeColor": "bg-emerald-500",
       "image": "/products/29.png",
       "category": "Hodo Foods",
@@ -22,11 +29,18 @@ export const data = {
       "rating": 3.5,
       "brand": "Stouffer",
       "price": 52.85,
-      "originalPrice": 55.8
+      "originalPrice": 55.8,
+      "description":"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam rem officia, corrupti reiciendis minima nisi modi, quasi, odio minus dolore impedit fuga eum eligendi.",
+      "pimages": [
+        "/products/25.png",
+        "/products/29.png",
+        "/products/33.png",
+        "/products/37.png"
+      ]
     },
     {
       "id": 3,
-      "badge": "New",
+      "slug": "angies-boomchickapop-sweet-salty",
       "badgeColor": "bg-emerald-400",
       "image": "/products/33.png",
       "category": "Snack",
@@ -34,11 +48,18 @@ export const data = {
       "rating": 4.0,
       "brand": "StarKist",
       "price": 48.85,
-      "originalPrice": 52.8
+      "originalPrice": 52.8,
+      "description":"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam rem officia, corrupti reiciendis minima nisi modi, quasi, odio minus dolore impedit fuga eum eligendi.",
+      "pimages": [
+        "/products/25.png",
+        "/products/29.png",
+        "/products/33.png",
+        "/products/37.png"
+      ]
     },
     {
       "id": 4,
-      "badge": null,
+      "slug": "organic-rolled-oats",
       "badgeColor": null,
       "image": "/products/37.png",
       "category": "Breakfast",
@@ -46,11 +67,18 @@ export const data = {
       "rating": 4.5,
       "brand": "Nature's Path",
       "price": 12.99,
-      "originalPrice": 15.99
+      "originalPrice": 15.99,
+      "description":"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam rem officia, corrupti reiciendis minima nisi modi, quasi, odio minus dolore impedit fuga eum eligendi.",
+      "pimages": [
+        "/products/25.png",
+        "/products/29.png",
+        "/products/33.png",
+        "/products/37.png"
+      ]
     },
     {
       "id": 5,
-      "badge": "Sale",
+      "slug": "creamy-almond-butter",
       "badgeColor": "bg-emerald-500",
       "image": "/products/49.png",
       "category": "Spreads",
@@ -58,11 +86,18 @@ export const data = {
       "rating": 4.2,
       "brand": "Justin's",
       "price": 9.85,
-      "originalPrice": 12.5
+      "originalPrice": 12.5,
+      "description":"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam rem officia, corrupti reiciendis minima nisi modi, quasi, odio minus dolore impedit fuga eum eligendi.",
+      "pimages": [
+        "/products/25.png",
+        "/products/29.png",
+        "/products/33.png",
+        "/products/37.png"
+      ]
     },
     {
       "id": 6,
-      "badge": "New",
+      "slug": "organic-green-tea-matcha",
       "badgeColor": "bg-green-500",
       "image": "/products/57.png",
       "category": "Beverages",
@@ -70,11 +105,18 @@ export const data = {
       "rating": 4.8,
       "brand": "Jade Leaf",
       "price": 18.99,
-      "originalPrice": 24.99
+      "originalPrice": 24.99,
+      "description":"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam rem officia, corrupti reiciendis minima nisi modi, quasi, odio minus dolore impedit fuga eum eligendi.",
+      "pimages": [
+        "/products/25.png",
+        "/products/29.png",
+        "/products/33.png",
+        "/products/37.png"
+      ]
     },
     {
       "id": 7,
-      "badge": null,
+      "slug": "organic-green-tea-matcha",
       "badgeColor": "bg-green-500",
       "image": "/products/61.png",
       "category": "Beverages",
@@ -82,7 +124,14 @@ export const data = {
       "rating": 4.8,
       "brand": "Jade Leaf",
       "price": 18.99,
-      "originalPrice": 24.99
+      "originalPrice": 24.99,
+      "description":"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam rem officia, corrupti reiciendis minima nisi modi, quasi, odio minus dolore impedit fuga eum eligendi.",
+      "pimages": [
+        "/products/25.png",
+        "/products/29.png",
+        "/products/33.png",
+        "/products/37.png"
+      ]
     }
   ],
   "deals":[
@@ -216,5 +265,4 @@ export const data = {
     }
 
   ]
-
 }

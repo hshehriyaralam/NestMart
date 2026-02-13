@@ -3,170 +3,123 @@ import Clock from "/logo/icon-clock.png";
 import Contact from "/logo/icon-contact.svg";
 import Location from "/logo/icon-location.svg";
 import Email from "/logo/icon-email.png";
-import Playstore from "/logo/163.svg";
-import Appstore from "/public/logo/162.svg";
+import CASHOD from "/logo/payment-1.png";
+import CARDOD from "/logo/payment-2.png";
+import ONLINEPAYMENT from "/logo/payment-3.png";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
+  const contactInfo = [
+    { icon: Location, label: "Address:", value: "5171 W Campbell Ave, Kent, Utah 53127 United States" },
+    { icon: Contact, label: "Call Us:", value: "(+91) - 540-025-124553" },
+    { icon: Email, label: "Email:", value: "sales@Nest.com" },
+  ];
+
+  const sections = [
+    {
+      title: "Information",
+      links: [
+        { label: "About Us", to: "/about" },
+        { label: "Privacy Policy", to: "/blog/:id" },
+        { label: "Terms & Conditions", to: "/terms" },
+        { label: "Contact Us", to: "/contact" },
+        { label: "Faqs", to: "/faqs" },
+        { label: "Blogs", to: "/blog" },
+
+      ],
+    },
+    {
+      title: "Account",
+      links: [
+        { label: "Sign In", to: "/signin" },
+        { label: "View Cart", to: "/cart" },
+        { label: "My Wishlist", to: "/wishlist" },
+        { label: "Track My Order", to: "/track-order" },
+        { label: "Shipping Details", to: "/shipping-details" },
+      ],
+    },
+  ];
+
   return (
-    <footer className="py-12 px-20 bg-white">
-      <div className="flex justify-between items-start gap-10">
+    <footer className="py-8 md:py-12 px-4 md:px-12 lg:px-20 bg-white">
+      <div className="flex flex-col md:flex-row flex-wrap justify-between gap-6 md:gap-10">
         {/* Logo & Info */}
-        <div className="max-w-xs flex flex-col gap-4  w-64">
+        <div className="w-full md:w-64 flex flex-col gap-4">
           <div className="flex items-center gap-2">
             <img src={Nest} alt="logo" className="w-32" />
           </div>
-          <p className="font-lato text-regular text-secondary">
-            Awesome grocery store website template
-          </p>
+          <h2 className="font-heading text-sm md:text-lg font-semibold text-secondary">
+            Get In Touch
+          </h2>
           <ul className="flex flex-col gap-2 text-sm text-gray-600">
-            <li className="flex items-start gap-2">
-              <img
-                src={Location}
-                alt="location"
-                className="w-4 mt-1"
-              />
-              <span className="font-lato text-sm text-secondary">
-                <span className="font-semibold">Address:</span> 5171 W Campbell Ave
-                <br />
-                undefined Kent, Utah 53127 United States
-              </span>
-            </li>
-            <li className="flex items-center gap-2">
-              <img src={Contact} alt="phone" className="w-3" />
-              <span className="font-lato text-sm text-secondary"><span className="font-semibold">Call Us:</span> (+91) - 540-025-124553</span>
-            </li>
-            <li className="flex items-center gap-2">
-              <img src={Email} alt="email" className="w-3" />
-              <span className="font-lato text-sm text-secondary"><span className="font-semibold">Email:</span> sale@Nest.com</span>
-            </li>
-            <li className="flex items-center gap-2">
-              <img src={Clock} alt="hours" className="w-3" />
-              <span className="font-lato text-sm text-secondary"><span className="font-semibold">Hours:</span> 10:00 - 18:00, Mon - Sat</span>
-            </li>
+            {contactInfo.map((info, idx) => (
+              <li key={idx} className="flex items-start gap-2">
+                <img src={info.icon} alt={info.label} className="w-4 mt-1 flex-shrink-0" />
+                <span className="font-lato text-xs md:text-sm text-secondary">
+                  <span className="font-semibold">{info.label}</span> {info.value}
+                </span>
+              </li>
+            ))}
           </ul>
         </div>
 
-        {/* Company */}
-        <div>
-          <h3 className="font-semibold mb-3 font-heading">Company</h3>
-          <ul className="flex flex-col gap-2 text-sm text-gray-600">
-            <li>
-              <Link className="font-lato text-sm text-secondary" to="#">About Us</Link>
-            </li>
-            <li>
-              <Link className="font-lato text-sm text-secondary" to="#">Delivery Information</Link>
-            </li>
-            <li>
-              <Link className="font-lato text-sm text-secondary" to="#">Privacy Policy</Link>
-            </li>
-            <li>
-              <Link className="font-lato text-sm text-secondary" to="#">Terms & Conditions</Link>
-            </li>
-            <li>
-              <Link className="font-lato text-sm text-secondary" to="#">Contact Us</Link>
-            </li>
-            <li>
-              <Link className="font-lato text-sm text-secondary" to="#">Support Center</Link>
-            </li>
-            <li>
-              <Link className="font-lato text-sm text-secondary" to="#">Careers</Link>
-            </li>
-          </ul>
+        {/* Navigation Sections for desktop  */}
+        
+        {sections.map((section, idx) => (
+          <div
+            key={idx}
+            className="hidden lg:flex flex-col gap-3 w-1/2 md:w-auto "
+          >
+            <h3 className="font-heading font-semibold text-base md:text-lg">{section.title}</h3>
+            <ul className="flex flex-col gap-2">
+              {section.links.map((link, i) => (
+                <li key={i}>
+                  <Link
+                    to={link.to}
+                    className="font-lato text-xs md:text-sm font-medium text-secondary hover:text-primary transition"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+
+
+        {/* Navigation Sections for mobile   */}
+        <div  className="flex flex-row flex-wrap gap-y-6">
+      {sections.map((section, idx) => (
+          <div
+            key={idx}
+            className="lg:hidden flex flex-col gap-3 w-1/2 md:w-auto "
+          >
+            <h3 className="font-heading font-semibold text-base md:text-lg">{section.title}</h3>
+            <ul className="flex flex-col gap-2">
+              {section.links.map((link, i) => (
+                <li key={i}>
+                  <Link
+                    to={link.to}
+                    className="font-lato text-xs md:text-sm font-medium text-secondary hover:text-primary transition"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
         </div>
 
-        {/* Account */}
-        <div>
-          <h3 className="font-semibold mb-3 font-heading">Account</h3>
-          <ul className="flex flex-col gap-2 text-sm text-gray-600">
-            <li>
-              <Link className="font-lato text-sm text-secondary" to="#">Sign In</Link>
-            </li>
-            <li>
-              <Link className="font-lato text-sm text-secondary" to="#">View Cart</Link>
-            </li>
-            <li>
-              <Link className="font-lato text-sm text-secondary" to="#">My Wishlist</Link>
-            </li>
-            <li>
-              <Link className="font-lato text-sm text-secondary" to="#">Track My Order</Link>
-            </li>
-            <li>
-              <Link className="font-lato text-sm text-secondary" to="#">Help Ticket</Link>
-            </li>
-            <li>
-              <Link className="font-lato text-sm text-secondary" to="#">Shipping Details</Link>
-            </li>
-            <li>
-              <Link className="font-lato text-sm text-secondary" to="#">Compare products</Link>
-            </li>
-          </ul>
-        </div>
-
-        {/* Corporate */}
-        <div>
-          <h3 className="font-semibold mb-3 font-heading">Corporate</h3>
-          <ul className="flex flex-col gap-2 text-sm text-gray-600">
-            <li>
-              <Link className="font-lato text-sm text-secondary" to="#">Become a Vendor</Link>
-            </li>
-            <li>
-              <Link className="font-lato text-sm text-secondary" to="#">Affiliate Program</Link>
-            </li>
-            <li>
-              <Link className="font-lato text-sm text-secondary" to="#">Farm Business</Link>
-            </li>
-            <li>
-              <Link className="font-lato text-sm text-secondary" to="#">Farm Careers</Link>
-            </li>
-            <li>
-              <Link className="font-lato text-sm text-secondary" to="#">Our Suppliers</Link>
-            </li>
-            <li>
-              <Link className="font-lato text-sm text-secondary" to="#">Accessibility</Link>
-            </li>
-            <li>
-              <Link className="font-lato text-sm text-secondary" to="#">Promotions</Link>
-            </li>
-          </ul>
-        </div>
-
-        {/* Popular */}
-        <div>
-          <h3 className="font-semibold mb-3 font-heading">Popular</h3>
-          <ul className="flex flex-col gap-2 text-sm text-gray-600">
-            <li>
-              <Link className="font-lato text-sm text-secondary" to="#">Milk & Flavoured Milk</Link>
-            </li>
-            <li>
-              <Link className="font-lato text-sm text-secondary" to="#">Butter and Margarine</Link>
-            </li>
-            <li>
-              <Link className="font-lato text-sm text-secondary" to="#">Eggs Substitutes</Link>
-            </li>
-            <li>
-              <Link className="font-lato text-sm text-secondary" to="#">Marmalades</Link>
-            </li>
-            <li>
-              <Link className="font-lato text-sm text-secondary" to="#">Sour Cream and Dips</Link>
-            </li>
-            <li>
-              <Link className="font-lato text-sm text-secondary" to="#">Tea & Kombucha</Link>
-            </li>
-            <li>
-              <Link className="font-lato text-sm text-secondary" to="#">Cheese</Link>
-            </li>
-          </ul>
-        </div>
 
         {/* Install App */}
-        <div className="flex flex-col gap-3.5">
-          <h3 className="font-semibold mb-3 font-heading">Install App</h3>
-          <div className="flex items-center gap-2 mb-2">
-            <img src={Playstore} alt="playstore" className="w-20" />
-            <img src={Appstore} alt="appstore" className="w-20" />
+        <div className="flex flex-col gap-3 w-full md:w-auto">
+          <h3 className="font-heading font-semibold text-base md:text-lg">Payment Methods</h3>
+          <div className="flex gap-2 mb-2 flex-wrap">
+            <img src={CASHOD} alt="CASHOD" className="w-20" />
+            <img src={CARDOD} alt="CARDOD" className="w-20" />
+            <img src={ONLINEPAYMENT} alt="ONLINEPAYMENT" className="w-20" />
           </div>
-          <p className="font-lato text-sm text-secondary">Secured Payment Gateways</p>
         </div>
       </div>
     </footer>

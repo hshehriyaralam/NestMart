@@ -8,12 +8,11 @@ import FooterBanner from "@/components/commons/footerBanner"
 const About = () => {
   return (
     <div className="w-full min-h-screen" >
-      <div className="w-[95%] p-6 mx-auto  flex flex-col items-center justify-center  gap-6">
+      <div className="w-[95%] lg:p-6  p-3 mx-auto  flex flex-col items-center justify-center  gap-6">
       <WelcomeToNest />
       <WhatWeProvide />
       <OurPerformance />
       <OurTeam />
-      <FooterBanner />
       </div>
     </div>
   )
