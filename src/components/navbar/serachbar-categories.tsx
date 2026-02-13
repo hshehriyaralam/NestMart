@@ -125,14 +125,14 @@ const SearchBarCategories = () => {
 
           {/* icons group */}
           <div className="flex gap-1">
-            <button className="flex  items-end cursor-pointer   ">
+            {/* <button className="flex  items-end cursor-pointer   ">
               <RefreshCw className="text-secondary opacity-70  w-6  " />
               <span className="action-button-text text-sm font-medium  ">Compare</span>
               <div
                 className="w-4  h-4  relative  right-17  bottom-3 bg-primary flex justify-center items-center  rounded-full " >
                 <span className="text-white text-[9px] " >3</span>
               </div>
-            </button>
+            </button> */}
 
             <button className="flex items-end  cursor-pointer ">
               <Heart className="text-secondary opacity-70  w-6 " />

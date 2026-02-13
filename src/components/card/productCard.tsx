@@ -56,9 +56,8 @@ export default function ProductCard(data: ProductsProps) {
                   size="sm"
                   variant="primary"
                   icon={<ShoppingCart size={18} />}
-                  className="p-2"
-                  onClick={() => navigate(`/products/${product.slug}`)}
-                >
+                  className="p-2 cursor-pointer"
+                  onClick={() => navigate(`/products/${product.slug}`)}>
                   Add
                 </CartButton>
               </div>

@@ -500,7 +500,7 @@ const CategoriesCard = () => {
       >
         {/* CLICK ONLY IF LAST NODE */}
         {isClickable ? (
-          <Link to={`/${category.slug}`}>{Content}</Link>
+          <Link to={`/category/${category.slug}`}>{Content}</Link>
         ) : (
           Content
         )}
@@ -530,7 +530,7 @@ const CategoriesCard = () => {
                   onMouseLeave={() => setActiveChild(null)}
                 >
                   {/* CHILD ITEM */}
-                  <Link to={`/${category.slug}/${child.slug}`}>
+                  <Link to={`/category/${category.slug}/${child.slug}`}>
                     <div
                       className="
               flex items-center justify-between
@@ -572,7 +572,7 @@ const CategoriesCard = () => {
                     >
                       {child.children!.map((grandChild) => (
                         <Link
-                          to={`/${category.slug}/${child.slug}/${grandChild.slug}`}
+                          to={`/category/${category.slug}/${child.slug}/${grandChild.slug}`}
                         >
                           <div
                             key={grandChild.id}

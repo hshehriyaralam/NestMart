@@ -9,6 +9,7 @@ import Signup from "@/pages/auth/signup";
 import Login from "@/pages/auth/login";
 import Shop from "@/pages/shop/shop";
 import TotalProducts from "@/pages/totalProducts";
+import ForgetPassword from "@/pages/auth/forgetPassword";
 
 
 // Route configuration interface
@@ -21,12 +22,13 @@ export interface AppRoute {
 export const publicRoutes: AppRoute[] = [
   { path: "auth/login", element: <Login /> },
   { path: "auth/signup", element: <Signup /> },
+  { path: "auth/forget-password", element: <ForgetPassword /> },
   { path: "/", element: <Home />, showCategories: true },  // Show categories on Home
   { path: "/about", element: <About /> },
   { path: "/contact", element: <Contact /> },
   { path: "/blog", element: <Blog /> },
   { path: "/shop", element: <Shop /> },
-  { path: "/*", element: <TotalProducts />, showCategories: true }
+  { path: "/category/*", element: <TotalProducts />, showCategories: true }
 ]
 
 // Protected routes (require authentication)

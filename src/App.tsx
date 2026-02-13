@@ -7,7 +7,7 @@ import Banner from "./components/commons/Banner";
 function Layout({ children }: { children: React.ReactNode }) {
   const location = useLocation();
   // List of routes where header/footer should be hidden
-  const noHeaderFooterRoutes = ["/auth/login", "/auth/signup"];
+  const noHeaderFooterRoutes = ["/auth/login", "/auth/signup", "/auth/forget-password"];
   const hideHeaderFooter = noHeaderFooterRoutes.includes(location.pathname);
   
   return (

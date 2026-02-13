@@ -7,7 +7,7 @@ import CategoriesCard from "@/components/card/categories";
 const TotalProducts = () => {
   const location = useLocation();
 
-  const slugs = location.pathname.replace("/", "").split("/").filter(Boolean);
+  const slugs = location.pathname.replace("/category", "").split("/").filter(Boolean);
 
   const [parentSlug, subSlug, childSlug] = slugs;
 
