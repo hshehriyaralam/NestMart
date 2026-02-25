@@ -26,13 +26,13 @@ const Home = () => {
       {/* left and right section */}
       <div className="flex gap-6 max-w-[92%] mx-auto">
         {/* Left Side Items */}
-        <div className="w-[25%] hidden md:block z-50">
+        <div className="w-[22%] hidden md:block z-50">
           <div className="sticky pt-4 top-0 transition-all duration-500">
             <CategoriesCard />
           </div>
         </div>
         {/* Right Side Items */}
-        <div className="w-full md:w-[72%]">
+        <div className="w-full lg:w-[78%]">
           <div className="w-full mx-auto mt-4 z-40">
             <Swiper
               modules={[Autoplay, Pagination, Navigation]}

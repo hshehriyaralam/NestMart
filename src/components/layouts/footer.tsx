@@ -1,5 +1,5 @@
 import Nest from "/logo/Nest.svg";
-import Clock from "/logo/icon-clock.png";
+// import Clock from "/logo/icon-clock.png";
 import Contact from "/logo/icon-contact.svg";
 import Location from "/logo/icon-location.svg";
 import Email from "/logo/icon-email.png";
@@ -31,7 +31,7 @@ const Footer = () => {
     {
       title: "Account",
       links: [
-        { label: "Sign In", to: "/signin" },
+        { label: "Sign In", to: "/auth/login" },
         { label: "View Cart", to: "/cart" },
         { label: "My Wishlist", to: "/wishlist" },
         { label: "Track My Order", to: "/track-order" },

@@ -1,4 +1,4 @@
-import { Bold, Italic, Underline, Paperclip, Image as ImageIcon, Smile, AtSign } from "lucide-react";
+import { Bold, Italic, Underline, } from "lucide-react";
 import { useState } from "react";
 
 const CommentForm = () => {

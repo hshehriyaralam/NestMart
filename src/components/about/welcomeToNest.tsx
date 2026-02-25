@@ -1,5 +1,5 @@
 import "swiper/css";
-import "swiper/css/bundle";
+// import "swiper/css/bundle";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
 import { Swiper, SwiperSlide } from "swiper/react";

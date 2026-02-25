@@ -2,7 +2,7 @@ import OurPerformance from "@/components/about/ourPerformance"
 import OurTeam from "@/components/about/ourTeam"
 import WelcomeToNest from "@/components/about/welcomeToNest"
 import WhatWeProvide from "@/components/about/whatWeProvide"
-import FooterBanner from "@/components/commons/footerBanner"
+
 
 
 const About = () => {
