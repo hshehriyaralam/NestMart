@@ -1,10 +1,10 @@
 import BreadcrumbLinkDemo from "@/components/commons/BreadcrumbLinkDemo"
-import BGIMAGE from "../../../public/background-images/light-green-veg.jpg"
+import BGIMAGE from "/background-images/light-green-veg.jpg"
 import { SelectDropdown } from "@/components/dropdown/select"
 import Vector from "/logo/Vector.png"
-import { Heart, Search, Share2, ShoppingCart, Star } from "lucide-react"
+import {  Search,  ShoppingCart, Star } from "lucide-react"
 import CartButton from "@/components/button/cartButton"
-import ProductImage from "../../../public/products/product-image.png";
+import ProductImage from "/products/product-image.png";
 import TopSelling from "@/components/card/topSelling"
 import TrendingProduct from "@/components/card/trendingProduct"
 import RecentlyAdded from "@/components/card/recentlyAdded"
@@ -130,7 +130,7 @@ const Shop = () => {
 
                                         {/* Add to Cart Button */}
                                         <CartButton
-                                            size="mdw"
+                                            // size="mdw"
                                             variant="darkgreen"
                                             icon={<ShoppingCart size={14} />}
                                             className="py-2 px-4 bg-green-500 hover:bg-green-600 text-white rounded-lg flex items-center "
@@ -182,7 +182,7 @@ const Shop = () => {
 
                                         {/* Add to Cart Button */}
                                         <CartButton
-                                            size="mdw"
+                                            // size="mdw"
                                             variant="darkgreen"
                                             icon={<ShoppingCart size={14} />}
                                             className="py-2 px-4 bg-green-500 hover:bg-green-600 text-white rounded-lg flex items-center "

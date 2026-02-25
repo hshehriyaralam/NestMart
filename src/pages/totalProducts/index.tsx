@@ -28,17 +28,17 @@ const TotalProducts = () => {
   });
 
   return (
-    <div className="w-full max-w-[100%]">
+    <div className="w-full max-w-[100%] ">
       <div className="flex gap-6 max-w-[92%] mx-auto">
         {/* Sidebar */}
-        <div className="w-[25%] hidden md:block z-50">
+        <div className="w-[22%] hidden md:block z-50">
           <div className="sticky pt-4 top-0">
             <CategoriesCard />
           </div>
         </div>
 
         {/* Products */}
-        <div className="w-full md:w-[72%]">
+        <div className="w-full lg:w-[82%]">
           <div className="">
             <h2 className="font-heading text-2xl py-6">
               {childSlug?.toUpperCase() || subSlug?.toUpperCase() || parentSlug?.toUpperCase() || "All Products"}

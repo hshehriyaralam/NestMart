@@ -1,6 +1,5 @@
 import { useState } from "react"
 import { SelectDropdown } from "@/components/dropdown/select"
-import { Link } from "react-router-dom"
 import Vector from "/logo/Vector.png"
 import { Search } from "lucide-react"
 import BlogCard from "@/components/card/blogCard"
@@ -24,6 +23,7 @@ const sortOptions = [
 const Blog = () => {
   const [itemsPerPage, setItemsPerPage] = useState("10")
   const [sortOrder, setSortOrder] = useState("asc")
+  console.log("Items per page:", itemsPerPage,sortOrder)
 
   const handlePaginationChange = (value: string) => {
     setItemsPerPage(value)

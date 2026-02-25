@@ -1,10 +1,5 @@
 const Banner = () => {
-  const navigationItems = [
-    { label: "About Us", hasBorder: false },
-    { label: "My Account", hasBorder: true },
-    { label: "Wishlist", hasBorder: true },
-    { label: "Order Tracking", hasBorder: true },
-  ];
+
 
   return (
     <div className="bg-green-100 sticky top-0 z-[100]">

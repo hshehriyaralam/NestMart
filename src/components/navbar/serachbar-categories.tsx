@@ -2,7 +2,6 @@ import {
   ChevronDown,
   Heart,
   MapPin,
-  RefreshCw,
   Search,
   ShoppingCart,
   User,
@@ -18,6 +17,7 @@ import { categoriesData } from "@/data/categories.data";
 
 import { useAppDispatch } from "../../hooks/hooks";
 import { openCart } from "../../redux/sidebar/sidebarSlice";
+import { Link } from "react-router";
 
 const SearchBarCategories = () => {
   const dispatch = useAppDispatch();
@@ -31,9 +31,12 @@ const SearchBarCategories = () => {
     <nav className="w-[95%]  mx-auto  bg-transparent border-b border-gray-200 py-4 px-0  ">
       <div className="max-w-full  flex items-center justify-between  ">
         {/* Logo */}
+        <Link  to={'/'}>
         <div className="flex-shrink-0">
           <img src="/logo/Nest.svg" alt="nest-logo" className="w-30" />
         </div>
+        </Link>
+        
 
         {/* Search Bar */}
         <div

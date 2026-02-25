@@ -508,7 +508,7 @@ const CategoriesCard = () => {
         {hasChildren && open && (
           <div
             className="
-      absolute top-4 left-62
+      absolute top-4 left-42
       w-58
       bg-white
       shadow-xl

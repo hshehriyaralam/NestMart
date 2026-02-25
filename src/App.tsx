@@ -5,6 +5,7 @@ import Footer from "./components/layouts/footer";
 import Banner from "./components/commons/Banner";
 
 import CartSidebar from "./components/sidebar/cart-sidebar";
+// import ScrollToTop from "./hooks/srcolToTop";
 
 function Layout({ children }: { children: React.ReactNode }) {
   const location = useLocation();
@@ -29,6 +30,7 @@ function App() {
     <Router>
       <Layout>
         <Routes>
+
           {publicRoutes.map((route) => (
             <Route key={route.path} path={route.path} element={route.element} />
           ))}
