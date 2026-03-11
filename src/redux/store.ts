@@ -5,6 +5,7 @@ import {
   FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage'; // localStorage
+import sidebarReducer from './sidebar/sidebarSlice';
 
 // Persist configuration
 const persistConfig = {
@@ -15,7 +16,6 @@ const persistConfig = {
   blacklist: [], // Products won't be persisted (always fetch fresh)
 };
 
-import sidebarReducer from './sidebar/sidebarSlice';
 
 // Combine all reducers
 const rootReducer = combineReducers({

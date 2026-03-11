@@ -16,7 +16,7 @@ import {
 import { categoriesData } from "@/data/categories.data";
 
 import { useAppDispatch } from "../../hooks/hooks";
-import { openCart } from "../../redux/sidebar/sidebarSlice";
+import { toggleCart } from "../../redux/sidebar/sidebarSlice";
 import { Link } from "react-router";
 
 const SearchBarCategories = () => {
@@ -25,6 +25,9 @@ const SearchBarCategories = () => {
 
   const handleSelect = (cat: string) => {
     setSelected(cat === "All" ? "All Categories" : cat);
+  }
+  const isCartOpenClose = ()=>{
+    dispatch(toggleCart());
   }
 
   return (
@@ -151,7 +154,7 @@ const SearchBarCategories = () => {
             </button>
 
             <button
-              onClick={() => dispatch(openCart())}
+              onClick={isCartOpenClose}
               className="flex items-end cursor-pointer">
               <ShoppingCart className="text-secondary opacity-70  w-6 " />
               <span className="action-button-text text-sm font-medium">Cart</span>

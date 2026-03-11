@@ -28,7 +28,7 @@ const TotalProducts = () => {
   });
 
   return (
-    <div className="w-full max-w-[100%] ">
+    <div className="w-full">
       <div className="flex gap-6 max-w-[92%] mx-auto">
         {/* Sidebar */}
         <div className="w-[22%] hidden md:block z-50">

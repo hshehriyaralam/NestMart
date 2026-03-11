@@ -15,15 +15,14 @@ const sidebarSlice = createSlice({
         toggleCart: (state) => {
             state.isCartOpen = !state.isCartOpen;
         },
-        openCart: (state) => {
-            state.isCartOpen = true;
-        },
-        closeCart: (state) => {
-            state.isCartOpen = false;
-        },
+        // openCart: (state) => {
+        //     state.isCartOpen = true;
+        // },
+        // closeCart: (state) => {
+        //     state.isCartOpen = false;
+        // },
     },
 });
 
-export const { toggleCart, openCart, closeCart } = sidebarSlice.actions;
-
+export const { toggleCart } = sidebarSlice.actions;
 export default sidebarSlice.reducer;

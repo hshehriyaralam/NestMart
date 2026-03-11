@@ -1,5 +1,5 @@
 import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
-import { closeCart } from '../../redux/sidebar/sidebarSlice';
+import {toggleCart} from '../../redux/sidebar/sidebarSlice';
 import {
     Sheet,
     SheetContent,
@@ -10,12 +10,12 @@ const CartSidebar = () => {
     const dispatch = useAppDispatch();
     const isOpen = useAppSelector((state) => state.sidebar.isCartOpen);
 
-    const onClose = () => {
-        dispatch(closeCart());
+    const isopenorclose = () => {
+        dispatch(toggleCart());
     };
 
     return (
-        <Sheet open={isOpen} onOpenChange={onClose}>
+        <Sheet open={isOpen} onOpenChange={isopenorclose}>
             <SheetContent
                 className="top-[122px] h-[calc(100vh-122px)] w-full max-w-md p-0 flex flex-col border-none shadow-[-10px_0_30px_-15px_rgba(0,0,0,0.1)] gap-0"
                 side="right"
@@ -32,7 +32,7 @@ const CartSidebar = () => {
                     </div>
                     <div>
                         <button
-                        onClick={onClose}
+                        onClick={isopenorclose}
                         className='hover:bg-gray-200 hover:rounded-full transition-all p-1'
                             >
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -124,7 +124,7 @@ const CartSidebar = () => {
                             Proceed to Checkout
                         </button>
                         <button
-                            onClick={onClose}
+                            onClick={isopenorclose}
                             className="w-full bg-transparent text-gray-500 py-2 rounded-xl font-bold text-xs hover:text-gray-900 transition-all duration-200"
                         >
                             Continue Shopping
