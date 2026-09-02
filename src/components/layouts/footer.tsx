@@ -46,7 +46,7 @@ const Footer = () => {
         {/* Logo & Info */}
         <div className="w-full md:w-64 flex flex-col gap-4">
           <div className="flex items-center gap-2">
-            <img src={Nest} alt="logo" className="w-32" />
+            <img src={Nest} alt="Nest Mart logo" className="w-32" />
           </div>
           <h2 className="font-heading text-sm md:text-lg font-semibold text-secondary">
             Get In Touch
