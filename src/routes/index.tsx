@@ -41,7 +41,5 @@ export const privateRoutes: AppRoute[] = [
     path: "/blog/:id",
     element: <BlogDetails />
   }
-
-
 ];
 

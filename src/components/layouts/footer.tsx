@@ -21,9 +21,9 @@ const Footer = () => {
       links: [
         { label: "About Us", to: "/about" },
         { label: "Privacy Policy", to: "/blog/:id" },
-        { label: "Terms & Conditions", to: "/terms" },
+        { label: "Terms & Conditions", to: "/" },
         { label: "Contact Us", to: "/contact" },
-        { label: "Faqs", to: "/faqs" },
+        { label: "Faqs", to: "/" },
         { label: "Blogs", to: "/blog" },
 
       ],
@@ -32,10 +32,10 @@ const Footer = () => {
       title: "Account",
       links: [
         { label: "Sign In", to: "/auth/login" },
-        { label: "View Cart", to: "/cart" },
-        { label: "My Wishlist", to: "/wishlist" },
-        { label: "Track My Order", to: "/track-order" },
-        { label: "Shipping Details", to: "/shipping-details" },
+        { label: "View Cart", to: "/" },
+        { label: "My Wishlist", to: "/" },
+        { label: "Track My Order", to: "/" },
+        { label: "Shipping Details", to: "/" },
       ],
     },
   ];

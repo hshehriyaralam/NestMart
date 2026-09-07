@@ -37,9 +37,9 @@ const ForgetPassword = () => {
             <div className="text-center mb-8">
               {!isSubmitted ? (
                 <>
-                  <h2 className="font-heading text-3xl md:text-4xl text-gray-900 mb-3">
+                  <h1 className="font-heading text-3xl md:text-4xl text-gray-900 mb-3">
                     Forgot Password?
-                  </h2>
+                  </h1>
                   <p className="font-quicksand text-gray-500 text-sm md:text-base max-w-[300px] mx-auto">
                     No worries! Enter your email address and we'll send you a password reset link.
                   </p>

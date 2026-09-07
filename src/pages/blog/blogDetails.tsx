@@ -17,9 +17,9 @@
 
       {/* Header */}
       <div className="p-4">
-        <p className="font-heading-1_0 text-[14px] lg:text-[16px] text-primary">
+        <h1 className="font-heading-1_0 text-[14px] lg:text-[16px] text-primary">
           Recipe
-        </p>
+        </h1>
 
         <h2 className="
           font-heading
@@ -34,7 +34,7 @@
       <div className="w-full lg:w-[1052px]">
         <img
           src={BDETAIL}
-          alt="blog"
+          alt="blog-content-image"
           className="p-4 w-full object-cover"
         />
       </div>
