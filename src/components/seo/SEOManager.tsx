@@ -10,53 +10,122 @@ interface SEOData {
 
 const staticSEO: Record<string, SEOData> = {
   "/": {
-    title: "NestMart - Quality Products for Every Lifestyle",
+    title: "NestMart - Quality Products & Everyday Essentials",
     description:
-      "Shop NestMart for clothes, shoes, groceries, and everyday essentials. Discover quality products and enjoy a convenient online shopping experience.",
+      "Shop NestMart for quality clothes, shoes, groceries, and everyday essentials. Discover great products and enjoy a convenient online shopping experience.",
   },
 
   "/shop": {
-    title: "Shop Quality Products - NestMart",
+    title: "Shop Quality Products & Essentials - NestMart",
     description:
-      "Browse NestMart's collection of quality products, groceries, snacks, beverages, and everyday essentials.",
+      "Browse NestMart's collection of quality products, groceries, snacks, beverages, clothes, shoes, and everyday essentials for convenient online shopping.",
   },
 
   "/about": {
-    title: "About Us - NestMart",
+    title: "About NestMart - Quality Products & Shopping",
     description:
-      "Learn more about NestMart and our commitment to providing quality products and a convenient online shopping experience.",
+      "Learn about NestMart, our products, and our commitment to making everyday shopping simple with quality products and a convenient online experience.",
   },
 
   "/contact": {
-    title: "Contact Us - NestMart",
+    title: "Contact NestMart - Customer Support & Help",
     description:
-      "Contact NestMart for questions, support, product information, or help with your online shopping experience.",
+      "Contact NestMart for product questions, order support, shopping assistance, and other customer service inquiries. We are here to help you.",
   },
 
   "/blog": {
-    title: "Food & Shopping Blog - NestMart",
+    title: "Food, Recipes & Shopping Tips - NestMart Blog",
     description:
-      "Read NestMart articles, healthy food ideas, recipes, shopping tips, product guides, and useful information for everyday living.",
+      "Explore the NestMart blog for healthy food ideas, easy recipes, shopping tips, product guides, and useful information for everyday living.",
   },
 
   "/auth/login": {
-    title: "Login to Your Account - NestMart",
+    title: "Login to Your NestMart Account",
     description:
-      "Log in to your NestMart account to manage your orders, wishlist, and online shopping experience.",
+      "Log in to your NestMart account to manage orders, access your wishlist, view shopping activity, and enjoy a convenient online shopping experience.",
   },
 
   "/auth/signup": {
-    title: "Create Your NestMart Account",
+    title: "Create a NestMart Account - Start Shopping",
     description:
-      "Create your NestMart account to enjoy convenient online shopping and manage your orders and wishlist.",
+      "Create your NestMart account to enjoy convenient online shopping, manage orders, save products to your wishlist, and access your account securely.",
   },
 
   "/auth/forget-password": {
-    title: "Reset Your Password - NestMart",
+    title: "Reset Your NestMart Account Password",
     description:
-      "Reset your NestMart account password securely and regain access to your online shopping account.",
+      "Reset your NestMart account password securely and regain access to your account, orders, wishlist, and other online shopping features.",
+  },
+
+  "/terms": {
+    title: "Terms & Conditions - NestMart Shopping",
+    description:
+      "Read NestMart's terms and conditions covering online shopping, accounts, orders, payments, shipping, returns, acceptable use, and customer responsibilities.",
+  },
+
+  "/privacy": {
+    title: "Privacy Policy - How NestMart Protects Data",
+    description:
+      "Learn how NestMart collects, uses, protects, and manages customer information, cookies, account data, orders, and other information on our website.",
+  },
+
+  "/faqs": {
+    title: "Frequently Asked Questions - NestMart Help",
+    description:
+      "Find answers to common NestMart questions about orders, products, payments, shipping, returns, accounts, delivery, and other shopping-related topics.",
+  },
+
+  "/support": {
+    title: "NestMart Support - Shopping & Order Help",
+    description:
+      "Get help with NestMart orders, products, accounts, payments, shipping, returns, and other shopping questions through our customer support resources.",
+  },
+
+  "/cart": {
+    title: "Shopping Cart - NestMart",
+    description:
+      "Review the products in your NestMart shopping cart, check your selected items, and continue to checkout when you are ready to place your order.",
+  },
+
+  "/wishlist": {
+    title: "My Wishlist - Saved Products | NestMart",
+    description:
+      "View your saved NestMart products in one place. Manage your wishlist and keep track of items you may want to purchase later.",
+  },
+
+  "/track-order": {
+    title: "Track Your Order - NestMart",
+    description:
+      "Track your NestMart order and check its current delivery status. Use your order information to stay updated on your purchase and shipment.",
+  },
+
+  "/shipping-details": {
+    title: "Shipping Details & Delivery Information - NestMart",
+    description:
+      "Learn about NestMart shipping, delivery information, estimated delivery times, shipping fees, order tracking, and what to do with delivery issues.",
   },
 };
+
+function limitTitle(title: string, maxLength = 60): string {
+  if (title.length <= maxLength) {
+    return title;
+  }
+
+  return `${title.substring(0, maxLength - 3).trim()}...`;
+}
+
+function limitDescription(
+  description: string,
+  maxLength = 160
+): string {
+  const result = description.trim();
+
+  if (result.length <= maxLength) {
+    return result;
+  }
+
+  return `${result.substring(0, maxLength - 3).trim()}...`;
+}
 
 function SEOManager() {
   const location = useLocation();
@@ -75,10 +144,13 @@ function SEOManager() {
 
     // ==========================================
     // 2. PRODUCT DETAIL
-    // Example: /products/organic-rolled-oats
+    // Example:
+    // /products/organic-rolled-oats
     // ==========================================
     else if (pathname.startsWith("/products/")) {
-      const slug = pathname.replace("/products/", "").split("/")[0];
+      const slug = decodeURIComponent(
+        pathname.replace("/products/", "").split("/")[0]
+      );
 
       const product = data.products.find(
         (item) => item.slug === slug
@@ -86,15 +158,21 @@ function SEOManager() {
 
       if (product) {
         seo = {
-          title: `${product.name} - NestMart`,
-          description: `${product.name} by ${product.brand}. Shop this ${product.category} product at NestMart for ${product.price}.`,
+          title: limitTitle(
+            `${product.name} - ${product.brand} | NestMart`
+          ),
+
+          description: limitDescription(
+            `Shop ${product.name} by ${product.brand} at NestMart. Browse this ${product.category} product, view product details, and enjoy a convenient online shopping experience.`
+          ),
         };
       }
     }
 
     // ==========================================
     // 3. BLOG DETAIL
-    // Example: /blog/1
+    // Example:
+    // /blog/1
     // ==========================================
     else if (pathname.startsWith("/blog/")) {
       const id = Number(
@@ -107,8 +185,13 @@ function SEOManager() {
 
       if (blog) {
         seo = {
-          title: `${blog.title} - NestMart Blog`,
-          description: `Read "${blog.title}" on the NestMart blog. Explore helpful ${blog.category.toLowerCase()} articles, food ideas, recipes, and useful tips.`,
+          title: limitTitle(
+            `${blog.title} - NestMart Blog`
+          ),
+
+          description: limitDescription(
+            `Read ${blog.title} on the NestMart blog. Explore ${blog.category.toLowerCase()} ideas, helpful food tips, recipes, and useful information for everyday living.`
+          ),
         };
       }
     }
@@ -116,8 +199,7 @@ function SEOManager() {
     // ==========================================
     // 4. CATEGORY PAGES
     // Examples:
-    // /category/snacks
-    // /category/beverages
+    // /category/shoes-and-footware
     // /category/food/snacks
     // ==========================================
     else if (pathname.startsWith("/category")) {
@@ -132,7 +214,8 @@ function SEOManager() {
 
       if (childSlug) {
         const product = newProducts.find(
-          (item) => item.childCategorySlug === childSlug
+          (item) =>
+            item.childCategorySlug === childSlug
         );
 
         categoryName =
@@ -140,7 +223,8 @@ function SEOManager() {
           childSlug.replace(/-/g, " ");
       } else if (subSlug) {
         const product = newProducts.find(
-          (item) => item.subCategorySlug === subSlug
+          (item) =>
+            item.subCategorySlug === subSlug
         );
 
         categoryName =
@@ -148,7 +232,8 @@ function SEOManager() {
           subSlug.replace(/-/g, " ");
       } else if (parentSlug) {
         const product = newProducts.find(
-          (item) => item.mainCategorySlug === parentSlug
+          (item) =>
+            item.mainCategorySlug === parentSlug
         );
 
         categoryName =
@@ -156,13 +241,23 @@ function SEOManager() {
           parentSlug.replace(/-/g, " ");
       }
 
-      categoryName =
-        categoryName.charAt(0).toUpperCase() +
-        categoryName.slice(1);
+      categoryName = categoryName
+        .split(" ")
+        .map(
+          (word) =>
+            word.charAt(0).toUpperCase() +
+            word.slice(1)
+        )
+        .join(" ");
 
       seo = {
-        title: `${categoryName} Products - NestMart`,
-        description: `Browse ${categoryName.toLowerCase()} products at NestMart. Discover quality products and shop our collection of everyday essentials.`,
+        title: limitTitle(
+          `${categoryName} Products - Shop Online | NestMart`
+        ),
+
+        description: limitDescription(
+          `Browse ${categoryName.toLowerCase()} products at NestMart. Discover quality products, compare options, and shop our collection of everyday essentials online.`
+        ),
       };
     }
 
@@ -171,9 +266,9 @@ function SEOManager() {
     // ==========================================
     if (!seo) {
       seo = {
-        title: "NestMart - Quality Products for Every Lifestyle",
+        title: "NestMart - Quality Products & Shopping",
         description:
-          "Shop NestMart for quality products, groceries, and everyday essentials with a convenient online shopping experience.",
+          "Shop NestMart for quality products, groceries, clothes, shoes, and everyday essentials with a convenient online shopping experience.",
       };
     }
 
@@ -190,16 +285,20 @@ function SEOManager() {
     ) as HTMLMetaElement | null;
 
     if (!metaDescription) {
-      metaDescription = document.createElement("meta");
+      metaDescription =
+        document.createElement("meta");
+
       metaDescription.name = "description";
-      document.head.appendChild(metaDescription);
+
+      document.head.appendChild(
+        metaDescription
+      );
     }
 
     metaDescription.setAttribute(
       "content",
       seo.description
     );
-
   }, [location.pathname]);
 
   return null;
