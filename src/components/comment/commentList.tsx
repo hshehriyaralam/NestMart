@@ -42,7 +42,7 @@ const CommentItem = ({ comment }: { comment: Comment }) => {
         <div className="flex gap-4 p-4 rounded-lg bg-white border border-gray-100 ">
             <div className={`rounded-full flex items-center justify-center shrink-0 w-10 h-10 ${comment.user.avatarBg || 'bg-gray-200'}`}>
                 <Avatar className="w-full h-full">
-                    <AvatarImage src={comment.user.avatar} className="object-cover" />
+                    <AvatarImage src={comment.user.avatar} className="object-cover" alt={comment.user.name} />
                     <AvatarFallback>{comment.user.name.charAt(0)}</AvatarFallback>
                 </Avatar>
             </div>
