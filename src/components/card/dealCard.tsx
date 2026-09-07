@@ -42,9 +42,9 @@ export const DealCard = (data:DealCardProps) => {
       <div className="relative max-w-[95%] -top-17 bg-white mx-auto  rounded-lg shadow-lg p-2 md:p-3">
         <div className="p-2 flex flex-col ">
           <p className="font-medium action-button-text py-1"></p>
-          <h1 className="font-heading py-1.5 min-h-14 line-clamp-2">
+          <h3 className="font-heading py-1.5 min-h-14 line-clamp-2">
             {data.name}
-          </h1>
+          </h3>
           <p>
             ⭐⭐ <span className="font-lato text-regular">({data.rating})</span>
           </p>

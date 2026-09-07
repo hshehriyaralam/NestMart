@@ -37,7 +37,7 @@ export default function ProductCard(data: ProductsProps) {
             </div>
             <div className="w-full  flex flex-col flex-1 ">
               <p className="font-medium action-button-text py-1">{product.category}</p>
-              <h1 className="font-heading py-1 min-h-14 line-clamp-2">{product.name}</h1>
+              <h3 className="font-heading py-1 min-h-14 line-clamp-2">{product.name}</h3>
               <div className="flex items-center gap-x-4">
                 <p className="text-accent  font-lato text-sm font-medium "> ({product.rating})</p>
 

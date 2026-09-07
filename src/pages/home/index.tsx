@@ -17,10 +17,7 @@ import TrendingProduct from "@/components/card/trendingProduct";
 import RecentlyAdded from "@/components/card/recentlyAdded";
 import TopRated from "@/components/card/topRated";
 
-
-
 const Home = () => {
-
   return (
     <div className="w-full max-w-[100%]">
       {/* left and right section */}
@@ -34,6 +31,9 @@ const Home = () => {
         {/* Right Side Items */}
         <div className="w-full lg:w-[78%]">
           <div className="w-full mx-auto mt-4 z-40">
+            <h1 className="font-heading text-3xl md:text-4xl py-6">
+              Online Grocery & Shopping Store
+            </h1>
             <Swiper
               modules={[Autoplay, Pagination, Navigation]}
               slidesPerView={1}
@@ -72,8 +72,6 @@ const Home = () => {
               <h2 className="font-heading text-2xl py-6">Trending Products</h2>
               <ProductCard products={data.products} />
             </div>
-
-
           </div>
           {/* Product deal */}
           <div>
