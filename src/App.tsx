@@ -5,6 +5,7 @@ import Footer from "./components/layouts/footer";
 import Banner from "./components/commons/Banner";
 
 import CartSidebar from "./components/sidebar/cart-sidebar";
+import SEOManager from "./components/seo/SEOManager";
 // import ScrollToTop from "./hooks/srcolToTop";
 
 function Layout({ children }: { children: React.ReactNode }) {
@@ -28,6 +29,7 @@ function Layout({ children }: { children: React.ReactNode }) {
 function App() {
   return (
     <Router>
+      <SEOManager />
       <Layout>
         <Routes>
 
