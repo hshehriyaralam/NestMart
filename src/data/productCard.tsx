@@ -12,7 +12,7 @@ export const data = {
       price: 28.85,
       originalPrice: 32.8,
       description:
-        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam rem officia, corrupti reiciendis minima nisi modi, quasi, odio minus dolore impedit fuga eum eligendi.",
+        "Lorem ipsum dolor, 1 sit amet consectetur adipisicing elit. Aliquam rem officia, corrupti reiciendis minima nisi modi, quasi, odio minus dolore impedit fuga eum eligendi.",
       pimages: [
         "/products/25.png",
         "/products/29.png",
@@ -32,7 +32,7 @@ export const data = {
       price: 52.85,
       originalPrice: 55.8,
       description:
-        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam rem officia, corrupti reiciendis minima nisi modi, quasi, odio minus dolore impedit fuga eum eligendi.",
+        "Lorem ipsum dolor, 2 sit amet consectetur adipisicing elit. Aliquam rem officia, corrupti reiciendis minima nisi modi, quasi, odio minus dolore impedit fuga eum eligendi.",
       pimages: [
         "/products/25.png",
         "/products/29.png",
@@ -52,7 +52,7 @@ export const data = {
       price: 48.85,
       originalPrice: 52.8,
       description:
-        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam rem officia, corrupti reiciendis minima nisi modi, quasi, odio minus dolore impedit fuga eum eligendi.",
+        "Lorem ipsum dolor, 3 sit amet consectetur adipisicing elit. Aliquam rem officia, corrupti reiciendis minima nisi modi, quasi, odio minus dolore impedit fuga eum eligendi.",
       pimages: [
         "/products/25.png",
         "/products/29.png",
@@ -72,7 +72,7 @@ export const data = {
       price: 12.99,
       originalPrice: 15.99,
       description:
-        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam rem officia, corrupti reiciendis minima nisi modi, quasi, odio minus dolore impedit fuga eum eligendi.",
+        "Lorem ipsum dolor, 4 sit amet consectetur adipisicing elit. Aliquam rem officia, corrupti reiciendis minima nisi modi, quasi, odio minus dolore impedit fuga eum eligendi.",
       pimages: [
         "/products/25.png",
         "/products/29.png",
@@ -92,7 +92,7 @@ export const data = {
       price: 9.85,
       originalPrice: 12.5,
       description:
-        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam rem officia, corrupti reiciendis minima nisi modi, quasi, odio minus dolore impedit fuga eum eligendi.",
+        "Lorem ipsum dolor, 5 sit amet consectetur adipisicing elit. Aliquam rem officia, corrupti reiciendis minima nisi modi, quasi, odio minus dolore impedit fuga eum eligendi.",
       pimages: [
         "/products/25.png",
         "/products/29.png",
@@ -112,7 +112,7 @@ export const data = {
       price: 18.99,
       originalPrice: 24.99,
       description:
-        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam rem officia, corrupti reiciendis minima nisi modi, quasi, odio minus dolore impedit fuga eum eligendi.",
+        "Lorem ipsum dolor, 6 sit amet consectetur adipisicing elit. Aliquam rem officia, corrupti reiciendis minima nisi modi, quasi, odio minus dolore impedit fuga eum eligendi.",
       pimages: [
         "/products/25.png",
         "/products/29.png",
@@ -132,7 +132,7 @@ export const data = {
       price: 18.99,
       originalPrice: 24.99,
       description:
-        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam rem officia, corrupti reiciendis minima nisi modi, quasi, odio minus dolore impedit fuga eum eligendi.",
+        "Lorem ipsum dolor, 7 sit amet consectetur adipisicing elit. Aliquam rem officia, corrupti reiciendis minima nisi modi, quasi, odio minus dolore impedit fuga eum eligendi.",
       pimages: [
         "/products/25.png",
         "/products/29.png",
@@ -238,7 +238,7 @@ export const data = {
       id: 4,
       image: "/products/1420.png",
       category: "Breakfast",
-      title: "Start Your Day Right with These Breakfast Ideas",
+      title: "Start Your Day Right with These Breakfast Ideas 4",
       date: "18 July 2022",
       views: "203k Views",
       readTime: "3 mins read",
@@ -247,7 +247,7 @@ export const data = {
       id: 5,
       image: "/products/1407.png",
       category: "Snacks",
-      title: "Healthy Snacking: Nutritious Options for Any Time",
+      title: "Healthy Snacking: Nutritious Options for Any Time 5",
       date: "7 August 2022",
       views: "167k Views",
       readTime: "4 mins read",
@@ -256,7 +256,7 @@ export const data = {
       id: 6,
       image: "/products/1420.png",
       category: "Breakfast",
-      title: "Start Your Day Right with These Breakfast Ideas",
+      title: "Start Your Day Right with These Breakfast Ideas 6",
       date: "18 July 2022",
       views: "203k Views",
       readTime: "3 mins read",
@@ -265,7 +265,7 @@ export const data = {
       id: 7,
       image: "/products/1407.png",
       category: "Snacks",
-      title: "Healthy Snacking: Nutritious Options for Any Time",
+      title: "Healthy Snacking: Nutritious Options for Any Time 7",
       date: "7 August 2022",
       views: "167k Views",
       readTime: "4 mins read",

@@ -21,7 +21,7 @@ const Footer = () => {
       links: [
         { label: "About Us", to: "/about" },
         { label: "Privacy Policy", to: "/blog/:id" },
-        { label: "Terms & Conditions", to: "/" },
+        { label: "Terms & Conditions", to: "/about" },
         { label: "Contact Us", to: "/contact" },
         { label: "Faqs", to: "/" },
         { label: "Blogs", to: "/blog" },

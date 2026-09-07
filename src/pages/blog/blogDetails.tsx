@@ -48,7 +48,7 @@
         ">
           <div className="flex items-center gap-3 flex-wrap">
             <Avatar className="size-10">
-              <AvatarImage src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/avatar-1.webp" />
+              <AvatarImage src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/avatar-1.webp" alt="Daniyal Ali" />
               <AvatarFallback className="text-xs">DA</AvatarFallback>
             </Avatar>
 

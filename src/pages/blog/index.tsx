@@ -48,7 +48,7 @@ const Blog = () => {
       {/* Left */}
       <div className="flex items-center gap-2">
         <img src={Vector} alt="Vector" className="w-5 h-5" />
-        <h1 className="font-heading text-lg sm:text-xl">Recips Articles</h1>
+        <h2 className="font-heading text-lg sm:text-xl">Recips Articles</h2>
       </div>
 
       {/* Right Controls */}

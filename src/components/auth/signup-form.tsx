@@ -115,14 +115,14 @@ const SignUpForm = React.memo(
             <span className="font-quicksand text-xs text-gray-500">
               I agree to the{" "}
               <a
-                href="/terms"
+                href="/"
                 className="text-primary hover:underline font-medium"
               >
                 Terms of Service
               </a>{" "}
               and{" "}
               <a
-                href="/privacy"
+                href="/"
                 className="text-primary hover:underline font-medium"
               >
                 Privacy Policy

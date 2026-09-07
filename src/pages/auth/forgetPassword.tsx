@@ -182,7 +182,7 @@ const ForgetPassword = () => {
         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-center">
           <p className="font-quicksand text-xs text-gray-400">
             Need help?{" "}
-            <a href="/support" className="text-primary hover:underline">
+            <a href="/" className="text-primary hover:underline">
               Contact Support
             </a>
           </p>
