@@ -31,7 +31,7 @@ const HowCanHelpYou = () => {
       {/* Left Section */}
       <div className="flex-1 flex flex-col gap-4">
         <p className="text-primary text-2xl font-quicksand font-bold">How can help you</p>
-        <h2 className="font-heading text-3xl md:text-5xl max-w-md">Let us know how we can help you</h2>
+        <h1 className="font-heading text-3xl md:text-5xl max-w-md">Let us know how we can help you</h1>
         <p className="text-accent font-lato text-base">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
         </p>

@@ -38,7 +38,7 @@ const Shop = () => {
                     backgroundPosition: "center",
                 }}
                     className='w-full flex  flex-col justify-center p-6 rounded-lg '>
-                    <h2 className='font-heading text-[24px]'>Snack</h2>
+                    <h1 className='font-heading text-[24px]'>Snack</h1>
                     <BreadcrumbLinkDemo />
                 </div>
                 <div className="w-full  flex gap-4 " >

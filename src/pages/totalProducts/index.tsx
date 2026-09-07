@@ -40,10 +40,10 @@ const TotalProducts = () => {
         {/* Products */}
         <div className="w-full lg:w-[82%]">
           <div className="">
-            <h2 className="font-heading text-2xl py-6">
+            <h1 className="font-heading text-2xl py-6">
               {childSlug?.toUpperCase() || subSlug?.toUpperCase() || parentSlug?.toUpperCase() || "All Products"}
               {/* All Products */}
-            </h2>
+            </h1>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
               {filteredProducts?.map((product) => (

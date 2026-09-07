@@ -33,9 +33,9 @@ const WelcomeToNest = () => {
 
         {/* Text */}
         <div className="p-4 flex flex-col gap-y-3">
-          <h2 className="font-heading text-2xl lg:text-3xl">
+          <h1 className="font-heading text-2xl lg:text-3xl">
             Welcome to Nest
-          </h2>
+          </h1>
 
           <p className="font-lato text-sm text-accent leading-5 text-justify">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate id est laborum.

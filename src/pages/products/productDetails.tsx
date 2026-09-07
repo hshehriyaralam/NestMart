@@ -73,9 +73,9 @@ const ProductDetails = () => {
           {/* Product Details */}
           <div className="flex flex-col  w-4xl p-6 ">
             <div>
-              <h2 className="font-heading text-[40px] max-w-xl mb-3">
+              <h1 className="font-heading text-[40px] max-w-xl mb-3">
                 {product?.name}
-              </h2>
+              </h1>
               <div className="flex  items-center mb-3">
                 <Star className=" text-white fill-yellow-500 w-8 h-6 " />
                 <span className="font-lato font-regular text-accent text-[14px] ">

@@ -20,9 +20,9 @@ const Login = () => {
 
             {/* Form Header */}
             <div className="mb-8">
-              <h2 className="font-heading text-3xl md:text-4xl font-bold text-gray-900 mb-2">
+              <h1 className="font-heading text-3xl md:text-4xl font-bold text-gray-900 mb-2">
                 Login
-              </h2>
+              </h1>
               <p className="font-quicksand text-gray-500">
                 Please enter your details to sign in
               </p>

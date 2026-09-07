@@ -67,9 +67,9 @@ const Signup = () => {
               <>
                 {/* Form Header */}
                 <div className="text-center mb-8">
-                  <h2 className="font-heading text-3xl md:text-4xl font-bold text-gray-900 mb-2">
+                  <h1 className="font-heading text-3xl md:text-4xl font-bold text-gray-900 mb-2">
                     Create Account
-                  </h2>
+                  </h1>
                   <p className="font-quicksand text-gray-500">
                     Join us today! Fill in your details to get started
                   </p>
