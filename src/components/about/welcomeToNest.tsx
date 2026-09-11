@@ -1,5 +1,4 @@
 import "swiper/css";
-// import "swiper/css/bundle";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -7,22 +6,40 @@ import { Navigation } from "swiper/modules";
 
 const WelcomeToNest = () => {
   const slides = [
-    "/about/about-2.webp",
-    "/about/about-3.webp",
-    "/about/about-4.webp",
-    "/about/about-2.webp",
-    "/about/about-3.webp",
-    "/about/about-4.webp",
+    {
+      src: "/about/about-2.webp",
+      alt: "NestMart online shopping products",
+    },
+    {
+      src: "/about/about-3.webp",
+      alt: "NestMart quality products and shopping experience",
+    },
+    {
+      src: "/about/about-4.webp",
+      alt: "NestMart products for everyday needs",
+    },
+    {
+      src: "/about/about-2.webp",
+      alt: "NestMart online store product collection",
+    },
+    {
+      src: "/about/about-3.webp",
+      alt: "NestMart lifestyle and household products",
+    },
+    {
+      src: "/about/about-4.webp",
+      alt: "NestMart shopping collection",
+    },
   ];
 
   return (
     <div className="w-full flex flex-col lg:flex-row items-center justify-center p-4 gap-6">
-
+      
       {/* Left Image */}
       <div className="w-full lg:w-1/2 flex justify-center">
         <img
           src="/about/106.webp"
-          alt="about_image"
+          alt="NestMart online shopping experience"
           className="rounded-xl w-full max-w-[530px] h-auto lg:h-[600px] object-cover"
           loading="lazy"
         />
@@ -33,17 +50,35 @@ const WelcomeToNest = () => {
 
         {/* Text */}
         <div className="p-4 flex flex-col gap-y-3">
-          <h1 className="font-heading text-2xl lg:text-3xl">
-            Welcome to Nest
-          </h1>
+          <h2 className="font-heading text-2xl lg:text-3xl">
+            Welcome to NestMart
+          </h2>
 
           <p className="font-lato text-sm text-accent leading-5 text-justify">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate id est laborum.
-
+            At NestMart, we believe online shopping should be simple,
+            convenient, and enjoyable. Our goal is to bring quality products
+            from different categories together in one easy-to-use online
+            shopping experience. Whether you are looking for everyday
+            essentials, home products, lifestyle items, or something special,
+            NestMart makes it easier to discover products that fit your needs.
           </p>
 
           <p className="font-lato text-sm text-accent leading-5 text-justify">
-            Ius ferri velit sanctus cu, sed at soleat accusata. Dictas prompta et Ut placerat legendos interpre.Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante Etiam sit amet orci eget. Quis commodo odio aenean sed adipiscing. Turpis massa tincidunt dui ut ornare lectus. Auctor elit sed vulputate mi sit amet. Commodo consequat. Duis aute irure dolor in reprehenderit in voluptate id est laborum.
+            We are focused on creating a smooth shopping experience from
+            browsing to checkout. Our platform helps customers explore
+            products easily, discover new items, and find useful products at
+            competitive prices. We continuously work on improving our product
+            selection and making online shopping more convenient for our
+            customers.
+          </p>
+
+          <p className="font-lato text-sm text-accent leading-5 text-justify">
+            Customer satisfaction is at the heart of NestMart. We aim to
+            provide a reliable online store where customers can shop with
+            confidence, explore different product categories, and enjoy a
+            straightforward shopping experience. As we grow, we remain
+            committed to providing useful products and a better experience for
+            every customer.
           </p>
         </div>
 
@@ -51,8 +86,12 @@ const WelcomeToNest = () => {
         <div className="relative w-full">
 
           {/* LEFT ARROW */}
-          <div className="custom-prev absolute left-0 top-1/2 -translate-y-1/2 z-50 
-              bg-[#F2F3F4] w-9 h-9 flex items-center justify-center rounded-full cursor-pointer">
+          <div
+            className="custom-prev absolute left-0 top-1/2 -translate-y-1/2 z-50
+            bg-[#F2F3F4] w-9 h-9 flex items-center justify-center
+            rounded-full cursor-pointer"
+            aria-label="Previous products"
+          >
             <ArrowLeft className="text-primary w-5" />
           </div>
 
@@ -66,22 +105,37 @@ const WelcomeToNest = () => {
               nextEl: ".custom-next",
             }}
             breakpoints={{
-              0: { slidesPerView: 1 },
-              640: { slidesPerView: 2 },
-              1024: { slidesPerView: 3 },
+              0: {
+                slidesPerView: 1,
+              },
+              640: {
+                slidesPerView: 2,
+              },
+              1024: {
+                slidesPerView: 3,
+              },
             }}
             className="px-10"
           >
             {slides.map((slide, index) => (
               <SwiperSlide key={index}>
-                <img src={slide} alt={`slide_${index}`} className="w-full rounded-lg" />
+                <img
+                  src={slide.src}
+                  alt={slide.alt}
+                  className="w-full rounded-lg"
+                  loading="lazy"
+                />
               </SwiperSlide>
             ))}
           </Swiper>
 
           {/* RIGHT ARROW */}
-          <div className="custom-next absolute right-0 top-1/2 -translate-y-1/2 z-50 
-              bg-[#F2F3F4] w-9 h-9 flex items-center justify-center rounded-full cursor-pointer">
+          <div
+            className="custom-next absolute right-0 top-1/2 -translate-y-1/2 z-50
+            bg-[#F2F3F4] w-9 h-9 flex items-center justify-center
+            rounded-full cursor-pointer"
+            aria-label="Next products"
+          >
             <ArrowRight className="text-primary w-5" />
           </div>
 
